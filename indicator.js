@@ -60,12 +60,14 @@ class WeatherIndicator extends PanelMenu.Button {
         this._client = null;
         this._timerId = 0;
         this._locationTracker = null;
+        this._networkMonitor = Gio.NetworkMonitor.get_default();
 
         this._buildUI();
 
         this._settingsChangedId = this._settings.connect('changed', (_s, key) => this._onSettingChanged(key));
         this._gweatherChangedId = this._gweatherSettings.connect('changed', () => this._refreshReadyDisplay());
         this._interfaceChangedId = this._interfaceSettings.connect('changed::clock-format', () => this._refreshReadyDisplay());
+        this._networkChangedId = this._networkMonitor.connect('network-changed', (_m, available) => this._onNetworkChanged(available));
 
         this._syncCurrentLocationTracking();
         this._reload();
@@ -319,6 +321,23 @@ class WeatherIndicator extends PanelMenu.Button {
             this._currentBin.set_child(new St.Label({text: _('No weather information')}));
             break;
         }
+    }
+
+    // A fetch that fails leaves the panel stuck showing 'error' until the
+    // next REFRESH_INTERVAL_SECONDS tick - up to half an hour of "No weather
+    // information" after a resume from suspend, where the fetch fires seconds
+    // after wake and loses DNS ("Temporary failure in name resolution" from
+    // libgweather) while connectivity comes back moments later. Retrying the
+    // moment the network is back closes that gap. Moving to 'loading' is what
+    // keeps this idempotent across the burst of network-changed signals a
+    // single reconnect emits: only the 'error' state arms a retry.
+    _onNetworkChanged(available) {
+        if (!available || this._state !== 'error' || !this._client)
+            return;
+
+        this._setState('loading');
+        this._reloadItem.show();
+        this._client.update();
     }
 
     _setPanelIcon(name) {
@@ -621,6 +640,8 @@ class WeatherIndicator extends PanelMenu.Button {
         this._settings.disconnect(this._settingsChangedId);
         this._gweatherSettings.disconnect(this._gweatherChangedId);
         this._interfaceSettings.disconnect(this._interfaceChangedId);
+        this._networkMonitor.disconnect(this._networkChangedId);
+        this._networkMonitor = null;
 
         super.destroy();
     }
