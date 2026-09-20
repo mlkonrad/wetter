@@ -1,14 +1,14 @@
-# Brazilian Portuguese translation for gnome-weather
-# Copyright (C) 2026 gnome-weather contributors
-# This file is distributed under the same license as the gnome-weather package.
+# Brazilian Portuguese translation for Wetter
+# Copyright (C) 2026 Wetter contributors
+# This file is distributed under the same license as the wetter package.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-weather\n"
+"Project-Id-Version: wetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:30+0300\n"
+"POT-Creation-Date: 2026-09-20 15:53+0300\n"
 "PO-Revision-Date: 2026-09-12 14:15+0300\n"
-"Last-Translator: gnome-weather contributors\n"
+"Last-Translator: Wetter contributors\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -135,82 +135,82 @@ msgstr "NO"
 msgid "NNW"
 msgstr "NNO"
 
-#: ../indicator.js:83 ../indicator.js:303 ../indicator.js:308
-#: ../indicator.js:313 ../indicator.js:318
+#: ../indicator.js:85 ../indicator.js:305 ../indicator.js:310
+#: ../indicator.js:315 ../indicator.js:320
 msgid "Weather"
 msgstr "Tempo"
 
-#: ../indicator.js:106 ../prefs.js:81
+#: ../indicator.js:108 ../prefs.js:81
 msgid "Locations"
 msgstr "Locais"
 
-#: ../indicator.js:109
+#: ../indicator.js:111
 msgid "Reload Weather Information"
 msgstr "Recarregar informações meteorológicas"
 
-#: ../indicator.js:114
+#: ../indicator.js:116
 #, fuzzy
 #| msgid "Weather Settings"
 msgid "Wetter Settings"
 msgstr "Configurações do Tempo"
 
-#: ../indicator.js:247
+#: ../indicator.js:249
 #, fuzzy
 #| msgid "Add Location"
 msgid "Current location unavailable"
 msgstr "Adicionar localização"
 
-#: ../indicator.js:248
+#: ../indicator.js:250
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
 
-#: ../indicator.js:304
+#: ../indicator.js:306
 msgid "No location configured"
 msgstr "Nenhum local configurado"
 
-#: ../indicator.js:309
+#: ../indicator.js:311
 msgid "Detecting your location…"
 msgstr ""
 
-#: ../indicator.js:314
+#: ../indicator.js:316
 msgid "Loading weather"
 msgstr "Carregando previsão do tempo"
 
-#: ../indicator.js:319
+#: ../indicator.js:321
 msgid "No weather information"
 msgstr "Sem informações meteorológicas"
 
-#: ../indicator.js:376 ../indicator.js:384
+#: ../indicator.js:395 ../indicator.js:403
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:418
+#: ../indicator.js:437
 msgid "Feels like"
 msgstr "Sensação térmica"
 
-#: ../indicator.js:419 ../prefs.js:297
+#: ../indicator.js:438 ../prefs.js:297
 msgid "Visibility"
 msgstr "Visibilidade"
 
-#: ../indicator.js:420 ../prefs.js:298
+#: ../indicator.js:439 ../prefs.js:298
 msgid "Humidity"
 msgstr "Umidade"
 
-#: ../indicator.js:421 ../prefs.js:256 ../prefs.js:299
+#: ../indicator.js:440 ../prefs.js:256 ../prefs.js:299
 msgid "Pressure"
 msgstr "Pressão"
 
-#: ../indicator.js:422 ../prefs.js:300
+#: ../indicator.js:441 ../prefs.js:300
 msgid "Wind"
 msgstr "Vento"
 
-#: ../indicator.js:461
+#: ../indicator.js:480
 msgid "Now"
 msgstr "Agora"
 
-#: ../indicator.js:592 ../prefs.js:98
+#: ../indicator.js:611 ../prefs.js:98
 #, fuzzy
 #| msgid "Add Location"
 msgid "Current Location"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:30+0300\n"
+"POT-Creation-Date: 2026-09-20 15:53+0300\n"
 "PO-Revision-Date: 2017-07-06 00:39+0300\n"
 "Last-Translator: Kerem Kuralay <keremkuralay@hotmail.com>\n"
 "Language-Team: \n"
@@ -137,82 +137,82 @@ msgstr "KB"
 msgid "NNW"
 msgstr "KKB"
 
-#: ../indicator.js:83 ../indicator.js:303 ../indicator.js:308
-#: ../indicator.js:313 ../indicator.js:318
+#: ../indicator.js:85 ../indicator.js:305 ../indicator.js:310
+#: ../indicator.js:315 ../indicator.js:320
 msgid "Weather"
 msgstr "Hava Durumu"
 
-#: ../indicator.js:106 ../prefs.js:81
+#: ../indicator.js:108 ../prefs.js:81
 msgid "Locations"
 msgstr "Konumlar"
 
-#: ../indicator.js:109
+#: ../indicator.js:111
 msgid "Reload Weather Information"
 msgstr "Hava durumu bilgisini yenile"
 
-#: ../indicator.js:114
+#: ../indicator.js:116
 #, fuzzy
 #| msgid "Weather Settings"
 msgid "Wetter Settings"
 msgstr "Hava durumu ayarları"
 
-#: ../indicator.js:247
+#: ../indicator.js:249
 #, fuzzy
 #| msgid "Locations"
 msgid "Current location unavailable"
 msgstr "Konumlar"
 
-#: ../indicator.js:248
+#: ../indicator.js:250
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
 
-#: ../indicator.js:304
+#: ../indicator.js:306
 msgid "No location configured"
 msgstr "Hiçbir konum ayarlanmadı"
 
-#: ../indicator.js:309
+#: ../indicator.js:311
 msgid "Detecting your location…"
 msgstr ""
 
-#: ../indicator.js:314
+#: ../indicator.js:316
 msgid "Loading weather"
 msgstr "Hava durumu yükleniyor"
 
-#: ../indicator.js:319
+#: ../indicator.js:321
 msgid "No weather information"
 msgstr "Hava durumu bilgisi yok"
 
-#: ../indicator.js:376 ../indicator.js:384
+#: ../indicator.js:395 ../indicator.js:403
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:418
+#: ../indicator.js:437
 msgid "Feels like"
 msgstr "Hissedilen"
 
-#: ../indicator.js:419 ../prefs.js:297
+#: ../indicator.js:438 ../prefs.js:297
 msgid "Visibility"
 msgstr "Görüş Mesafesi"
 
-#: ../indicator.js:420 ../prefs.js:298
+#: ../indicator.js:439 ../prefs.js:298
 msgid "Humidity"
 msgstr "Nem"
 
-#: ../indicator.js:421 ../prefs.js:256 ../prefs.js:299
+#: ../indicator.js:440 ../prefs.js:256 ../prefs.js:299
 msgid "Pressure"
 msgstr "Basınç"
 
-#: ../indicator.js:422 ../prefs.js:300
+#: ../indicator.js:441 ../prefs.js:300
 msgid "Wind"
 msgstr "Rüzgar"
 
-#: ../indicator.js:461
+#: ../indicator.js:480
 msgid "Now"
 msgstr ""
 
-#: ../indicator.js:592 ../prefs.js:98
+#: ../indicator.js:611 ../prefs.js:98
 #, fuzzy
 #| msgid "Locations"
 msgid "Current Location"

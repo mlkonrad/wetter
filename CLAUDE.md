@@ -295,7 +295,7 @@ strings). After changing any translatable string:
 ```bash
 cd po
 xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ \
-  --package-name=gnome-weather --copyright-holder="gnome-weather contributors" \
+  --package-name=wetter --copyright-holder="Wetter contributors" \
   --output=wetter@mlkonrad.github.com.pot --files-from=POTFILES.in \
   --add-comments --no-wrap
 for f in *.po; do

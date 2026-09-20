@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:30+0300\n"
+"POT-Creation-Date: 2026-09-20 15:53+0300\n"
 "PO-Revision-Date: 2012-05-13 22:38+0100\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
 "Language-Team: Español; Castellano <es@li.org>\n"
@@ -136,82 +136,82 @@ msgstr "NO"
 msgid "NNW"
 msgstr "NNO"
 
-#: ../indicator.js:83 ../indicator.js:303 ../indicator.js:308
-#: ../indicator.js:313 ../indicator.js:318
+#: ../indicator.js:85 ../indicator.js:305 ../indicator.js:310
+#: ../indicator.js:315 ../indicator.js:320
 msgid "Weather"
 msgstr "Clima"
 
-#: ../indicator.js:106 ../prefs.js:81
+#: ../indicator.js:108 ../prefs.js:81
 msgid "Locations"
 msgstr "Ubicaciones"
 
-#: ../indicator.js:109
+#: ../indicator.js:111
 msgid "Reload Weather Information"
 msgstr "Recargar la información del clima"
 
-#: ../indicator.js:114
+#: ../indicator.js:116
 #, fuzzy
 #| msgid "Weather Settings"
 msgid "Wetter Settings"
 msgstr "Configuración del clima"
 
-#: ../indicator.js:247
+#: ../indicator.js:249
 #, fuzzy
 #| msgid "Locations"
 msgid "Current location unavailable"
 msgstr "Ubicaciones"
 
-#: ../indicator.js:248
+#: ../indicator.js:250
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
 
-#: ../indicator.js:304
+#: ../indicator.js:306
 msgid "No location configured"
 msgstr "No se configuró ninguna ubicación"
 
-#: ../indicator.js:309
+#: ../indicator.js:311
 msgid "Detecting your location…"
 msgstr ""
 
-#: ../indicator.js:314
+#: ../indicator.js:316
 msgid "Loading weather"
 msgstr "Cargando el clima"
 
-#: ../indicator.js:319
+#: ../indicator.js:321
 msgid "No weather information"
 msgstr "No hay información del clima"
 
-#: ../indicator.js:376 ../indicator.js:384
+#: ../indicator.js:395 ../indicator.js:403
 msgid ", "
 msgstr ""
 
-#: ../indicator.js:418
+#: ../indicator.js:437
 msgid "Feels like"
 msgstr "Sensación térmica"
 
-#: ../indicator.js:419 ../prefs.js:297
+#: ../indicator.js:438 ../prefs.js:297
 msgid "Visibility"
 msgstr "Visibilidad"
 
-#: ../indicator.js:420 ../prefs.js:298
+#: ../indicator.js:439 ../prefs.js:298
 msgid "Humidity"
 msgstr "Humedad"
 
-#: ../indicator.js:421 ../prefs.js:256 ../prefs.js:299
+#: ../indicator.js:440 ../prefs.js:256 ../prefs.js:299
 msgid "Pressure"
 msgstr "Presión"
 
-#: ../indicator.js:422 ../prefs.js:300
+#: ../indicator.js:441 ../prefs.js:300
 msgid "Wind"
 msgstr "Viento"
 
-#: ../indicator.js:461
+#: ../indicator.js:480
 msgid "Now"
 msgstr ""
 
-#: ../indicator.js:592 ../prefs.js:98
+#: ../indicator.js:611 ../prefs.js:98
 #, fuzzy
 #| msgid "Locations"
 msgid "Current Location"
