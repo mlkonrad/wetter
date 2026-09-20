@@ -18,4 +18,4 @@ gnome-extensions pack --force --out-dir=dist \
     --extra-source=AUTHORS \
     --extra-source=COPYING \
     --podir=po \
-    --schema=schemas/org.gnome.shell.extensions.gnome-weather.gschema.xml
+    --schema=schemas/org.gnome.shell.extensions.wetter.gschema.xml

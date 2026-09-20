@@ -3,7 +3,7 @@
     "name": "Wetter",
     "description": "Current weather and forecasts in the top bar, for as many locations as you like.\n\n- Current conditions: temperature, feels like, humidity, pressure, visibility, wind, sunrise and sunset\n- Hour-by-hour forecast for up to 48 hours and a daily forecast for up to 10 days\n- Search and add cities by name, and switch between them from the menu\n- Optional current location, detected with GeoClue and updated as you move\n- Choose what the panel shows and where, units, 12/24-hour time, and symbolic or full-color icons\n\nPrivacy: on first run with no locations added, Current Location is turned on (GeoClue, city-level accuracy); you can turn it off in the settings. The selected city is sent to the weather services libgweather uses (MET Norway, OpenWeatherMap and METAR airport reports) to fetch its forecast.\n\nA fork of Neroth's Weather extension (weather-extension@xeked.com), ported to current GNOME Shell and libgweather 4.",
     "shell-version": ["49", "50"],
-    "settings-schema": "org.gnome.shell.extensions.gnome-weather",
+    "settings-schema": "org.gnome.shell.extensions.wetter",
     "gettext-domain": "wetter@mlkonrad.github.com",
     "url": "https://github.com/mlkonrad/wetter",
     "donations": {

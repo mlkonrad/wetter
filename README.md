@@ -67,7 +67,7 @@ OpenWeatherMap and METAR airport reports — to fetch its forecast.
 
 ## Debug
 
-Watch `journalctl --user` for Shell errors (search for `gnome-weather` in the
+Watch `journalctl --user` for Shell errors (search for `wetter` in the
 stack traces).
 
 ## License

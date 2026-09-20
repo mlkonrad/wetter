@@ -24,12 +24,29 @@ were renamed too, from `gnome-weather@mlkonrad.github.com` to
 its uuid, so after the first upload the uuid is effectively frozen: a new one
 is a separate extension, and existing users stop getting updates.
 
-The GSettings schema id/path (`org.gnome.shell.extensions.gnome-weather`,
-`/org/gnome/shell/extensions/gnome-weather/`) was **deliberately kept**. Saved
-settings (cities, units, panel prefs) live at the schema path, not under the
-uuid, so the uuid rename kept them. Renaming the schema would orphan them at
-the old dconf path - that needs an explicit migration step for existing users'
-settings, not just a search-and-replace.
+The GSettings schema id/path was initially left as
+`org.gnome.shell.extensions.gnome-weather` /
+`/org/gnome/shell/extensions/gnome-weather/` when the uuid was renamed, because
+saved settings (cities, units, panel prefs) live at the schema path, not under
+the uuid, so a rename would orphan them at the old dconf path.
+
+2026-09-20: the EGO reviewer asked why the schema still said `gnome-weather`
+when the extension is called Wetter, so it was renamed to
+`org.gnome.shell.extensions.wetter` / `/org/gnome/shell/extensions/wetter/`
+(schema file, both `<enum id=...>`s, the `enum=` attributes on
+`position-in-panel`/`time-format`, `settings-schema` in `metadata.json`, and
+`--schema=` in `scripts/pack.sh`). This was only safe *because* the extension
+had never been published: the review happens before the first upload, so no
+installed user had settings at the old path. The one real install (this
+machine's symlink) was migrated by hand:
+
+```bash
+dconf dump /org/gnome/shell/extensions/gnome-weather/ > old.ini
+dconf load /org/gnome/shell/extensions/wetter/ < old.ini
+```
+
+If the schema ever needs renaming *after* publication, this is not enough -
+that needs migration code shipped in `enable()`, not a one-off dconf dump.
 
 Generic uses of the word "weather" describing content/state - the panel's
 placeholder label text (`_panelLabel.text = _('Weather')` in `indicator.js`'s
@@ -382,8 +399,9 @@ current. Checked clean as of 2026-09-12:
   identity, not the upstream `weather-extension@xeked.com`); `shell-version`
   currently `["49", "50"]` — trim/extend as new Shell versions ship; no
   hand-set `version` key (EGO assigns that on upload).
-- **GSettings schema id** stays under `org.gnome.shell.extensions.*`
-  (`org.gnome.shell.extensions.gnome-weather`).
+- **GSettings schema id** stays under `org.gnome.shell.extensions.*` and
+  matches the extension's name (`org.gnome.shell.extensions.wetter`) - EGO
+  review flags a schema still named after the pre-fork identity.
 - **Attribution**: `_renderAttribution()` in `indicator.js` shows
   `GWeather.Info.get_attribution()` whenever it's non-empty. This isn't
   cosmetic — MET Norway's data (one of the three enabled providers,

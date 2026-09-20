@@ -1,15 +1,15 @@
 <schemalist gettext-domain="wetter@mlkonrad.github.com">
-  <enum id="org.gnome.shell.extensions.gnome-weather.position">
+  <enum id="org.gnome.shell.extensions.wetter.position">
     <value nick="center" value="0" />
     <value nick="right" value="1" />
     <value nick="left" value="2" />
   </enum>
-  <enum id="org.gnome.shell.extensions.gnome-weather.time-format">
+  <enum id="org.gnome.shell.extensions.wetter.time-format">
     <value nick="auto" value="0" />
     <value nick="12h" value="1" />
     <value nick="24h" value="2" />
   </enum>
-  <schema id="org.gnome.shell.extensions.gnome-weather" path="/org/gnome/shell/extensions/gnome-weather/">
+  <schema id="org.gnome.shell.extensions.wetter" path="/org/gnome/shell/extensions/wetter/">
     <key name="city" type="av">
       <default>[]</default>
       <summary>Cities to be displayed</summary>
@@ -49,7 +49,7 @@
       <default>false</default>
       <summary>Show wind speed in panel</summary>
     </key>
-    <key name="position-in-panel" enum="org.gnome.shell.extensions.gnome-weather.position">
+    <key name="position-in-panel" enum="org.gnome.shell.extensions.wetter.position">
       <default>'center'</default>
       <summary>Position in panel</summary>
     </key>
@@ -96,7 +96,7 @@
       <default>24</default>
       <summary>Number of hours to show in the hour-by-hour forecast</summary>
     </key>
-    <key name="time-format" enum="org.gnome.shell.extensions.gnome-weather.time-format">
+    <key name="time-format" enum="org.gnome.shell.extensions.wetter.time-format">
       <default>'auto'</default>
       <summary>Time format</summary>
       <description>Choose 12-hour, 24-hour, or automatic (follow the system clock format) time display.</description>
