@@ -3,7 +3,7 @@ import GWeather from 'gi://GWeather';
 
 // Must be a valid GApplication ID (dotted, no '@'). An invalid one only logs a
 // critical, after which set_enabled_providers() and update() silently do nothing.
-export const APPLICATION_ID = 'io.github.mlkonrad.gnome-weather';
+export const APPLICATION_ID = 'io.github.mlkonrad.wetter';
 const CONTACT_INFO = 'https://github.com/mlkonrad/wetter';
 
 /**

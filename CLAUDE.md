@@ -189,7 +189,7 @@ genuinely non-obvious and easy to get wrong silently:
   recurs (panel updates, dropdown doesn't), check `journalctl --user` for a
   `JS ERROR` first, not just weather-fetch logic.
 - `GWeather.Info`'s `application-id` property must be a **valid GLib
-  application ID** (dotted components, e.g. `io.github.mlkonrad.gnome-weather`
+  application ID** (dotted components, e.g. `io.github.mlkonrad.wetter`
   — no `@`). Setting it to something uuid-shaped fails
   `g_application_id_is_valid()`'s assertion silently (just logs a GLib
   critical, doesn't throw in JS), which cascades: `set_enabled_providers()`

@@ -1,4 +1,4 @@
-# Wetter &nbsp;<img src="gnome-weather-logo.svg" height="64" valign="middle">
+# Wetter &nbsp;<img src="wetter-logo.svg" height="64" valign="middle">
 
 ![Screenshot](Screenshot.png)
 

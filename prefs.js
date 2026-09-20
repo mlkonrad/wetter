@@ -322,7 +322,7 @@ export default class WeatherPreferences extends ExtensionPreferences {
             halign: Gtk.Align.CENTER, margin_top: 12, margin_bottom: 24,
         });
         header.append(new Gtk.Image({
-            file: this.dir.get_child('gnome-weather-logo.svg').get_path(), pixel_size: 96,
+            file: this.dir.get_child('wetter-logo.svg').get_path(), pixel_size: 96,
         }));
         header.append(new Gtk.Label({label: _('Wetter'), css_classes: ['title-1']}));
         header.append(new Gtk.Label({
