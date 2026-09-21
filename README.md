@@ -8,7 +8,8 @@ locations as you like.
 - Current conditions: temperature, feels like, humidity, pressure, visibility,
   wind, sunrise and sunset
 - Hour-by-hour forecast for up to 48 hours and a daily forecast for up to 10 days
-- Search and add cities by name, and switch between them from the menu
+- Search and add cities by name, and switch between them from the menu or by
+  scrolling over the panel button
 - Optional current location, detected with GeoClue and updated as you move
 - Optional alert when rain, snow or a thunderstorm is forecast within the next
   two hours

@@ -342,6 +342,37 @@ to it can take screenshots in-process with `Shell.Screenshot`, which avoids
 the `MediaKeys` bus-name trick. Pick a city with rain actually forecast
 within two hours; `findUpcomingPrecipitation()` runs fine from plain gjs.
 
+## Scroll to switch location
+
+2026-09-22: scrolling over the panel button steps `actual-city` through the
+same order as the Locations submenu (Current Location first, when enabled)
+and stops at either end rather than wrapping. `Main.osdWindowManager` shows
+the city it landed on, since the panel label names no city.
+
+Measured on Shell 50 with a Clutter virtual pointer, which contradicts the
+obvious guess:
+
+- **A mouse wheel's discrete UP/DOWN event is the real one**; the SMOOTH
+  event next to it is the emulated copy (`FLAG_POINTER_EMULATED`). A touchpad
+  (`ScrollSource.FINGER`) sends only real SMOOTH events. So skipping emulated
+  events, as `slider.js` does, counts every input exactly once.
+- **Touchpad deltas are 1/10 of the finger travel in pixels** (a 2 px virtual
+  swipe arrived as 0.2), and a swipe is a long run of them ending in an event
+  with `ScrollFinishFlags.VERTICAL`. It moves one city per gesture;
+  accumulating the deltas would jump several cities per swipe.
+
+Testing it in the nested session has two traps. Neither was a code bug:
+
+- **`dbus-run-session` doesn't take `gnome-shell` down with it.** Killing
+  its PID left four headless Shells running, all with the same test helper
+  enabled, all writing to the same log and changing the same keyfile. Kill
+  every process whose `/proc/<pid>/environ` has the scratch
+  `XDG_CONFIG_HOME`, never by name: `gnome-shell --mode=user` is the real
+  session.
+- **The first `notify_absolute_motion()` from a new virtual device can be
+  dropped**, leaving the pointer off the button so every scroll misses.
+  Re-send the motion a moment later, and log `global.get_pointer()`.
+
 ## Translation workflow
 
 `po/POTFILES.in` lists the files gettext scans (`helpers.js`, `indicator.js`,

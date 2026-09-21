@@ -65,6 +65,8 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource = null;
         this._precipitationNotification = null;
         this._inPrecipitationSpell = false;
+        this._scrollDelta = 0;
+        this._scrollGestureStepped = false;
         this._networkMonitor = Gio.NetworkMonitor.get_default();
 
         this._buildUI();
@@ -701,6 +703,80 @@ class WeatherIndicator extends PanelMenu.Button {
             item.connect('activate', () => this._settings.set_int('actual-city', index));
             this._locationsItem.menu.addMenuItem(item);
         });
+    }
+
+    // ── Scroll to switch location ────────────────────────────────────────────
+
+    // A wheel sends a real discrete event plus an emulated smooth copy, a
+    // touchpad only real smooth ones, so skipping emulated events counts each
+    // input once, as Shell's own slider.js does. A touchpad swipe (FINGER) is
+    // a long run of small deltas that would fly past every city, so it moves
+    // one step per gesture; other smooth sources (trackpoints) accumulate.
+    vfunc_scroll_event(event) {
+        if (event.get_flags() & Clutter.EventFlags.FLAG_POINTER_EMULATED)
+            return Clutter.EVENT_PROPAGATE;
+
+        switch (event.get_scroll_direction()) {
+        case Clutter.ScrollDirection.UP:
+            this._stepLocation(-1);
+            return Clutter.EVENT_STOP;
+        case Clutter.ScrollDirection.DOWN:
+            this._stepLocation(1);
+            return Clutter.EVENT_STOP;
+        case Clutter.ScrollDirection.SMOOTH:
+            break;
+        default:
+            return Clutter.EVENT_PROPAGATE;
+        }
+
+        const [, dy] = event.get_scroll_delta();
+        this._scrollDelta += dy;
+
+        if (event.get_scroll_source() === Clutter.ScrollSource.FINGER) {
+            if (!this._scrollGestureStepped && Math.abs(this._scrollDelta) >= 1) {
+                this._stepLocation(Math.sign(this._scrollDelta));
+                this._scrollGestureStepped = true;
+            }
+            if (event.get_scroll_finish_flags() & Clutter.ScrollFinishFlags.VERTICAL) {
+                this._scrollDelta = 0;
+                this._scrollGestureStepped = false;
+            }
+        } else {
+            const steps = Math.trunc(this._scrollDelta);
+            this._scrollDelta -= steps;
+            if (steps)
+                this._stepLocation(steps);
+        }
+        return Clutter.EVENT_STOP;
+    }
+
+    // Steps through the same order as the Locations submenu, Current Location
+    // first, and stops at either end rather than wrapping around.
+    _stepLocation(steps) {
+        const cities = this._cities();
+        const order = [
+            ...this._settings.get_boolean('use-current-location') ? [CURRENT_LOCATION_INDEX] : [],
+            ...cities.keys(),
+        ];
+        if (order.length < 2)
+            return;
+
+        const raw = this._settings.get_int('actual-city');
+        const current = raw === CURRENT_LOCATION_INDEX ? raw : this._actualCityIndex(cities);
+        const next = order[clamp(order.indexOf(current) + steps, order.length)];
+        if (next === current)
+            return;
+
+        this._settings.set_int('actual-city', next);
+
+        // Until the new forecast arrives, the panel shows nothing that names
+        // the city, so say where the scroll landed.
+        const isCurrentLocation = next === CURRENT_LOCATION_INDEX;
+        const name = isCurrentLocation
+            ? getCurrentLocationCity(this._settings)?.get_city_name() ?? _('Current Location')
+            : cities[next].get_city_name();
+        const icon = new Gio.ThemedIcon({name: isCurrentLocation ? 'find-location-symbolic' : 'mark-location-symbolic'});
+        Main.osdWindowManager.showAll(icon, name, null);
     }
 
     // ── Lifecycle ───────────────────────────────────────────────────────────
