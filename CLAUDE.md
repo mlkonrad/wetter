@@ -48,6 +48,20 @@ dconf load /org/gnome/shell/extensions/wetter/ < old.ini
 If the schema ever needs renaming *after* publication, this is not enough -
 that needs migration code shipped in `enable()`, not a one-off dconf dump.
 
+## Published on extensions.gnome.org
+
+2026-09-21: EGO approved the first upload, published as version **1.0**.
+From here on the extension is public, so the pre-release freedoms above are
+gone:
+
+- The uuid `wetter@mlkonrad.github.com` and gettext domain are permanent.
+- The schema id/path (`org.gnome.shell.extensions.wetter` /
+  `/org/gnome/shell/extensions/wetter/`) is permanent too. Real users have
+  settings there, so renaming it, or changing an existing key's type or
+  meaning, needs migration code shipped in `enable()`.
+- Every upload is a public release to real users, so run the full
+  "Checks before submitting" list before each one.
+
 Generic uses of the word "weather" describing content/state - the panel's
 placeholder label text (`_panelLabel.text = _('Weather')` in `indicator.js`'s
 `no-location`/`loading`/`error` states) and the `WeatherIndicator`/
