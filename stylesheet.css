@@ -42,24 +42,24 @@
 }
 
 .weather-forecasts {
-  -st-hfade-offset: 60px;
+  -st-hfade-offset: 30px;
 }
 
 .weather-forecast-box {
-  padding: 0 20px;
-  min-width: 140px;
+  padding: 0 8px;
+  min-width: 110px;
 }
 
 .weather-forecast-box:first-child {
-  padding-left: 50px;
+  padding-left: 20px;
 }
 
 .weather-forecast-box:last-child {
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .weather-forecast-icon {
-  padding-right: 10px;
+  padding-right: 6px;
 }
 
 .weather-forecast-day {
@@ -79,20 +79,20 @@
 }
 
 .weather-hourlys {
-  -st-hfade-offset: 60px;
+  -st-hfade-offset: 30px;
 }
 
 .weather-hourly-box {
-  padding: 0 15px;
-  min-width: 70px;
+  padding: 0 6px;
+  min-width: 56px;
 }
 
 .weather-hourly-box:first-child {
-  padding-left: 50px;
+  padding-left: 20px;
 }
 
 .weather-hourly-box:last-child {
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .weather-hourly-icon {
