@@ -122,6 +122,46 @@ export function buildHourlyForecast(info) {
     return hours;
 }
 
+// Keyed on the icon rather than get_value_conditions(): MET Norway often
+// leaves the conditions unset on an hour whose icon is still weather-showers.
+// These three are the only precipitation icons libgweather-4 produces.
+const PRECIPITATION_ICONS = {
+    'weather-showers': 'rain',
+    'weather-snow': 'snow',
+    'weather-storm': 'storm',
+};
+
+/**
+ * Classifies a GWeather icon name as rain, snow or a thunderstorm.
+ *
+ * @param {string} iconName - a GWeather icon name, symbolic or not
+ * @returns {string|null} 'rain', 'snow', 'storm', or null for no precipitation
+ */
+export function precipitationKind(iconName) {
+    return PRECIPITATION_ICONS[(iconName ?? '').replace('-symbolic', '')] ?? null;
+}
+
+/**
+ * Finds the first forecast hour with precipitation that starts within
+ * `withinSeconds` from now.
+ *
+ * @param {GWeather.Info} info - the weather info to read the forecast from
+ * @param {number} withinSeconds - how far ahead to look
+ * @returns {object|null} `{date, kind, iconName}` for that hour, or null
+ */
+export function findUpcomingPrecipitation(info, withinSeconds) {
+    const limit = GLib.DateTime.new_now_utc().to_unix() + withinSeconds;
+    for (const {date, entry} of buildHourlyForecast(info)) {
+        if (date.to_unix() > limit)
+            break;
+        const iconName = entry.get_icon_name();
+        const kind = precipitationKind(iconName);
+        if (kind)
+            return {date, kind, iconName};
+    }
+    return null;
+}
+
 function representativeEntry(hours) {
     const buckets = [[], [], [], []]; // night, morning, afternoon, evening
     for (const [hour, entry] of Object.entries(hours)) {

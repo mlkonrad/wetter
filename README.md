@@ -10,6 +10,8 @@ locations as you like.
 - Hour-by-hour forecast for up to 48 hours and a daily forecast for up to 10 days
 - Search and add cities by name, and switch between them from the menu
 - Optional current location, detected with GeoClue and updated as you move
+- Optional alert when rain, snow or a thunderstorm is forecast within the next
+  two hours
 - Choose what the panel shows and where, units, 12/24-hour time, and symbolic
   or full-color icons
 

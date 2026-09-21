@@ -300,6 +300,48 @@ round-tripped through GSettings with no `JS ERROR` in the log.
   not a bug in this codebase; GJS's fallback path works correctly (the
   location still resolves).
 
+## Precipitation notifications
+
+2026-09-22: added an opt-in (`notify-precipitation`, default off) alert that
+fires when the selected location's hourly forecast has rain, snow or a
+thunderstorm starting within the next two hours. Detection lives in
+`weatherClient.js` (`precipitationKind()`, `findUpcomingPrecipitation()`),
+the notification in `indicator.js`.
+
+- **Forecasts come only from MET Norway.** Probed 2026-09-22 across six
+  continents: MET Norway returns ~90 hourly entries everywhere, the OWM
+  provider alone returns an empty forecast list, and METAR never has
+  forecasts. So coverage is worldwide, but only as good as MET Norway's model.
+- **libgweather-4 has no precipitation probability or amount**, only a
+  condition per hour. Classification is by **icon name**, not
+  `get_value_conditions()`: MET Norway often leaves the conditions unset on
+  an hour whose icon is still `weather-showers`. `weather-showers`/`-snow`/
+  `-storm` are the only precipitation icons in `libgweather-4.so`'s strings.
+- **One notification per spell**: `_inPrecipitationSpell` stays set while
+  it's precipitating now or forecast within the lookahead, so a dismissed
+  notification isn't re-sent every 30-minute refresh, and one still on screen
+  gets its title/body updated in place. `_reload()` resets it (new location).
+- **MessageTray destroys a `Source` by itself** once its last notification
+  is gone, so `_notificationSource` is created lazily and nulled from its
+  `'destroy'` signal. `destroy()` destroys the source, which withdraws every
+  notification the indicator sent, so no `'activated'` handler outlives it.
+- **A banner stays on screen while the user is idle.** Its 4s timeout only
+  starts once there's input (`_userActiveWhileNotificationShown` in
+  `messageTray.js`), so in a headless nested session the banner never hides.
+  That is Shell behavior, not a re-sent notification.
+
+To test it without touching the real session or dconf, run the nested
+headless Shell with `GSETTINGS_BACKEND=keyfile`, `XDG_CONFIG_HOME` and
+`XDG_DATA_HOME` pointed at a scratch dir. The keyfile
+(`$XDG_CONFIG_HOME/glib-2.0/settings/keyfile`, groups like
+`[org/gnome/shell/extensions/wetter]`) can be pre-seeded with
+`enabled-extensions`, `welcome-dialog-last-shown-version`, and the cities
+from `dconf dump`. Symlink this repo into
+`$XDG_DATA_HOME/gnome-shell/extensions/`. A throwaway helper extension next
+to it can take screenshots in-process with `Shell.Screenshot`, which avoids
+the `MediaKeys` bus-name trick. Pick a city with rain actually forecast
+within two hours; `findUpcomingPrecipitation()` runs fine from plain gjs.
+
 ## Translation workflow
 
 `po/POTFILES.in` lists the files gettext scans (`helpers.js`, `indicator.js`,

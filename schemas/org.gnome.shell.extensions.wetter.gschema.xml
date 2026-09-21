@@ -96,6 +96,11 @@
       <default>24</default>
       <summary>Number of hours to show in the hour-by-hour forecast</summary>
     </key>
+    <key name="notify-precipitation" type="b">
+      <default>false</default>
+      <summary>Notify before rain, snow or thunderstorms</summary>
+      <description>Show a notification when the hourly forecast for the selected location has rain, snow or a thunderstorm coming within the next two hours.</description>
+    </key>
     <key name="time-format" enum="org.gnome.shell.extensions.wetter.time-format">
       <default>'auto'</default>
       <summary>Time format</summary>

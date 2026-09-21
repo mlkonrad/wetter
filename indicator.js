@@ -6,18 +6,20 @@ import Gio from 'gi://Gio';
 import GWeather from 'gi://GWeather';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 
 import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-import {WeatherClient, buildForecast, buildHourlyForecast} from './weatherClient.js';
+import {WeatherClient, buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind} from './weatherClient.js';
 import {CurrentLocationClient} from './currentLocationClient.js';
 import {iconType, dayName, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from './helpers.js';
 
 const GWEATHER_SCHEMA = 'org.gnome.GWeather4';
 const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
 const REFRESH_INTERVAL_SECONDS = 30 * 60;
+const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
 
 // Matches the nick order of the time-format enum in the schema.
 const TIME_FORMAT_AUTO = 0;
@@ -60,6 +62,9 @@ class WeatherIndicator extends PanelMenu.Button {
         this._client = null;
         this._timerId = 0;
         this._locationTracker = null;
+        this._notificationSource = null;
+        this._precipitationNotification = null;
+        this._inPrecipitationSpell = false;
         this._networkMonitor = Gio.NetworkMonitor.get_default();
 
         this._buildUI();
@@ -157,6 +162,9 @@ class WeatherIndicator extends PanelMenu.Button {
         case 'time-format':
             this._renderCurrent();
             this._renderHourly();
+            break;
+        case 'notify-precipitation':
+            this._checkPrecipitation();
             break;
         case 'position-in-panel':
             // handled by the owning extension, which recreates the indicator
@@ -261,6 +269,10 @@ class WeatherIndicator extends PanelMenu.Button {
             this._timerId = 0;
         }
 
+        // A spell tracked for the previous location says nothing about the new one.
+        this._precipitationNotification = null;
+        this._inPrecipitationSpell = false;
+
         const cities = this._cities();
         const useCurrentLocation = this._settings.get_boolean('use-current-location');
         this._renderLocations(cities, useCurrentLocation);
@@ -354,6 +366,72 @@ class WeatherIndicator extends PanelMenu.Button {
         this._renderHourly();
         this._renderForecast();
         this._renderAttribution();
+        this._checkPrecipitation();
+    }
+
+    // ── Precipitation notifications ─────────────────────────────────────────
+
+    // One notification per spell of rain/snow: the spell lasts as long as it's
+    // precipitating now or forecast within the lookahead, so a dismissed
+    // notification isn't re-sent on every refresh, while one still on screen
+    // is updated in place if the forecast moves the start time.
+    _checkPrecipitation() {
+        if (this._state !== 'ready' || !this._client)
+            return;
+
+        const info = this._client.info;
+        const upcoming = findUpcomingPrecipitation(info, PRECIPITATION_LOOKAHEAD_SECONDS);
+        const precipitatingNow = precipitationKind(info.get_icon_name()) !== null;
+        if (!this._settings.get_boolean('notify-precipitation') || (!upcoming && !precipitatingNow)) {
+            this._precipitationNotification = null;
+            this._inPrecipitationSpell = false;
+            return;
+        }
+
+        // Already raining: "rain expected" would be old news.
+        if (precipitatingNow) {
+            this._inPrecipitationSpell = true;
+            return;
+        }
+
+        const titles = {rain: _('Rain expected'), snow: _('Snow expected'), storm: _('Thunderstorm expected')};
+        const params = {
+            title: titles[upcoming.kind],
+            // Translators: $t is a time of day such as "15:00", $c a city name.
+            body: _('Around $t in $c')
+                .replace('$t', localeTime(upcoming.date, this._resolveClockFormat()))
+                .replace('$c', info.get_location().get_city_name()),
+            iconName: iconType(upcoming.iconName, true),
+        };
+
+        if (this._precipitationNotification)
+            Object.assign(this._precipitationNotification, params);
+        else if (!this._inPrecipitationSpell)
+            this._sendPrecipitationNotification(params);
+        this._inPrecipitationSpell = true;
+    }
+
+    // The source is shared by every notification this indicator sends, so
+    // destroy() can withdraw them all at once. MessageTray destroys a source
+    // by itself once its last notification is gone, hence the lazy re-creation.
+    _sendPrecipitationNotification(params) {
+        if (!this._notificationSource) {
+            this._notificationSource = new MessageTray.Source({title: 'Wetter', iconName: params.iconName});
+            this._notificationSource.connect('destroy', () => {
+                this._notificationSource = null;
+            });
+            Main.messageTray.add(this._notificationSource);
+        }
+        this._notificationSource.iconName = params.iconName;
+
+        const notification = new MessageTray.Notification({source: this._notificationSource, ...params});
+        notification.connect('activated', () => this.menu.open());
+        notification.connect('destroy', () => {
+            if (this._precipitationNotification === notification)
+                this._precipitationNotification = null;
+        });
+        this._precipitationNotification = notification;
+        this._notificationSource.addNotification(notification);
     }
 
     // ── Rendering ───────────────────────────────────────────────────────────
@@ -636,6 +714,9 @@ class WeatherIndicator extends PanelMenu.Button {
         this._locationTracker = null;
         this._client?.destroy();
         this._client = null;
+        this._notificationSource?.destroy();
+        this._notificationSource = null;
+        this._precipitationNotification = null;
 
         this._settings.disconnect(this._settingsChangedId);
         this._gweatherSettings.disconnect(this._gweatherChangedId);

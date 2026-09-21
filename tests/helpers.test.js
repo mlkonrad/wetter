@@ -7,7 +7,7 @@ import GWeather from 'gi://GWeather';
 import System from 'system';
 
 import {dayName, iconType, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from '../helpers.js';
-import {buildForecast, buildHourlyForecast} from '../weatherClient.js';
+import {buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind} from '../weatherClient.js';
 
 const _ = s => s;
 let failures = 0;
@@ -82,6 +82,23 @@ check('buildForecast all-invalid day has null temps',
 const now = GLib.DateTime.new_now_utc().to_unix();
 check('buildHourlyForecast keeps only future entries',
     buildHourlyForecast(fakeInfo([fakeEntry(now - hour, 1), fakeEntry(now + hour, 2)])).length, 1);
+
+check('precipitationKind rain', precipitationKind('weather-showers'), 'rain');
+check('precipitationKind symbolic snow', precipitationKind('weather-snow-symbolic'), 'snow');
+check('precipitationKind storm', precipitationKind('weather-storm'), 'storm');
+check('precipitationKind dry', precipitationKind('weather-overcast'), null);
+check('precipitationKind missing icon', precipitationKind(null), null);
+
+const upcoming = findUpcomingPrecipitation(fakeInfo([
+    fakeEntry(now - hour, 1, 'weather-storm'),
+    fakeEntry(now + hour, 1, 'weather-overcast'),
+    fakeEntry(now + 2 * hour - 60, 1, 'weather-snow'),
+    fakeEntry(now + 2 * hour + 60, 1, 'weather-showers'),
+]), 2 * hour);
+check('findUpcomingPrecipitation skips past and dry hours', upcoming?.kind, 'snow');
+check('findUpcomingPrecipitation returns the icon', upcoming?.iconName, 'weather-snow');
+check('findUpcomingPrecipitation ignores hours past the lookahead',
+    findUpcomingPrecipitation(fakeInfo([fakeEntry(now + 3 * hour, 1, 'weather-showers')]), 2 * hour), null);
 
 if (failures) {
     printerr(`${failures} test(s) failed`);
