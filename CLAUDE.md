@@ -6,6 +6,8 @@ autotools shape to current GNOME Shell (ESM, `GObject.registerClass`) and
 `libgweather-4`, under a new fork identity (`wetter@mlkonrad.github.com`,
 originally `gnome-weather@mlkonrad.github.com`).
 
+Planned features and the next release are tracked in `ROADMAP.md`.
+
 ## Display name and uuid are "Wetter" - the settings schema is not
 
 2026-09-12: the user-visible name was rebranded to "Wetter - GNOME Weather
