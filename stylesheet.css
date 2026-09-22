@@ -42,6 +42,11 @@
     padding-left: 2px;
 }
 
+.weather-moon-icon {
+    padding-left: 8px;
+    padding-right: 4px;
+}
+
 .weather-current-databox-captions {
     text-align: right;
     padding-right: 10px;

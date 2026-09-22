@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- Wetter moon phases. The whole disc is always outlined so the lit
+       fraction stays legible at panel size; the lit part is filled, with
+       the terminator an ellipse that narrows towards the quarters. -->
+  <circle cx="8" cy="8" r="5.4" fill="none" stroke="#777777" stroke-width="1.1"/>
+  <path d="M8,2.6 A5.4,5.4 0 0 0 8,13.4 Z" fill="#777777"/>
+</svg>

@@ -15,12 +15,11 @@ ends up in the EGO zip.
 | 1 | Rain/snow/thunderstorm alert | Done, `95e5af7`, not yet released |
 | 2 | Scroll on panel button to switch location | Done, `78543fe`, not yet released |
 | 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
-| 4 | Moon phase in the dropdown | Planned, needs a design decision |
+| 4 | Moon phase in the dropdown | Done, icon + text, not yet released |
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
-| - | Release 1.1 to extensions.gnome.org | When 4 is done, or earlier |
+| - | Release 1.1 to extensions.gnome.org | Ready when you are |
 
-Only 4 is left, and it needs a design decision first. Releasing 1-3
-without it is fine: nothing depends on it.
+All features are in. What's left is the release itself.
 
 ---
 
@@ -61,41 +60,28 @@ arrow shows in a nested-session screenshot; the checks in `CLAUDE.md`
 
 ---
 
-## 4. Moon phase in the dropdown
+## 4. Moon phase in the dropdown - done
 
-**Goal:** show the current moon phase in the sunrise/sunset row of the
-dropdown.
+Shipped as icon + text in the sunrise/sunset row, behind `show-moon-phase`
+(default false). Eight bundled symbolic SVGs under `icons/`, named phases in
+`helpers.js` (`moonPhaseIndex`/`moonPhaseName`/`moonPhaseIconName`).
 
-**Verified 2026-09-22 against libgweather-4.6.0**
-- `GWeather.Info.get_value_moonphase()` returns `[valid, phase, latitude]`.
-  `phase` is in **degrees, 0-360** (live Tallinn value: 127.5).
-  0 = new moon, 90 = first quarter, 180 = full, 270 = last quarter.
-- `get_upcoming_moonphases()` also exists, but calling it with no argument
-  throws (`At least 1 argument required`). It seems to expect a
-  caller-allocated array. Not needed for this feature; check the typelib
-  before using it.
-- **Adwaita has no moon-phase icons.** `find /usr/share/icons -iname
-  '*moon*'` finds nothing.
+Two things the original plan got wrong, both caught before release:
 
-**Decision needed from the user before starting:**
-1. **Text only** ("Waxing gibbous"): no assets, 8 new translatable strings.
-2. **Bundled symbolic SVG icons** (8 phases) in an `icons/` folder, loaded
-   with `Gio.FileIcon`. They must be added to `scripts/pack.sh` as
-   `--extra-source`, or they silently won't ship. They must be original or
-   properly licensed art (GPL-compatible), since the zip is reviewed.
-3. Both: icon with the phase name as the label.
+- **The latitude from `get_value_moonphase()` is the moon's, not the
+  observer's.** It reads the same worldwide (Sydney and Tallinn both
+  returned -17.6 on 2026-09-22), so flipping the icon by its sign would have
+  flipped it for everyone at once. The hemisphere mirror uses
+  `info.get_location().get_coords()[0]` instead, which is the observer's
+  latitude in **degrees** (not radians).
+- **Only eight icons are needed, not sixteen.** A mirrored phase is drawn
+  exactly like the opposite phase, so south of the equator the icon for
+  phase `i` is the one for `(8 - i) % 8`.
 
-**Design (any option)**
-- Map degrees to 8 named phases as a pure function in `helpers.js`
-  (`moonPhaseName(degrees, _)`), with tests at the boundaries (0, 22.5, 90,
-  180, 359.9).
-- The phase is the same for the whole planet, but the moon's lit side is
-  mirrored in the southern hemisphere. That matters for icons only: use the
-  sign of `latitude` from `get_value_moonphase()` to flip the icon.
-- New key `show-moon-phase` (b, default false), with a `_switchRow` in the
-  Details group in `prefs.js`.
-- Run the translation workflow in `CLAUDE.md`, including the fuzzy-entry
-  placeholder audit.
+Drawing note: the first attempt filled only the lit part, which at the
+15px panel size made "waxing gibbous" an indistinguishable egg shape. Every
+icon now outlines the whole disc and fills the lit part, so the phase reads
+at size and the footprint stays circular.
 
 ---
 

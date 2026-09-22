@@ -267,6 +267,14 @@ genuinely non-obvious and easy to get wrong silently:
   both fetching and formatting. To test the out-of-the-box path, run gjs with
   `GSETTINGS_BACKEND=memory` (every key at its default) under a few `LC_ALL`
   values - en_US resolves to °F/mph, de_DE and en_GB to °C/km/h.
+- **`get_value_moonphase()` returns `[valid, degrees, latitude]`, and that
+  latitude is the *moon's*, not the observer's** - it reads the same
+  everywhere on the planet (Sydney and Tallinn both returned -17.6 on
+  2026-09-22). Anything that needs the observer's hemisphere, such as
+  mirroring a moon-phase icon, must use
+  `info.get_location().get_coords()`, which returns
+  `[latitude, longitude]` in **degrees** - no validity flag, and not
+  radians.
 
 ## Current location (GeoClue), alongside manually-added cities
 
@@ -540,7 +548,13 @@ current. Checked clean as of 2026-09-12:
   (as a fork, the original authors' attribution must be distributed);
   `.po`/`.pot`, `package.json`, `eslint.config.js`, `tests/`, `scripts/` and
   `CLAUDE.md` stay out. A new runtime `.js`/asset file must be added there as
-  an `--extra-source` or it silently won't ship. Verified 2026-09-13: `shexli`
+  an `--extra-source` or it silently won't ship. **For an asset in a
+  subdirectory, pass the directory** (`--extra-source=icons`), not each file:
+  `--extra-source=icons/foo.svg` puts `foo.svg` at the zip *root* and silently
+  drops the directory (verified 2026-09-22). Because the local install is a
+  symlink to this repo, an `icons/...` path lookup keeps working here and
+  breaks only for people who install the zip - so `unzip -l dist/*.zip` after
+  adding any asset, don't just trust the pack to have done it. Verified 2026-09-13: `shexli`
   on the raw repo reports `node_modules`/`.git`/`.po`/`gschemas.compiled`
   findings, but on the packed zip it's clean - run `shexli dist/*.zip` (not
   `shexli .`, which also crashes on the relative path) before every upload.

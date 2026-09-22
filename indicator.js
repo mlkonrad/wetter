@@ -14,7 +14,7 @@ import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js'
 
 import {WeatherClient, buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from './weatherClient.js';
 import {CurrentLocationClient} from './currentLocationClient.js';
-import {iconType, dayName, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from './helpers.js';
+import {iconType, dayName, localeTime, moonPhaseIconName, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from './helpers.js';
 
 const GWEATHER_SCHEMA = 'org.gnome.GWeather4';
 const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
@@ -52,11 +52,12 @@ function clamp(index, length) {
 
 export const WeatherIndicator = GObject.registerClass(
 class WeatherIndicator extends PanelMenu.Button {
-    _init(settings, openPrefs) {
+    _init(settings, openPrefs, extensionPath) {
         super._init(0.25, 'Weather');
 
         this._settings = settings;
         this._openPrefsFn = openPrefs;
+        this._extensionPath = extensionPath;
         this._gweatherSettings = new Gio.Settings({schema_id: GWEATHER_SCHEMA});
         this._interfaceSettings = new Gio.Settings({schema_id: INTERFACE_SCHEMA});
 
@@ -168,6 +169,9 @@ class WeatherIndicator extends PanelMenu.Button {
         case 'show-hourly-forecast':
         case 'hourly-forecast-count':
             this._renderHourly();
+            break;
+        case 'show-moon-phase':
+            this._renderCurrent();
             break;
         case 'time-format':
             this._renderCurrent();
@@ -510,6 +514,7 @@ class WeatherIndicator extends PanelMenu.Button {
         infoBox.add_child(new St.Label({text: sunrise}));
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('weather-clear-night', symbolic), style_class: 'weather-sunset-icon'}));
         infoBox.add_child(new St.Label({text: sunset}));
+        this._addMoonPhase(infoBox, info);
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('view-refresh', symbolic), style_class: 'weather-build-icon'}));
         infoBox.add_child(new St.Label({text: updated}));
 
@@ -544,6 +549,31 @@ class WeatherIndicator extends PanelMenu.Button {
         box.add_child(icon);
         box.add_child(detailBox);
         this._currentBin.set_child(box);
+    }
+
+    // Adwaita ships no moon-phase icons, so these are bundled under icons/ and
+    // loaded by path. The mirroring for the southern hemisphere needs the
+    // observer's latitude from the location - not the third value of
+    // get_value_moonphase(), which is the moon's own latitude and reads the
+    // same worldwide.
+    _addMoonPhase(infoBox, info) {
+        if (!this._settings.get_boolean('show-moon-phase'))
+            return;
+
+        const [valid, degrees] = info.get_value_moonphase();
+        if (!valid)
+            return;
+
+        const [latitude] = info.get_location().get_coords();
+        const file = Gio.File.new_for_path(
+            GLib.build_filenamev([this._extensionPath, 'icons', `${moonPhaseIconName(degrees, latitude)}.svg`]));
+
+        infoBox.add_child(new St.Icon({
+            icon_size: 15,
+            gicon: new Gio.FileIcon({file}),
+            style_class: 'weather-moon-icon',
+        }));
+        infoBox.add_child(new St.Label({text: moonPhaseName(degrees, _)}));
     }
 
     // The arrow qualifies the panel temperature, so it only makes sense

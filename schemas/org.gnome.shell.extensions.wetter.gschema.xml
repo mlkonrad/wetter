@@ -67,6 +67,11 @@
       <default>true</default>
       <summary>Show "Feels like" in details</summary>
     </key>
+    <key name="show-moon-phase" type="b">
+      <default>false</default>
+      <summary>Show moon phase</summary>
+      <description>Show the current moon phase alongside sunrise and sunset in the dropdown.</description>
+    </key>
     <key name="show-visibility" type="b">
       <default>true</default>
       <summary>Show visibility in details</summary>

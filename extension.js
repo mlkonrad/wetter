@@ -33,7 +33,7 @@ export default class WeatherExtension extends Extension {
 
     _createIndicator() {
         this._indicator?.destroy();
-        this._indicator = new WeatherIndicator(this._settings, () => this.openPreferences());
+        this._indicator = new WeatherIndicator(this._settings, () => this.openPreferences(), this.path);
 
         const box = PANEL_BOXES[this._settings.get_enum('position-in-panel')];
         Main.panel.addToStatusArea(this.uuid, this._indicator, 0, box);

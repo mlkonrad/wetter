@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 22:37+0300\n"
+"POT-Creation-Date: 2026-09-22 23:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,97 +136,129 @@ msgstr ""
 msgid "NNW"
 msgstr ""
 
-#: ../indicator.js:98 ../indicator.js:328 ../indicator.js:333
-#: ../indicator.js:338 ../indicator.js:343
+#: ../helpers.js:190
+msgid "New moon"
+msgstr ""
+
+#: ../helpers.js:190
+msgid "Waxing crescent"
+msgstr ""
+
+#: ../helpers.js:190
+msgid "First quarter"
+msgstr ""
+
+#: ../helpers.js:190
+msgid "Waxing gibbous"
+msgstr ""
+
+#: ../helpers.js:191
+msgid "Full moon"
+msgstr ""
+
+#: ../helpers.js:191
+msgid "Waning gibbous"
+msgstr ""
+
+#: ../helpers.js:191
+msgid "Last quarter"
+msgstr ""
+
+#: ../helpers.js:191
+msgid "Waning crescent"
+msgstr ""
+
+#: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
+#: ../indicator.js:342 ../indicator.js:347
 msgid "Weather"
 msgstr ""
 
-#: ../indicator.js:122 ../prefs.js:82
+#: ../indicator.js:123 ../prefs.js:82
 msgid "Locations"
 msgstr ""
 
-#: ../indicator.js:125
+#: ../indicator.js:126
 msgid "Reload Weather Information"
 msgstr ""
 
-#: ../indicator.js:130
+#: ../indicator.js:131
 msgid "Wetter Settings"
 msgstr ""
 
-#: ../indicator.js:267
+#: ../indicator.js:271
 msgid "Current location unavailable"
 msgstr ""
 
-#: ../indicator.js:268
+#: ../indicator.js:272
 msgid "Turn on Location Services in Settings, then turn Current Location back on in Wetter Settings."
 msgstr ""
 
-#: ../indicator.js:329
+#: ../indicator.js:333
 msgid "No location configured"
 msgstr ""
 
-#: ../indicator.js:334
+#: ../indicator.js:338
 msgid "Detecting your location…"
 msgstr ""
 
-#: ../indicator.js:339
+#: ../indicator.js:343
 msgid "Loading weather"
 msgstr ""
 
-#: ../indicator.js:344
+#: ../indicator.js:348
 msgid "No weather information"
 msgstr ""
 
-#: ../indicator.js:408
+#: ../indicator.js:412
 msgid "Rain expected"
 msgstr ""
 
-#: ../indicator.js:408
+#: ../indicator.js:412
 msgid "Snow expected"
 msgstr ""
 
-#: ../indicator.js:408
+#: ../indicator.js:412
 msgid "Thunderstorm expected"
 msgstr ""
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:412
+#: ../indicator.js:416
 msgid "Around $t in $c"
 msgstr ""
 
-#: ../indicator.js:484 ../indicator.js:494
+#: ../indicator.js:488 ../indicator.js:498
 msgid ", "
 msgstr ""
 
-#: ../indicator.js:528
+#: ../indicator.js:533
 msgid "Feels like"
 msgstr ""
 
-#: ../indicator.js:529 ../prefs.js:299
+#: ../indicator.js:534 ../prefs.js:299
 msgid "Visibility"
 msgstr ""
 
-#: ../indicator.js:530 ../prefs.js:300
+#: ../indicator.js:535 ../prefs.js:301
 msgid "Humidity"
 msgstr ""
 
-#: ../indicator.js:531 ../prefs.js:257 ../prefs.js:301
+#: ../indicator.js:536 ../prefs.js:257 ../prefs.js:302
 msgid "Pressure"
 msgstr ""
 
-#: ../indicator.js:532 ../prefs.js:302
+#: ../indicator.js:537 ../prefs.js:303
 msgid "Wind"
 msgstr ""
 
-#: ../indicator.js:591
+#: ../indicator.js:621
 msgid "Now"
 msgstr ""
 
-#: ../indicator.js:722 ../indicator.js:807 ../prefs.js:99
+#: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
 msgid "Current Location"
 msgstr ""
 
-#: ../prefs.js:69 ../prefs.js:338
+#: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
 msgstr ""
 
@@ -438,67 +470,71 @@ msgstr ""
 msgid "Feels Like"
 msgstr ""
 
-#: ../prefs.js:306
+#: ../prefs.js:300
+msgid "Moon Phase"
+msgstr ""
+
+#: ../prefs.js:307
 msgid "Forecast"
 msgstr ""
 
-#: ../prefs.js:309
+#: ../prefs.js:310
 msgid "Daily Forecast"
 msgstr ""
 
-#: ../prefs.js:310
+#: ../prefs.js:311
 msgid "Forecast Days"
 msgstr ""
 
-#: ../prefs.js:311
+#: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
 msgstr ""
 
-#: ../prefs.js:312
+#: ../prefs.js:313
 msgid "Forecast Hours"
 msgstr ""
 
-#: ../prefs.js:316
+#: ../prefs.js:317
 msgid "Notifications"
 msgstr ""
 
-#: ../prefs.js:319
+#: ../prefs.js:320
 msgid "Rain and Snow Alerts"
 msgstr ""
 
-#: ../prefs.js:320
+#: ../prefs.js:321
 msgid "Notify when rain, snow or a thunderstorm is forecast within the next two hours"
 msgstr ""
 
-#: ../prefs.js:325
+#: ../prefs.js:326
 msgid "About"
 msgstr ""
 
-#: ../prefs.js:340
+#: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
 msgstr ""
 
-#: ../prefs.js:345
+#: ../prefs.js:346
 msgid "Links"
 msgstr ""
 
-#: ../prefs.js:347
+#: ../prefs.js:348
 msgid "Source Code"
 msgstr ""
 
-#: ../prefs.js:349
+#: ../prefs.js:350
 msgid "Report an Issue"
 msgstr ""
 
-#: ../prefs.js:352
+#: ../prefs.js:353
 msgid "Help support development"
 msgstr ""
 
-#: ../prefs.js:354
+#: ../prefs.js:355
 msgid "Legal"
 msgstr ""
 
-#: ../prefs.js:356
+#: ../prefs.js:357
 msgid "License"
 msgstr ""
 
@@ -506,18 +542,18 @@ msgstr ""
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
-#: ../prefs.js:362
+#: ../prefs.js:363
 msgid "Weather Data"
 msgstr ""
 
-#: ../prefs.js:363
+#: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
 msgstr ""
 
-#: ../prefs.js:365
+#: ../prefs.js:366
 msgid "Credits"
 msgstr ""
 
-#: ../prefs.js:368
+#: ../prefs.js:369
 msgid "Contributors"
 msgstr ""

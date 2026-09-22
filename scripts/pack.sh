@@ -15,6 +15,7 @@ gnome-extensions pack --force --out-dir=dist \
     --extra-source=currentLocationClient.js \
     --extra-source=helpers.js \
     --extra-source=wetter-logo.svg \
+    --extra-source=icons \
     --extra-source=AUTHORS \
     --extra-source=COPYING \
     --podir=po \

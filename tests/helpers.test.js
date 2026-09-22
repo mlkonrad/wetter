@@ -6,7 +6,7 @@ import GLib from 'gi://GLib';
 import GWeather from 'gi://GWeather';
 import System from 'system';
 
-import {dayName, iconType, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from '../helpers.js';
+import {dayName, iconType, localeTime, moonPhaseIconName, moonPhaseIndex, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from '../helpers.js';
 import {buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from '../weatherClient.js';
 
 const _ = s => s;
@@ -124,6 +124,38 @@ check('temperatureTrend uses a wider threshold in Fahrenheit',
     temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 53)], 50), F, 3), 0);
 check('temperatureTrend rising in Fahrenheit',
     temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 54)], 50), F, 3), 1);
+
+// Boundaries between the eight 45-degree buckets, which are centred on the
+// cardinal phases - so "new moon" straddles 0 and each bucket starts 22.5
+// degrees before its name's exact angle.
+check('moonPhaseIndex new at 0', moonPhaseIndex(0), 0);
+check('moonPhaseIndex still new just under the boundary', moonPhaseIndex(22.4), 0);
+check('moonPhaseIndex waxing crescent at 22.5', moonPhaseIndex(22.5), 1);
+check('moonPhaseIndex first quarter at 90', moonPhaseIndex(90), 2);
+check('moonPhaseIndex waxing gibbous at 138 (live Tallinn value)', moonPhaseIndex(138.07), 3);
+check('moonPhaseIndex full at 180', moonPhaseIndex(180), 4);
+check('moonPhaseIndex last quarter at 270', moonPhaseIndex(270), 6);
+check('moonPhaseIndex wraps back to new at 359.9', moonPhaseIndex(359.9), 0);
+check('moonPhaseIndex wraps past 360', moonPhaseIndex(361), 0);
+check('moonPhaseIndex handles a negative angle', moonPhaseIndex(-90), 6);
+
+check('moonPhaseName reads the phase', moonPhaseName(138.07, _), 'Waxing gibbous');
+check('moonPhaseName at full', moonPhaseName(180, _), 'Full moon');
+
+// South of the equator the lit limb is mirrored, which is drawn exactly like
+// the opposite phase - so the same eight icons cover both hemispheres.
+check('moonPhaseIconName northern waxing crescent',
+    moonPhaseIconName(45, 59.4), 'moon-waxing-crescent-symbolic');
+check('moonPhaseIconName southern waxing crescent mirrors to waning art',
+    moonPhaseIconName(45, -33.9), 'moon-waning-crescent-symbolic');
+check('moonPhaseIconName northern first quarter',
+    moonPhaseIconName(90, 59.4), 'moon-first-quarter-symbolic');
+check('moonPhaseIconName southern first quarter mirrors to last quarter art',
+    moonPhaseIconName(90, -33.9), 'moon-last-quarter-symbolic');
+check('moonPhaseIconName full is its own mirror',
+    moonPhaseIconName(180, -33.9), 'moon-full-symbolic');
+check('moonPhaseIconName new is its own mirror',
+    moonPhaseIconName(0, -33.9), 'moon-new-symbolic');
 
 if (failures) {
     printerr(`${failures} test(s) failed`);

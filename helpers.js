@@ -158,3 +158,56 @@ function windLetters(_) {
         `${_('NW')} `, `${_('NNW')} `, '- ',
     ];
 }
+
+// Eight named phases, each covering 45 degrees centred on its cardinal point,
+// in the order the phase angle runs: 0 new, 90 first quarter, 180 full,
+// 270 last quarter.
+const MOON_PHASES = [
+    'new', 'waxing-crescent', 'first-quarter', 'waxing-gibbous',
+    'full', 'waning-gibbous', 'last-quarter', 'waning-crescent',
+];
+
+/**
+ * Buckets a moon phase angle into one of the eight named phases.
+ *
+ * @param {number} degrees - phase angle, 0-360 (0 new, 180 full)
+ * @returns {number} index into the eight phases, starting at "new moon"
+ */
+export function moonPhaseIndex(degrees) {
+    const wrapped = ((degrees % 360) + 360) % 360;
+    return Math.floor((wrapped + 22.5) / 45) % MOON_PHASES.length;
+}
+
+/**
+ * Names a moon phase angle.
+ *
+ * @param {number} degrees - phase angle, 0-360
+ * @param {Function} _ - gettext translation function
+ * @returns {string} the translated phase name
+ */
+export function moonPhaseName(degrees, _) {
+    return [
+        _('New moon'), _('Waxing crescent'), _('First quarter'), _('Waxing gibbous'),
+        _('Full moon'), _('Waning gibbous'), _('Last quarter'), _('Waning crescent'),
+    ][moonPhaseIndex(degrees)];
+}
+
+/**
+ * Picks the bundled icon for a moon phase as seen from a given latitude.
+ *
+ * The phase is the same everywhere on the planet, but south of the equator
+ * the lit limb appears mirrored - and a mirrored phase is drawn exactly like
+ * the opposite phase, so the same eight icons serve both hemispheres. Note
+ * this needs the *observer's* latitude: the third value from
+ * get_value_moonphase() is the moon's own latitude, identical worldwide
+ * (verified 2026-09-22 - Sydney and Tallinn return the same sign).
+ *
+ * @param {number} degrees - phase angle, 0-360
+ * @param {number} latitude - the observer's latitude in degrees
+ * @returns {string} icon file base name, without the .svg extension
+ */
+export function moonPhaseIconName(degrees, latitude) {
+    const index = moonPhaseIndex(degrees);
+    const mirrored = latitude < 0 ? (MOON_PHASES.length - index) % MOON_PHASES.length : index;
+    return `moon-${MOON_PHASES[mirrored]}-symbolic`;
+}
