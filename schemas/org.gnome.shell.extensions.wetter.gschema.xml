@@ -37,6 +37,11 @@
       <default>true</default>
       <summary>Show temperature in panel</summary>
     </key>
+    <key name="show-trend-in-panel" type="b">
+      <default>false</default>
+      <summary>Show temperature trend in panel</summary>
+      <description>Show an arrow next to the panel temperature when the next few hours get noticeably warmer or colder.</description>
+    </key>
     <key name="show-comment-in-panel" type="b">
       <default>false</default>
       <summary>Show conditions in panel</summary>

@@ -162,6 +162,54 @@ export function findUpcomingPrecipitation(info, withinSeconds) {
     return null;
 }
 
+// Smallest change worth drawing an arrow for, per unit. Anything less reads as
+// noise in a forecast model's hourly steps, and an arrow that's always there
+// says nothing.
+const TREND_THRESHOLDS = {
+    [GWeather.TemperatureUnit.FAHRENHEIT]: 3.6,
+    [GWeather.TemperatureUnit.CENTIGRADE]: 2,
+    [GWeather.TemperatureUnit.KELVIN]: 2,
+};
+
+/**
+ * Compares the current temperature with the forecast `hoursAhead` from now.
+ * Picks the first forecast entry at or after that mark, falling back to the
+ * last one available - MET Norway's hourly spacing widens further out, so an
+ * exact hit isn't guaranteed.
+ *
+ * @param {GWeather.Info} info - the weather info to read current + forecast from
+ * @param {GWeather.TemperatureUnit} unit - concrete unit (never DEFAULT)
+ * @param {number} hoursAhead - how far ahead to compare against
+ * @returns {number} 1 warming, -1 cooling, 0 flat or not enough data
+ */
+export function temperatureTrend(info, unit, hoursAhead) {
+    const threshold = TREND_THRESHOLDS[unit];
+    if (!threshold)
+        return 0;
+
+    const [nowValid, nowTemp] = info.get_value_temp(unit);
+    if (!nowValid)
+        return 0;
+
+    const mark = GLib.DateTime.new_now_utc().to_unix() + hoursAhead * 3600;
+    let later = null;
+    for (const {date, entry} of buildHourlyForecast(info)) {
+        const [valid, temp] = entry.get_value_temp(unit);
+        if (!valid)
+            continue;
+        later = temp;
+        if (date.to_unix() >= mark)
+            break;
+    }
+    if (later === null)
+        return 0;
+
+    const delta = later - nowTemp;
+    if (Math.abs(delta) < threshold)
+        return 0;
+    return delta > 0 ? 1 : -1;
+}
+
 function representativeEntry(hours) {
     const buckets = [[], [], [], []]; // night, morning, afternoon, evening
     for (const [hour, entry] of Object.entries(hours)) {

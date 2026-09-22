@@ -7,7 +7,7 @@ import GWeather from 'gi://GWeather';
 import System from 'system';
 
 import {dayName, iconType, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from '../helpers.js';
-import {buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind} from '../weatherClient.js';
+import {buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from '../weatherClient.js';
 
 const _ = s => s;
 let failures = 0;
@@ -30,10 +30,11 @@ function fakeEntry(unix, temp, icon = 'weather-clear') {
     };
 }
 
-function fakeInfo(entries) {
+function fakeInfo(entries, currentTemp = null) {
     return {
         get_forecast_list: () => entries,
         get_location: () => ({get_timezone: () => GLib.TimeZone.new_utc()}),
+        get_value_temp: () => [currentTemp !== null, currentTemp ?? 0],
     };
 }
 
@@ -99,6 +100,30 @@ check('findUpcomingPrecipitation skips past and dry hours', upcoming?.kind, 'sno
 check('findUpcomingPrecipitation returns the icon', upcoming?.iconName, 'weather-snow');
 check('findUpcomingPrecipitation ignores hours past the lookahead',
     findUpcomingPrecipitation(fakeInfo([fakeEntry(now + 3 * hour, 1, 'weather-showers')]), 2 * hour), null);
+
+// fakeEntry()/fakeInfo() ignore the unit argument, so the numbers below are
+// read as already being in whatever unit the call passes.
+const C = GWeather.TemperatureUnit.CENTIGRADE;
+const F = GWeather.TemperatureUnit.FAHRENHEIT;
+
+check('temperatureTrend rising',
+    temperatureTrend(fakeInfo([fakeEntry(now + hour, 12), fakeEntry(now + 3 * hour, 15)], 10), C, 3), 1);
+check('temperatureTrend falling',
+    temperatureTrend(fakeInfo([fakeEntry(now + hour, 9), fakeEntry(now + 3 * hour, 6)], 10), C, 3), -1);
+check('temperatureTrend flat below the threshold',
+    temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 11)], 10), C, 3), 0);
+check('temperatureTrend falls back to the last entry before the mark',
+    temperatureTrend(fakeInfo([fakeEntry(now + hour, 14)], 10), C, 3), 1);
+check('temperatureTrend skips forecast entries with no temperature',
+    temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, null), fakeEntry(now + 4 * hour, 15)], 10), C, 3), 1);
+check('temperatureTrend without a current temperature',
+    temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 15)]), C, 3), 0);
+check('temperatureTrend without a forecast',
+    temperatureTrend(fakeInfo([], 10), C, 3), 0);
+check('temperatureTrend uses a wider threshold in Fahrenheit',
+    temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 53)], 50), F, 3), 0);
+check('temperatureTrend rising in Fahrenheit',
+    temperatureTrend(fakeInfo([fakeEntry(now + 3 * hour, 54)], 50), F, 3), 1);
 
 if (failures) {
     printerr(`${failures} test(s) failed`);

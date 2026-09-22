@@ -14,12 +14,12 @@ ends up in the EGO zip.
 |---|---------|--------|
 | 1 | Rain/snow/thunderstorm alert | Done, `95e5af7`, not yet released |
 | 2 | Scroll on panel button to switch location | Done, `78543fe`, not yet released |
-| 3 | Temperature trend arrow in the panel | Planned |
+| 3 | Temperature trend arrow in the panel | Done, not yet released |
 | 4 | Moon phase in the dropdown | Planned, needs a design decision |
 | 5 | "Open in GNOME Weather" menu item | Planned, reduced scope (see below) |
 | - | Release 1.1 to extensions.gnome.org | When 3-5 are done, or earlier |
 
-Suggested order: 3, then 5 (both small), then 4 (needs icons), then release.
+Suggested order: 5 (small), then 4 (needs icons), then release.
 Releasing 1 and 2 first is also fine: nothing below depends on them.
 
 ---

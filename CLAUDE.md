@@ -153,6 +153,14 @@ already-loaded, stale JS module just clamps an out-of-range `actual-city`
 back to a safe index), but don't assume nested-session settings changes are
 disposable - they persist into the real session's settings too.
 
+Undoing such a change has a timing trap (2026-09-22): a `dconf reset` issued
+while the nested Shell is still shutting down silently doesn't stick - the
+key reads back at its old value, and re-running the reset doesn't help
+either. A throwaway key written and reset in the same moment *does* work, so
+it isn't dconf being unwritable; the dying session flushes its own state
+afterwards. Wait until nothing matching the nested Shell is left in `pgrep`,
+then reset, then read back to confirm.
+
 To confirm the nested Shell itself (not just "the script ran"), attach to
 its private bus rather than eyeballing the window: the script's
 `dbus-run-session` wrapper doesn't print its bus address, so capture
@@ -169,7 +177,10 @@ allowlisted bus name (`org.gnome.SettingsDaemon.MediaKeys` or
 *private* bus nothing owns `MediaKeys`, so a small gjs script can
 `Gio.bus_own_name()` it, wait ~1.5s for the Shell's name watch to catch up,
 and then call `Screenshot(false, false, '/abs/path.png')` on that same
-connection. Combined with `gnome-shell --headless --wayland
+connection. The object path is **`/org/gnome/Shell/Screenshot`**, not
+`/org/gnome/Shell` - the latter answers, but without that interface, so the
+call fails with `UnknownMethod` rather than anything screenshot-related.
+Combined with `gnome-shell --headless --wayland
 --virtual-monitor 1280x800`, setting the `org.gnome.Shell` `OverviewActive`
 D-Bus property to `false` to leave the startup overview, and `gnome-extensions
 prefs <uuid>` (the prefs window opens on the nested display), this gives

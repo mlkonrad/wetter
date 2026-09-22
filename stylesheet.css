@@ -30,6 +30,18 @@
     padding-left: 5px;
 }
 
+/* Smaller than system-status-icon's 16px: this qualifies the temperature
+   next to it rather than standing on its own. */
+.weather-trend-icon {
+    icon-size: 12px;
+    padding-right: 2px;
+}
+
+.weather-trend-icon-rtl {
+    icon-size: 12px;
+    padding-left: 2px;
+}
+
 .weather-current-databox-captions {
     text-align: right;
     padding-right: 10px;

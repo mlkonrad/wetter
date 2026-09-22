@@ -282,6 +282,7 @@ export default class WeatherPreferences extends ExtensionPreferences {
             [_('Letters'), _('Arrows')]));
         group.add(this._switchRow(_('Symbolic Icons'), settings, 'use-symbolic-icons'));
         group.add(this._switchRow(_('Temperature in Panel'), settings, 'show-text-in-panel'));
+        group.add(this._switchRow(_('Temperature Trend in Panel'), settings, 'show-trend-in-panel'));
         group.add(this._switchRow(_('Conditions in Panel'), settings, 'show-comment-in-panel'));
         group.add(this._switchRow(_('Humidity in Panel'), settings, 'show-humidity-in-panel'));
         group.add(this._switchRow(_('Wind Speed in Panel'), settings, 'show-wind-in-panel'));

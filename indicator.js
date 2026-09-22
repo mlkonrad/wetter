@@ -12,7 +12,7 @@ import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 
 import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-import {WeatherClient, buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind} from './weatherClient.js';
+import {WeatherClient, buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from './weatherClient.js';
 import {CurrentLocationClient} from './currentLocationClient.js';
 import {iconType, dayName, localeTime, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from './helpers.js';
 
@@ -20,6 +20,7 @@ const GWEATHER_SCHEMA = 'org.gnome.GWeather4';
 const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
 const REFRESH_INTERVAL_SECONDS = 30 * 60;
 const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
+const TREND_LOOKAHEAD_HOURS = 3;
 
 // Matches the nick order of the time-format enum in the schema.
 const TIME_FORMAT_AUTO = 0;
@@ -89,11 +90,17 @@ class WeatherIndicator extends PanelMenu.Button {
             icon_name: 'view-refresh-symbolic',
             style_class: `system-status-icon weather-icon${rtl ? '-rtl' : ''}`,
         });
+        this._panelTrendIcon = new St.Icon({
+            y_align: Clutter.ActorAlign.CENTER,
+            style_class: `system-status-icon weather-trend-icon${rtl ? '-rtl' : ''}`,
+            visible: false,
+        });
         this._panelLabel = new St.Label({y_align: Clutter.ActorAlign.CENTER, text: _('Weather')});
         this._updatePanelLabelVisibility();
 
         const topBox = new St.BoxLayout();
         topBox.add_child(this._panelIcon);
+        topBox.add_child(this._panelTrendIcon);
         topBox.add_child(this._panelLabel);
         this.add_child(topBox);
 
@@ -147,6 +154,7 @@ class WeatherIndicator extends PanelMenu.Button {
             this._refreshReadyDisplay();
             break;
         case 'show-text-in-panel':
+        case 'show-trend-in-panel':
         case 'show-comment-in-panel':
         case 'show-humidity-in-panel':
         case 'show-wind-in-panel':
@@ -308,6 +316,7 @@ class WeatherIndicator extends PanelMenu.Button {
 
     _setState(state) {
         this._state = state;
+        this._panelTrendIcon.hide();
         this._hourlyBin.hide();
         this._forecastBin.hide();
         this._attributionBin.hide();
@@ -474,6 +483,8 @@ class WeatherIndicator extends PanelMenu.Button {
             panelParts.push(windStr);
         this._panelLabel.text = panelParts.join(_(', '));
 
+        this._renderTrend(info, temperatureUnit);
+
         const icon = new St.Icon({
             icon_size: 72,
             icon_name: iconType(info.get_icon_name(), symbolic),
@@ -533,6 +544,26 @@ class WeatherIndicator extends PanelMenu.Button {
         box.add_child(icon);
         box.add_child(detailBox);
         this._currentBin.set_child(box);
+    }
+
+    // The arrow qualifies the panel temperature, so it only makes sense
+    // alongside it - on its own next to the weather icon it reads as an
+    // unrelated indicator.
+    _renderTrend(info, temperatureUnit) {
+        if (!this._settings.get_boolean('show-trend-in-panel') ||
+            !this._settings.get_boolean('show-text-in-panel')) {
+            this._panelTrendIcon.hide();
+            return;
+        }
+
+        const trend = temperatureTrend(info, temperatureUnit, TREND_LOOKAHEAD_HOURS);
+        if (!trend) {
+            this._panelTrendIcon.hide();
+            return;
+        }
+
+        this._panelTrendIcon.icon_name = trend > 0 ? 'pan-up-symbolic' : 'pan-down-symbolic';
+        this._panelTrendIcon.show();
     }
 
     _renderHourly() {
