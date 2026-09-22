@@ -16,11 +16,11 @@ ends up in the EGO zip.
 | 2 | Scroll on panel button to switch location | Done, `78543fe`, not yet released |
 | 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
 | 4 | Moon phase in the dropdown | Planned, needs a design decision |
-| 5 | "Open in GNOME Weather" menu item | Planned, reduced scope (see below) |
-| - | Release 1.1 to extensions.gnome.org | When 3-5 are done, or earlier |
+| 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
+| - | Release 1.1 to extensions.gnome.org | When 4 is done, or earlier |
 
-Suggested order: 5 (small), then 4 (needs icons), then release.
-Releasing 1 and 2 first is also fine: nothing below depends on them.
+Only 4 is left, and it needs a design decision first. Releasing 1-3
+without it is fine: nothing depends on it.
 
 ---
 
@@ -99,30 +99,15 @@ dropdown.
 
 ---
 
-## 5. "Open in GNOME Weather" menu item
+## 5. "Open in GNOME Weather" menu item - dropped
 
-**Goal:** a menu item that opens GNOME's Weather app for the full view.
+Built 2026-09-22 and removed the same day at the user's request ("please
+remove the menu, I don't care about it"). Don't rebuild it without asking.
 
-**Verified 2026-09-22:** `org.gnome.Weather` is installed here
-(`DBusActivatable=true`), but `gapplication list-actions org.gnome.Weather`
-lists **no actions**, so the app **can't be told which city to open**. This
-feature can only launch the app. Don't promise "open this city".
-
-**Design**
-- In `_buildUI()` in `indicator.js`, add a `PopupMenuItem` "Open GNOME
-  Weather" next to "Wetter Settings". On activate, look up the app with
-  `Shell.AppSystem.get_default().lookup_app('org.gnome.Weather.desktop')`
-  and call `app.activate()`.
-- Hide the item when `lookup_app()` returns `null` (app not installed). Many
-  users won't have it, and a dead menu item is worse than none. Do this
-  lookup when the menu opens, not once at startup, so installing the app
-  later works without a re-login.
-- No setting needed.
-- New translatable string: run the translation workflow.
-
-**Done when:** it opens the app in the real session. The nested session
-can't show another app's window, so test launching on the real desktop
-after a log out/in.
+Kept because it cost real digging: `org.gnome.Weather` is
+`DBusActivatable=true`, but `gapplication list-actions org.gnome.Weather`
+lists **no actions**, so the app can't be told which city to open. Any
+future version of this can only launch the app.
 
 ---
 

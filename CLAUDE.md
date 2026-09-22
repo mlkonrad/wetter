@@ -141,6 +141,29 @@ log out/in for anything that depends on the real session specifically
 lock screen) or if something looks stale in the nested session and you
 need to rule out a devkit-specific quirk.
 
+**Another app launched from the nested session lands in it, not on the
+real desktop** (verified 2026-09-22): the devkit Shell creates its own
+Wayland socket (`wayland-1` alongside the real `wayland-0`) and exports it
+to its private bus's activation environment, so a D-Bus-activated app
+started on that bus comes up with `WAYLAND_DISPLAY=wayland-1`. So testing
+something that launches another app doesn't inherently need a real
+session. Note `gapplication launch org.gnome.Weather` on that bus started
+the service but never mapped a window, so confirm a window really appeared
+rather than assuming the launch succeeded.
+
+Two things that look like debugging shortcuts but aren't available:
+`org.gnome.Shell.Eval` returns `(false, '')` (unsafe mode off, and Shell 50
+exposes no `UnsafeMode` D-Bus property to flip), and
+`org.gnome.Shell.Introspect.GetWindows` returns `AccessDenied`. To inspect
+or drive a nested session's UI, go through a helper extension running
+inside it, not the bus.
+
+To shut a devkit session down, kill by its **private bus address** - read
+`DBUS_SESSION_BUS_ADDRESS` from `/proc/<pid>/environ` of the
+`gnome-shell --devkit` process (*not* the `dbus-run-session` wrapper, which
+still holds the real session's values), then kill every process whose
+environ contains it. It leaves ~30 service processes behind otherwise.
+
 **dconf is shared with the real session, not sandboxed.** `dbus-run-session`
 gives the nested Shell its own private message bus, but GSettings still
 reads/writes the one real per-user dconf database
