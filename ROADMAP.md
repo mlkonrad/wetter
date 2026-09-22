@@ -15,7 +15,7 @@ ends up in the EGO zip.
 | 1 | Rain/snow/thunderstorm alert | Done, `95e5af7`, not yet released |
 | 2 | Scroll on panel button to switch location | Done, `78543fe`, not yet released |
 | 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
-| 4 | Moon phase in the dropdown | Done, icon + text, not yet released |
+| 4 | Moon phase in the dropdown | Done, `04eb740`, not yet released |
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
 | - | Release 1.1 to extensions.gnome.org | Ready when you are |
 
