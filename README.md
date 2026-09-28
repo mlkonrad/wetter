@@ -26,6 +26,12 @@ from-scratch location search).
 
 ## Installation
 
+Install it from
+[extensions.gnome.org](https://extensions.gnome.org/extension/10961/wetter/),
+either in your browser or from the Extension Manager app.
+
+### From source
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/mlkonrad/wetter.git
