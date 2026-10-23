@@ -17,6 +17,7 @@ ends up in the EGO zip.
 | 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
 | 4 | Moon phase in the dropdown | Done, `04eb740`, not yet released |
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
+| 6 | Full translation of all 31 shipped languages | Done 2026-10-23, not yet released |
 | - | Release 1.1 to extensions.gnome.org | Ready when you are |
 
 All features are in. What's left is the release itself.
@@ -97,6 +98,52 @@ future version of this can only launch the app.
 
 ---
 
+## 6. Full translation of all 31 shipped languages - done
+
+Done 2026-10-23. Every `po/*.po` is at **132/132 translated, 0 fuzzy**; before
+this, only `pt_BR` was close (96/132) and the other 30 ranged from 2 to 50.
+
+**What it covered beyond filling blanks**
+
+- The fuzzy queue was rewritten, not confirmed: `msgmerge` similarity matching
+  had produced wrong text, e.g. German `"Current location unavailable"` →
+  `"Standorte"`, Japanese `"Pressure"` → `"気温の単位"` (temperature unit).
+- Inherited strings were reviewed against the current UI, which turned up
+  defects the statistics didn't show:
+  - **Trailing colons** in 14 languages (`Umidità:`, `Luchtvochtigheid:`).
+    `_renderCurrent()` in `indicator.js` adds no colon, and the same msgids are
+    prefs row titles, so these rendered a stray colon in both places.
+  - **`%s °K`** in Dutch — Kelvin takes no degree sign.
+  - **Compass labels too wide for the panel**: Polish `zach. pd.-zach.`
+    (15 chars), Ukrainian `Зх Пд-Зх`, Italian `VAR` → `variabile`. Replaced
+    with the standard compact forms for each language.
+  - **Wrong compass values**: Russian `NNW` → `ССВ` (that's NNE), European
+    Portuguese `NNE` → `NE`, Basque `W` → `AM`, and Danish/Lithuanian/
+    Vietnamese 16-point sets where 8 of the 16 were fuzzy duplicates.
+  - **Untranslated or inverted strings**: Greek `"Weather"` → `"Weather"`,
+    `zh_TW` `"Weather"` → `"氣象設定"` (weather *settings*), `"No weather
+    information"` → `"重新載入氣象資訊"` (reload weather info).
+  - European Portuguese `", "` was `","` — the detail-row separator lost its
+    space.
+
+**How it was done** — terminology grounded against the GNOME catalogs
+installed on this machine (`gtk40`, `gnome-shell`, `gnome-control-center-2.0`,
+`libadwaita`, `libgweather-4.0`, `org.gnome.Weather`), so shared terms match
+the desktop: `Ortungsdienste`, `Aviso legal`, `Mentions légales`, and the
+16-point compass abbreviations derived from libgweather's own full names
+(German `Nordnordost` → `NNO`, not `NNE`).
+
+**Caveat:** these are unreviewed translations. Each file's `Last-Translator`
+header is set to `machine-assisted (unreviewed)` and `README.md` has a
+"Translations" section inviting corrections. Arabic keeps the inherited
+full-word compass names (`شمال شمال شرقي`, 14 chars) because Arabic has no
+settled short form; it only shows in the panel if the opt-in wind-speed
+indicator is on.
+
+`scripts/check-po.sh` was added to automate the `$`-style placeholder audit
+that `CLAUDE.md`'s "Translation workflow" previously described as a manual
+review step.
+
 ## Release 1.1
 
 Features 1 and 2 are on `master` but not on extensions.gnome.org.
@@ -112,9 +159,8 @@ Features 1 and 2 are on `master` but not on extensions.gnome.org.
 
 ## Housekeeping (optional)
 
-- **New strings are untranslated.** 1.1 adds strings that other languages
-  will show in English. The fuzzy guesses gettext made (e.g.
-  "Notifications" matched from "Locations") are wrong but don't ship.
+- ~~**New strings are untranslated.**~~ Resolved 2026-10-23 by feature 6
+  below: all 31 languages are at 132/132 with no fuzzy entries left.
 - **Keep the nested test harness.** The isolated headless setup used to
   test features 1 and 2 (keyfile settings backend, helper extension taking
   screenshots, virtual pointer, cleanup by environment) lived in a session

@@ -448,15 +448,31 @@ literal `%s`/`$d$s` text in the UI if ever confirmed/shipped. `msgfmt`
 excludes fuzzy entries from the compiled `.mo` by default (verified
 empirically, not assumed), so this isn't a live bug the moment it happens,
 but it's a landmine for whoever next reviews the fuzzy queue and trusts a
-fluent-looking guess. **After any `msgmerge` run, audit every fuzzy entry
-for a placeholder-token mismatch between `msgid` and `msgstr`
-(`%s`/`%d`/`$s`/`$d`-style) across all languages** — don't just spot-check
-one. Clear (blank + un-fuzzy) any mismatch; leave wording-only fuzzy
-matches alone for a human translator.
+fluent-looking guess. **After any `msgmerge` run, run `./scripts/check-po.sh`**
+— it audits every `msgid`/`msgstr` pair in all languages for a
+placeholder-token mismatch (`%s`/`%d` and the `$s`/`$d`/`$t`/`$c` style that
+`msgfmt --check-format` can't see) and exits non-zero on one. Clear (blank +
+un-fuzzy) any mismatch it reports; leave wording-only fuzzy matches alone for
+a human translator.
 
 `--previous` is passed to `msgmerge` so every fuzzy entry keeps a
 `#| msgid "..."` comment showing what it was matched from, for easier
 manual review later.
+
+**All 31 languages are at 132/132 with no fuzzy entries** as of 2026-10-23
+(see `ROADMAP.md` section 6 for what that pass fixed, and the defect classes
+worth re-checking after adding strings: trailing colons on msgids that serve
+as both a detail-row caption and a prefs row title, compass abbreviations wide
+enough to stretch the panel, and `°K`). Non-`pt_BR` files carry
+`Last-Translator: machine-assisted (unreviewed)`; keep that marker until a
+native speaker actually reviews the file, and don't silently overwrite a
+translation a human contributed.
+
+The files are canonical `msgcat` output (verified: each is byte-identical to
+`msgcat` of itself), so after editing a `.po` by hand run
+`msgcat --output-file=po/<lang>.po po/<lang>.po` to restore the 77-column
+wrapping — otherwise the next tool run reflows the whole file and buries the
+real change in diff noise.
 
 ## extensions.gnome.org review guidelines
 
@@ -596,8 +612,9 @@ current. Checked clean as of 2026-09-12:
 ## Checks before submitting
 
 `npm run lint` (ESLint, GNOME config), `npm test` (plain-gjs tests in
-`tests/` for `helpers.js` and forecast bucketing - no Shell needed), then
-`./scripts/pack.sh && shexli dist/*.zip`. For a runtime smoke test without
+`tests/` for `helpers.js` and forecast bucketing - no Shell needed),
+`./scripts/check-po.sh` (placeholder-token audit across all translations),
+then `./scripts/pack.sh && shexli dist/*.zip`. For a runtime smoke test without
 touching the real session, run `dbus-run-session -- gnome-shell --headless
 --wayland --virtual-monitor 1280x800`; `gnome-extensions info
 wetter@mlkonrad.github.com` on that private bus should report

@@ -74,6 +74,22 @@ request as coming from GNOME Shell, since extensions run inside it). The
 selected city is sent to the weather services libgweather uses — MET Norway,
 OpenWeatherMap and METAR airport reports — to fetch its forecast.
 
+## Translations
+
+Wetter's interface is translated into 31 languages: Arabic, Basque, Bulgarian,
+Catalan, Chinese (Simplified and Traditional), Czech, Danish, Dutch, Finnish,
+French, German, Greek, Hebrew, Hungarian, Italian, Japanese, Lithuanian,
+Norwegian Bokmål, Persian, Polish, Portuguese (European and Brazilian),
+Romanian, Russian, Slovak, Spanish, Swedish, Turkish, Ukrainian and Vietnamese.
+
+Some of these started as translations inherited from the upstream extension;
+the rest, and everything added since the fork, are **machine-assisted and have
+not been reviewed by a native speaker** (the `Last-Translator` header of each
+`po/*.po` file says so). Terminology is matched to GNOME's own translations
+where the same term exists there, but corrections are very welcome — a patch
+against `po/<lang>.po`, or an [issue](https://github.com/mlkonrad/wetter/issues)
+pointing out what reads wrong, is the easiest way to help.
+
 ## Debug
 
 Watch `journalctl --user` for Shell errors (search for `wetter` in the
