@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2013-11-17 18:00+0100\n"
-"Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
-"Language-Team: Basque <librezale@librezale.org>\n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Basque\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../helpers.js:11 ../helpers.js:155
 msgid "VAR"
-msgstr ""
+msgstr "ALD"
 
 #: ../helpers.js:49
 msgid "Yesterday"
@@ -121,7 +122,7 @@ msgstr "MHM"
 
 #: ../helpers.js:157
 msgid "W"
-msgstr "AM"
+msgstr "M"
 
 #: ../helpers.js:157
 msgid "WNW"
@@ -129,7 +130,7 @@ msgstr "MIM"
 
 #: ../helpers.js:158
 msgid "NW"
-msgstr "MI"
+msgstr "IM"
 
 #: ../helpers.js:158
 msgid "NNW"
@@ -137,35 +138,35 @@ msgstr "IIM"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Ilberri"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Ilgora hasieran"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "Lehen laurdena"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Ilgora betean"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Ilargi betea"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Ilbehera betean"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Azken laurdena"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Ilbehera amaieran"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
@@ -181,22 +182,20 @@ msgid "Reload Weather Information"
 msgstr "Birkargatu eguraldi-informazioa"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Eguraldi-ezarpenak"
+msgstr "Wetter-en ezarpenak"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Kokapenak"
+msgstr "Uneko kokapena ez dago erabilgarri"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Aktibatu kokaleku-zerbitzuak Ezarpenetan eta ondoren aktibatu berriro uneko "
+"kokapena Wetter-en ezarpenetan."
 
 #: ../indicator.js:333
 msgid "No location configured"
@@ -204,7 +203,7 @@ msgstr "Ez da kokapenik konfiguratu"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Zure kokapena detektatzen…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
@@ -216,28 +215,28 @@ msgstr "Ez dago eguraldi-informaziorik"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Euria espero da"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Elurra espero da"
 
 #: ../indicator.js:412
 msgid "Thunderstorm expected"
-msgstr ""
+msgstr "Ekaitza espero da"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "$c-n $t inguru"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: ../indicator.js:533
 msgid "Feels like"
-msgstr "Sentsazioa"
+msgstr "Sentsazio termikoa"
 
 #: ../indicator.js:534 ../prefs.js:299
 msgid "Visibility"
@@ -257,172 +256,159 @@ msgstr "Haizea"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Orain"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Kokapenak"
+msgstr "Uneko kokapena"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Detektatzen…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Kokapenak"
+msgstr "Gehitu kokapena"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Gehitu"
 
 #: ../prefs.js:149
 msgid "Name of the city"
 msgstr "Hiriaren izena"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Kokapenak"
+msgstr "Kokapena kendu?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
-msgstr "Kendu %s ?"
+msgstr "Kendu %s?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Kendu"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Unitateak"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Ordu-formatua"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Automatikoa"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12 ordu"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24 ordu"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Tenperatura-unitatea"
+msgstr "Tenperatura"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "Lehenetsia"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Kelvin"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenheit"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Haize-abiaduraren unitatea"
+msgstr "Haize-abiadura"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "korapiloak"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Beaufort"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Distantzia-unitatea"
+msgstr "Distantzia"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "miliak"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Panela"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
@@ -441,18 +427,16 @@ msgid "Left"
 msgstr "Ezkerra"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Haizearen norabidea gezien bidez"
+msgstr "Haizearen norabidea"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Letrak"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Geziak"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
@@ -463,134 +447,123 @@ msgid "Temperature in Panel"
 msgstr "Tenperatura panelean"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Tenperatura panelean"
+msgstr "Tenperatura-joera panelean"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
 msgstr "Baldintzak panelean"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Baldintzak panelean"
+msgstr "Hezetasuna panelean"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Haize-abiaduraren unitatea"
+msgstr "Haize-abiadura panelean"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Xehetasunak"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "Hautatu zein errenkada agertzen diren uneko baldintzen ikuspegian"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
-msgstr "Sentsazioa"
+msgstr "Sentsazio termikoa"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Ilargiaren fasea"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Iragarpena"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Eguneko iragarpena"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Iragarpen-egunak"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Orduz orduko iragarpena"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Iragarpen-orduak"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Kokapenak"
+msgstr "Jakinarazpenak"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Euri- eta elur-alertak"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
 msgstr ""
+"Jakinarazi hurrengo bi orduetan euria, elurra edo ekaitza iragartzen denean"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "Honi buruz"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "GNOMEren eguraldi-hedapena kokapen anitzen iragarpenekin"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Loturak"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Iturburu-kodea"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Jakinarazi arazo bat"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Lagundu garapena babesten"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Legea"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Lizentzia"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Eguraldia"
+msgstr "Eguraldi-datuak"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Kredituak"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Laguntzaileak"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Eguraldiaren hedapena prest"

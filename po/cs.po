@@ -10,13 +10,14 @@ msgstr ""
 "Project-Id-Version: 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2012-06-03 23:07+0100\n"
-"Last-Translator: Christian METZLER <neroth@xeked.com>\n"
-"Language-Team: cs_CZ <czech@li.org>\n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../helpers.js:11 ../helpers.js:155
 msgid "VAR"
@@ -51,7 +52,7 @@ msgstr "%s K"
 
 #: ../helpers.js:115 ../helpers.js:149
 msgid "Unknown"
-msgstr "Neznámý"
+msgstr "Neznámé"
 
 #: ../helpers.js:139
 msgid "$d$s knots"
@@ -139,35 +140,35 @@ msgstr "SSZ"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Nov"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Dorůstající srpek"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "První čtvrt"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Dorůstající měsíc"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Úplněk"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Ubývající měsíc"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Poslední čtvrt"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Ubývající srpek"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
@@ -183,22 +184,20 @@ msgid "Reload Weather Information"
 msgstr "Obnovit informace o počasí"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Nastavení rozšíření Počasí"
+msgstr "Nastavení Wetter"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Místa"
+msgstr "Aktuální poloha není dostupná"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Zapněte služby určování polohy v Nastavení a poté znovu zapněte aktuální "
+"polohu v nastavení Wetter."
 
 #: ../indicator.js:333
 msgid "No location configured"
@@ -206,7 +205,7 @@ msgstr "Nebylo nastaveno místo"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Zjišťování vaší polohy…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
@@ -218,26 +217,24 @@ msgstr "Informace nejsou k dispozici"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Očekává se déšť"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Očekává se sníh"
 
 #: ../indicator.js:412
-#, fuzzy
-#| msgid "Thunderstorms"
 msgid "Thunderstorm expected"
-msgstr "Bouřky"
+msgstr "Očekává se bouřka"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "Okolo $t v $c"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: ../indicator.js:533
 msgid "Feels like"
@@ -261,172 +258,159 @@ msgstr "Vítr"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Nyní"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Místa"
+msgstr "Aktuální poloha"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Zjišťování…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Místa"
+msgstr "Přidat místo"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: ../prefs.js:149
 msgid "Name of the city"
-msgstr "Jméno města"
+msgstr "Název města"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Místa"
+msgstr "Odebrat místo?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
-msgstr "Odstranit %s ?"
+msgstr "Odstranit %s?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Jednotky"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Formát času"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Automaticky"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12hodinový"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24hodinový"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Jednotka teploty"
+msgstr "Teplota"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "Výchozí"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Kelvin"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenheit"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Jednotka rychlosti větru"
+msgstr "Rychlost větru"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "uzly"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Beaufort"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Jednotka vzdálenosti"
+msgstr "Vzdálenost"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "mile"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
@@ -445,18 +429,16 @@ msgid "Left"
 msgstr "Vlevo"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Směr větru šipkami"
+msgstr "Směr větru"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Písmena"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Šipky"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
@@ -464,137 +446,127 @@ msgstr "Symbolické ikony"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
-msgstr "Zobrazit teplotu na panelu"
+msgstr "Teplota na panelu"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Zobrazit teplotu na panelu"
+msgstr "Trend teploty na panelu"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
-msgstr "Zobrazit na panelu podmínky"
+msgstr "Podmínky na panelu"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Zobrazit na panelu podmínky"
+msgstr "Vlhkost na panelu"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Jednotka rychlosti větru"
+msgstr "Rychlost větru na panelu"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "Vyberte, které řádky se zobrazí v přehledu aktuálních podmínek"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
-msgstr "Pocitově jako"
+msgstr "Pocitová teplota"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Fáze Měsíce"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Předpověď"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Denní předpověď"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Počet dnů předpovědi"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Hodinová předpověď"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Počet hodin předpovědi"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Místa"
+msgstr "Oznámení"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Upozornění na déšť a sníh"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
 msgstr ""
+"Upozornit, když se v následujících dvou hodinách očekává déšť, sníh nebo "
+"bouřka"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "O rozšíření"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "Rozšíření počasí pro GNOME s předpovědí pro více míst"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Odkazy"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Zdrojový kód"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Nahlásit problém"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Podpořte vývoj"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Právní ustanovení"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Počasí"
+msgstr "Data o počasí"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Zásluhy"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Přispěvatelé"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Rozšíření Počasí je připraveno"

@@ -5,20 +5,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-shell-extension-weather 1.0\n"
+"Project-Id-Version: wetter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2012-06-11 12:26+0900\n"
-"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
-"Language-Team: Japanese <takeshi.aihana@gmail.com>\n"
-"Language: \n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../helpers.js:11 ../helpers.js:155
 msgid "VAR"
-msgstr ""
+msgstr "不定"
 
 #: ../helpers.js:49
 msgid "Yesterday"
@@ -26,264 +27,260 @@ msgstr "昨日"
 
 #: ../helpers.js:51
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 #: ../helpers.js:53
 msgid "Tomorrow"
-msgstr ""
+msgstr "明日"
 
 #: ../helpers.js:109
 #, javascript-format
 msgid "%s °F"
-msgstr ""
+msgstr "%s °F"
 
 #: ../helpers.js:111
 #, javascript-format
 msgid "%s °C"
-msgstr ""
+msgstr "%s °C"
 
 #: ../helpers.js:113
 #, javascript-format
 msgid "%s K"
-msgstr ""
+msgstr "%s K"
 
 #: ../helpers.js:115 ../helpers.js:149
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #: ../helpers.js:139
 msgid "$d$s knots"
-msgstr ""
+msgstr "$d$s ノット"
 
 #: ../helpers.js:141
 msgid "$d$s mph"
-msgstr ""
+msgstr "$d$s マイル/時"
 
 #: ../helpers.js:143
 msgid "$d$s km/h"
-msgstr ""
+msgstr "$d$s km/h"
 
 #: ../helpers.js:145
 msgid "$d$s m/s"
-msgstr ""
+msgstr "$d$s m/s"
 
 #: ../helpers.js:147
 msgid "$dBeaufort $s"
-msgstr ""
+msgstr "$d$s 級"
 
 #: ../helpers.js:155
 msgid "N"
-msgstr ""
+msgstr "北"
 
 #: ../helpers.js:155
 msgid "NNE"
-msgstr ""
+msgstr "北北東"
 
 #: ../helpers.js:155
 msgid "NE"
-msgstr ""
+msgstr "北東"
 
 #: ../helpers.js:155
 msgid "ENE"
-msgstr ""
+msgstr "東北東"
 
 #: ../helpers.js:156
 msgid "E"
-msgstr ""
+msgstr "東"
 
 #: ../helpers.js:156
 msgid "ESE"
-msgstr ""
+msgstr "東南東"
 
 #: ../helpers.js:156
 msgid "SE"
-msgstr ""
+msgstr "南東"
 
 #: ../helpers.js:156
 msgid "SSE"
-msgstr ""
+msgstr "南南東"
 
 #: ../helpers.js:156
 msgid "S"
-msgstr ""
+msgstr "南"
 
 #: ../helpers.js:157
 msgid "SSW"
-msgstr ""
+msgstr "南南西"
 
 #: ../helpers.js:157
 msgid "SW"
-msgstr ""
+msgstr "南西"
 
 #: ../helpers.js:157
 msgid "WSW"
-msgstr ""
+msgstr "西南西"
 
 #: ../helpers.js:157
 msgid "W"
-msgstr ""
+msgstr "西"
 
 #: ../helpers.js:157
 msgid "WNW"
-msgstr ""
+msgstr "西北西"
 
 #: ../helpers.js:158
 msgid "NW"
-msgstr ""
+msgstr "北西"
 
 #: ../helpers.js:158
 msgid "NNW"
-msgstr ""
+msgstr "北北西"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "新月"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "三日月"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "上弦の月"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "十三夜月"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "満月"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "寝待月"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "下弦の月"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "有明月"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
-#, fuzzy
 msgid "Weather"
-msgstr "設定"
+msgstr "天気"
 
 #: ../indicator.js:123 ../prefs.js:82
 msgid "Locations"
-msgstr ""
+msgstr "地点"
 
 #: ../indicator.js:126
-#, fuzzy
 msgid "Reload Weather Information"
-msgstr "天気予報を更新する"
+msgstr "天気情報を再読み込み"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "設定"
+msgstr "Wetter の設定"
 
 #: ../indicator.js:271
 msgid "Current location unavailable"
-msgstr ""
+msgstr "現在の位置を利用できません"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"設定で位置情報サービスをオンにし、Wetter の設定で現在の位置を再度オンにしてく"
+"ださい。"
 
 #: ../indicator.js:333
 msgid "No location configured"
-msgstr ""
+msgstr "地点が設定されていません"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "位置を検出しています…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
-msgstr ""
+msgstr "天気を読み込んでいます"
 
 #: ../indicator.js:348
-#, fuzzy
 msgid "No weather information"
-msgstr "天気予報を更新する"
+msgstr "天気情報がありません"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "雨の予報"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "雪の予報"
 
 #: ../indicator.js:412
 msgid "Thunderstorm expected"
-msgstr ""
+msgstr "雷雨の予報"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "$c で $t ごろ"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
-msgstr ""
+msgstr "、"
 
 #: ../indicator.js:533
 msgid "Feels like"
-msgstr ""
+msgstr "体感気温"
 
 #: ../indicator.js:534 ../prefs.js:299
 msgid "Visibility"
-msgstr ""
+msgstr "視程"
 
 #: ../indicator.js:535 ../prefs.js:301
 msgid "Humidity"
-msgstr ""
+msgstr "湿度"
 
 #: ../indicator.js:536 ../prefs.js:257 ../prefs.js:302
-#, fuzzy
 msgid "Pressure"
-msgstr "気温の単位"
+msgstr "気圧"
 
 #: ../indicator.js:537 ../prefs.js:303
 msgid "Wind"
-msgstr ""
+msgstr "風"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "現在"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
 msgid "Current Location"
-msgstr ""
+msgstr "現在の位置"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "検出中…"
 
 #: ../prefs.js:143
 msgid "Add Location"
-msgstr ""
+msgstr "地点を追加"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: ../prefs.js:149
 msgid "Name of the city"
@@ -291,136 +288,131 @@ msgstr "都市の名前"
 
 #: ../prefs.js:208
 msgid "Remove Location?"
-msgstr ""
+msgstr "地点を削除しますか？"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
-msgstr "\"%s\" を削除しますか？"
+msgstr "%s を削除しますか？"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "単位"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "時刻の形式"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12 時間制"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24 時間制"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "気温の単位"
+msgstr "気温"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "デフォルト"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "ケルビン"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "摂氏"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "華氏"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "風速の単位"
+msgstr "風速"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "マイル/時"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "ノット"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "ビューフォート風力階級"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
 msgid "Distance"
-msgstr ""
+msgstr "距離"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "マイル"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "パネル"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
-msgstr "配置する場所"
+msgstr "パネル内の位置"
 
 #: ../prefs.js:279
 msgid "Center"
@@ -436,148 +428,141 @@ msgstr "左側"
 
 #: ../prefs.js:281
 msgid "Wind Direction"
-msgstr ""
+msgstr "風向"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "文字"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "矢印"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
-msgstr "シンボリック・アイコンにする"
+msgstr "シンボリックアイコン"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
-msgstr "パネルに気温を表示する"
+msgstr "パネルに気温を表示"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "パネルに気温を表示する"
+msgstr "パネルに気温の傾向を表示"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
-msgstr "パネルに状態を表示する"
+msgstr "パネルに天気を表示"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "パネルに状態を表示する"
+msgstr "パネルに湿度を表示"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "風速の単位"
+msgstr "パネルに風速を表示"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "現在の天気の表示に含める行を選択します"
 
 #: ../prefs.js:298
 msgid "Feels Like"
-msgstr ""
+msgstr "体感気温"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "月齢"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "予報"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "日別予報"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "予報日数"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "時間別予報"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "予報時間数"
 
 #: ../prefs.js:317
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "雨・雪の通知"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
-msgstr ""
+msgstr "今後 2 時間以内に雨、雪、雷雨が予報されたときに通知する"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "情報"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "複数の地点の予報に対応した GNOME 天気拡張機能"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "リンク"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "ソースコード"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "問題を報告"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "開発を支援する"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "法的情報"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "ライセンス"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
 msgid "Weather Data"
-msgstr "設定"
+msgstr "気象データ"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "クレジット"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "貢献者"
 
 #, fuzzy
 #~ msgid "Weather extension ready"

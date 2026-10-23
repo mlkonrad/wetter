@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: 0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2013-08-10 18:19+0500\n"
-"Last-Translator: Timon <timosha@gmail.com>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,39 +138,39 @@ msgstr "СЗ"
 
 #: ../helpers.js:158
 msgid "NNW"
-msgstr "ССВ"
+msgstr "ССЗ"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Новолуние"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Молодая луна"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "Первая четверть"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Прибывающая луна"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Полнолуние"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Убывающая луна"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Последняя четверть"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Старая луна"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
@@ -179,29 +179,27 @@ msgstr "Погода"
 
 #: ../indicator.js:123 ../prefs.js:82
 msgid "Locations"
-msgstr "Города"
+msgstr "Местоположения"
 
 #: ../indicator.js:126
 msgid "Reload Weather Information"
 msgstr "Обновить информацию о погоде"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Настройки апплета погоды"
+msgstr "Настройки Wetter"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Города"
+msgstr "Текущее местоположение недоступно"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Включите службы определения местоположения в настройках, затем снова "
+"включите текущее местоположение в настройках Wetter."
 
 #: ../indicator.js:333
 msgid "No location configured"
@@ -209,7 +207,7 @@ msgstr "Местоположение не указано"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Определение вашего местоположения…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
@@ -221,26 +219,24 @@ msgstr "Нет информации о погоде"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Ожидается дождь"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Ожидается снег"
 
 #: ../indicator.js:412
-#, fuzzy
-#| msgid "Thunderstorms"
 msgid "Thunderstorm expected"
-msgstr "Грозы"
+msgstr "Ожидается гроза"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "Около $t в $c"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: ../indicator.js:533
 msgid "Feels like"
@@ -264,172 +260,159 @@ msgstr "Ветер"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Сейчас"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Города"
+msgstr "Текущее местоположение"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Определение…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Города"
+msgstr "Добавить местоположение"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: ../prefs.js:149
 msgid "Name of the city"
 msgstr "Название города"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Города"
+msgstr "Удалить местоположение?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
-msgstr "Удалить %s ?"
+msgstr "Удалить %s?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Единицы измерения"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Формат времени"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Автоматически"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12-часовой"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24-часовой"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Единицы измерения температуры"
+msgstr "Температура"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Кельвин"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Цельсий"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Фаренгейт"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Единицы измерения скорости ветра"
+msgstr "Скорость ветра"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "м/с"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "км/ч"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "миль/ч"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "узлы"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Бофорт"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "кПа"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "гПа"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "мбар"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "мм рт. ст."
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "дюйм рт. ст."
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "атм"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Единицы измерения расстояния"
+msgstr "Расстояние"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "м"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "км"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "мили"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Панель"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
@@ -448,156 +431,144 @@ msgid "Left"
 msgstr "Слева"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Отображать направление ветра стрелками"
+msgstr "Направление ветра"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Буквы"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Стрелки"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
-msgstr "Использовать символические значки"
+msgstr "Символические значки"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
-msgstr "Отображать температуру на панели"
+msgstr "Температура на панели"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Отображать температуру на панели"
+msgstr "Тренд температуры на панели"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
-msgstr "Отображать погодные условия на панели"
+msgstr "Погодные условия на панели"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Отображать погодные условия на панели"
+msgstr "Влажность на панели"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Единицы измерения скорости ветра"
+msgstr "Скорость ветра на панели"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "Выберите, какие строки отображаются в текущих условиях"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
 msgstr "Ощущаемая температура"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Фаза Луны"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Прогноз"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Прогноз по дням"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Дней в прогнозе"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Почасовой прогноз"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Часов в прогнозе"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Города"
+msgstr "Уведомления"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Оповещения о дожде и снеге"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
 msgstr ""
+"Уведомлять, когда в течение следующих двух часов ожидается дождь, снег или "
+"гроза"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "О расширении"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "Расширение погоды для GNOME с прогнозами для нескольких местоположений"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Ссылки"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Исходный код"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Сообщить о проблеме"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Поддержать разработку"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Правовые сведения"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Лицензия"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Погода"
+msgstr "Данные о погоде"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Участники"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Участники разработки"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Апплет погоды готов"

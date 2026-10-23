@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: Neroth-gnome-shell-extension-weather 3696468\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2013-07-25 15:05+0200\n"
-"Last-Translator: Peter Bojtos <ptr@ulx.hu>\n"
-"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Hungarian\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,40 +139,40 @@ msgstr "ÉÉNY"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Újhold"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Növő holdsarló"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "Első negyed"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Növő hold"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Telihold"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Fogyó hold"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Utolsó negyed"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Fogyó holdsarló"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
 msgid "Weather"
-msgstr "Időjárás-előrejelzés"
+msgstr "Időjárás"
 
 #: ../indicator.js:123 ../prefs.js:82
 msgid "Locations"
@@ -183,34 +183,32 @@ msgid "Reload Weather Information"
 msgstr "Meteorológiai információk újratöltése"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Meteorológiai beállítások"
+msgstr "Wetter beállítások"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Helyszínek"
+msgstr "A jelenlegi hely nem érhető el"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Kapcsolja be a helymeghatározó szolgáltatásokat a Beállításokban, majd "
+"kapcsolja vissza a jelenlegi helyet a Wetter beállításaiban."
 
 #: ../indicator.js:333
 msgid "No location configured"
-msgstr "Nincsen helyszín beállítva"
+msgstr "Nincs beállítva helyszín"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Hely meghatározása…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
-msgstr "Időjárás-előrejelzés betöltése"
+msgstr "Időjárás betöltése"
 
 #: ../indicator.js:348
 msgid "No weather information"
@@ -218,26 +216,24 @@ msgstr "Nem áll rendelkezésre időjárás-információ"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Eső várható"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Hó várható"
 
 #: ../indicator.js:412
-#, fuzzy
-#| msgid "Thunderstorms"
 msgid "Thunderstorm expected"
-msgstr "Zivatar"
+msgstr "Zivatar várható"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "$c, kb. $t"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: ../indicator.js:533
 msgid "Feels like"
@@ -261,172 +257,159 @@ msgstr "Szél"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Most"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Helyszínek"
+msgstr "Jelenlegi hely"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Meghatározás…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Helyszínek"
+msgstr "Helyszín hozzáadása"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: ../prefs.js:149
 msgid "Name of the city"
 msgstr "Város neve"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Helyszínek"
+msgstr "Eltávolítja a helyszínt?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
 msgstr "%s eltávolítása?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Eltávolítás"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Mértékegységek"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Időformátum"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Automatikus"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12 órás"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24 órás"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Hőmérsékleti egység"
+msgstr "Hőmérséklet"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Kelvin"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenheit"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Szélerősség egység"
+msgstr "Szélsebesség"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "csomó"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Beaufort"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Távolság egység"
+msgstr "Távolság"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "mérföld"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
@@ -438,163 +421,149 @@ msgstr "Középen"
 
 #: ../prefs.js:279
 msgid "Right"
-msgstr "Jobb"
+msgstr "Jobbra"
 
 #: ../prefs.js:279
 msgid "Left"
-msgstr "Bal"
+msgstr "Balra"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Szélirány nyilakkal"
+msgstr "Szélirány"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Betűk"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Nyilak"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
-msgstr "Jelképes Ikonok"
+msgstr "Szimbolikus ikonok"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
 msgstr "Hőmérséklet a panelen"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Hőmérséklet a panelen"
+msgstr "Hőmérséklet-tendencia a panelen"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
 msgstr "Körülmények a panelen"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Körülmények a panelen"
+msgstr "Páratartalom a panelen"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Szélerősség egység"
+msgstr "Szélsebesség a panelen"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Részletek"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "Válassza ki, mely sorok jelenjenek meg a jelenlegi időjárás nézetében"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
 msgstr "Hőérzet"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Holdfázis"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Előrejelzés"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Napi előrejelzés"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Előrejelzett napok"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Óránkénti előrejelzés"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Előrejelzett órák"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Helyszínek"
+msgstr "Értesítések"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Eső- és hóriasztások"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
-msgstr ""
+msgstr "Értesítés, ha a következő két órában eső, hó vagy zivatar várható"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "Névjegy"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "GNOME időjárás-kiterjesztés több helyszín előrejelzésével"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Hivatkozások"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Forráskód"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Hiba jelentése"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Támogassa a fejlesztést"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Jogi információk"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Licenc"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Időjárás-előrejelzés"
+msgstr "Időjárási adatok"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Köszönetnyilvánítás"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Közreműködők"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Időjárás-előrejelzés kész"

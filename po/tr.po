@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2017-07-06 00:39+0300\n"
-"Last-Translator: Kerem Kuralay <keremkuralay@hotmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Turkish\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgstr "$d$s km/sa"
 
 #: ../helpers.js:145
 msgid "$d$s m/s"
-msgstr "$d$s m/sa"
+msgstr "$d$s m/s"
 
 #: ../helpers.js:147
 msgid "$dBeaufort $s"
@@ -139,35 +139,35 @@ msgstr "KKB"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Yeni ay"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Büyüyen hilal"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "İlk dördün"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Büyüyen ay"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Dolunay"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Küçülen ay"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Son dördün"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Küçülen hilal"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
@@ -183,22 +183,20 @@ msgid "Reload Weather Information"
 msgstr "Hava durumu bilgisini yenile"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Hava durumu ayarları"
+msgstr "Wetter Ayarları"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Konumlar"
+msgstr "Mevcut konum kullanılamıyor"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Ayarlar’da Konum Hizmetleri’ni açın, ardından Wetter Ayarları’nda Mevcut "
+"Konum’u yeniden açın."
 
 #: ../indicator.js:333
 msgid "No location configured"
@@ -206,7 +204,7 @@ msgstr "Hiçbir konum ayarlanmadı"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Konumunuz belirleniyor…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
@@ -218,20 +216,20 @@ msgstr "Hava durumu bilgisi yok"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Yağmur bekleniyor"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Kar bekleniyor"
 
 #: ../indicator.js:412
 msgid "Thunderstorm expected"
-msgstr ""
+msgstr "Gök gürültülü fırtına bekleniyor"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "$c konumunda yaklaşık $t"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
@@ -259,176 +257,163 @@ msgstr "Rüzgar"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Şimdi"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Konumlar"
+msgstr "Mevcut Konum"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Belirleniyor…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Konumlar"
+msgstr "Konum Ekle"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: ../prefs.js:149
 msgid "Name of the city"
 msgstr "Şehir adı"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Konumlar"
+msgstr "Konum kaldırılsın mı?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
-msgstr "%s konumu silinsin mi?"
+msgstr "%s kaldırılsın mı?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Birimler"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Saat Biçimi"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Otomatik"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12 saat"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24 saat"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Sıcaklık Birimi"
+msgstr "Sıcaklık"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "Öntanımlı"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Kelvin"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Santigrat"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenhayt"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Rüzgar Hızı Birimi"
+msgstr "Rüzgar Hızı"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/sa"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "mil/sa"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "knot"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Beaufort"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Mesafe Birimi"
+msgstr "Mesafe"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "mil"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Çubuk"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
-msgstr "Çubuktaki Konumu"
+msgstr "Çubuktaki Konum"
 
 #: ../prefs.js:279
 msgid "Center"
@@ -443,156 +428,144 @@ msgid "Left"
 msgstr "Sol"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Rüzgar yönünü ok işaretleriyle görüntüle"
+msgstr "Rüzgar Yönü"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Harfler"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Oklar"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
-msgstr "Renksiz Simgeler"
+msgstr "Sembolik Simgeler"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
-msgstr "Çubukta Sıcaklığı Görüntüle"
+msgstr "Çubukta Sıcaklık"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Çubukta Sıcaklığı Görüntüle"
+msgstr "Çubukta Sıcaklık Eğilimi"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
-msgstr "Çubukta Durumu Görüntüle"
+msgstr "Çubukta Durum"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Çubukta Durumu Görüntüle"
+msgstr "Çubukta Nem"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Rüzgar Hızı Birimi"
+msgstr "Çubukta Rüzgar Hızı"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Ayrıntılar"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
-msgstr ""
+msgstr "Mevcut durum görünümünde hangi satırların görüneceğini seçin"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
 msgstr "Hissedilen"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Ay Evresi"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Tahmin"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Günlük Tahmin"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Tahmin Günleri"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Saatlik Tahmin"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Tahmin Saatleri"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Konumlar"
+msgstr "Bildirimler"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Yağmur ve Kar Uyarıları"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
 msgstr ""
+"Önümüzdeki iki saat içinde yağmur, kar veya gök gürültülü fırtına tahmin "
+"edildiğinde bildir"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "Birden çok konum için tahmin sunan GNOME hava durumu uzantısı"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Bağlantılar"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Kaynak Kodu"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Sorun Bildir"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Geliştirmeye destek olun"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Yasal"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Lisans"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Hava Durumu"
+msgstr "Hava Durumu Verileri"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Geliştirenler"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Katkıda Bulunanlar"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Hava durumu eklentisi hazır"

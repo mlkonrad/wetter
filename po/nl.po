@@ -9,13 +9,14 @@ msgstr ""
 "Project-Id-Version: 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 23:22+0300\n"
-"PO-Revision-Date: 2012-05-13 22:39+0100\n"
-"Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2026-10-23 20:07+0300\n"
+"Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
+"Language-Team: Dutch\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../helpers.js:11 ../helpers.js:155
 msgid "VAR"
@@ -46,7 +47,7 @@ msgstr "%s °C"
 #: ../helpers.js:113
 #, javascript-format
 msgid "%s K"
-msgstr "%s °K"
+msgstr "%s K"
 
 #: ../helpers.js:115 ../helpers.js:149
 msgid "Unknown"
@@ -138,35 +139,35 @@ msgstr "NNW"
 
 #: ../helpers.js:190
 msgid "New moon"
-msgstr ""
+msgstr "Nieuwe maan"
 
 #: ../helpers.js:190
 msgid "Waxing crescent"
-msgstr ""
+msgstr "Wassende maansikkel"
 
 #: ../helpers.js:190
 msgid "First quarter"
-msgstr ""
+msgstr "Eerste kwartier"
 
 #: ../helpers.js:190
 msgid "Waxing gibbous"
-msgstr ""
+msgstr "Wassende maan"
 
 #: ../helpers.js:191
 msgid "Full moon"
-msgstr ""
+msgstr "Volle maan"
 
 #: ../helpers.js:191
 msgid "Waning gibbous"
-msgstr ""
+msgstr "Afnemende maan"
 
 #: ../helpers.js:191
 msgid "Last quarter"
-msgstr ""
+msgstr "Laatste kwartier"
 
 #: ../helpers.js:191
 msgid "Waning crescent"
-msgstr ""
+msgstr "Afnemende maansikkel"
 
 #: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
 #: ../indicator.js:342 ../indicator.js:347
@@ -175,41 +176,39 @@ msgstr "Weer"
 
 #: ../indicator.js:123 ../prefs.js:82
 msgid "Locations"
-msgstr "Lokaties"
+msgstr "Locaties"
 
 #: ../indicator.js:126
 msgid "Reload Weather Information"
 msgstr "Weerinformatie herladen"
 
 #: ../indicator.js:131
-#, fuzzy
-#| msgid "Weather Settings"
 msgid "Wetter Settings"
-msgstr "Weerinstellingen"
+msgstr "Wetter-instellingen"
 
 #: ../indicator.js:271
-#, fuzzy
-#| msgid "Locations"
 msgid "Current location unavailable"
-msgstr "Lokaties"
+msgstr "Huidige locatie niet beschikbaar"
 
 #: ../indicator.js:272
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr ""
+"Schakel Locatiediensten in bij Instellingen en zet daarna Huidige locatie "
+"weer aan in de Wetter-instellingen."
 
 #: ../indicator.js:333
 msgid "No location configured"
-msgstr "Geen lokatie ingesteld"
+msgstr "Geen locatie ingesteld"
 
 #: ../indicator.js:338
 msgid "Detecting your location…"
-msgstr ""
+msgstr "Uw locatie wordt bepaald…"
 
 #: ../indicator.js:343
 msgid "Loading weather"
-msgstr "Laden van weer"
+msgstr "Weer wordt geladen"
 
 #: ../indicator.js:348
 msgid "No weather information"
@@ -217,22 +216,20 @@ msgstr "Geen weerinformatie"
 
 #: ../indicator.js:412
 msgid "Rain expected"
-msgstr ""
+msgstr "Regen verwacht"
 
 #: ../indicator.js:412
 msgid "Snow expected"
-msgstr ""
+msgstr "Sneeuw verwacht"
 
 #: ../indicator.js:412
-#, fuzzy
-#| msgid "Thunderstorms"
 msgid "Thunderstorm expected"
-msgstr "Onweersbuien"
+msgstr "Onweer verwacht"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
 #: ../indicator.js:416
 msgid "Around $t in $c"
-msgstr ""
+msgstr "Rond $t in $c"
 
 #: ../indicator.js:488 ../indicator.js:498
 msgid ", "
@@ -248,188 +245,175 @@ msgstr "Zicht"
 
 #: ../indicator.js:535 ../prefs.js:301
 msgid "Humidity"
-msgstr "Luchtvochtigheid:"
+msgstr "Luchtvochtigheid"
 
 #: ../indicator.js:536 ../prefs.js:257 ../prefs.js:302
 msgid "Pressure"
-msgstr "Luchtdruk:"
+msgstr "Luchtdruk"
 
 #: ../indicator.js:537 ../prefs.js:303
 msgid "Wind"
-msgstr "Wind:"
+msgstr "Wind"
 
 #: ../indicator.js:621
 msgid "Now"
-msgstr ""
+msgstr "Nu"
 
 #: ../indicator.js:752 ../indicator.js:837 ../prefs.js:99
-#, fuzzy
-#| msgid "Locations"
 msgid "Current Location"
-msgstr "Lokaties"
+msgstr "Huidige locatie"
 
 #: ../prefs.js:69 ../prefs.js:339
 msgid "Wetter"
-msgstr ""
+msgstr "Wetter"
 
 #: ../prefs.js:103
 msgid "Detecting…"
-msgstr ""
+msgstr "Bepalen…"
 
 #: ../prefs.js:143
-#, fuzzy
-#| msgid "Locations"
 msgid "Add Location"
-msgstr "Lokaties"
+msgstr "Locatie toevoegen"
 
 #: ../prefs.js:144 ../prefs.js:211
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: ../prefs.js:145
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: ../prefs.js:149
 msgid "Name of the city"
 msgstr "Naam van de stad"
 
 #: ../prefs.js:208
-#, fuzzy
-#| msgid "Locations"
 msgid "Remove Location?"
-msgstr "Lokaties"
+msgstr "Locatie verwijderen?"
 
 #: ../prefs.js:209
-#, fuzzy, javascript-format
-#| msgid "Remove %s ?"
+#, javascript-format
 msgid "Remove %s?"
 msgstr "%s verwijderen?"
 
 #: ../prefs.js:212
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: ../prefs.js:233
 msgid "Units"
-msgstr ""
+msgstr "Eenheden"
 
 #: ../prefs.js:236
 msgid "Time Format"
-msgstr ""
+msgstr "Tijdnotatie"
 
 #: ../prefs.js:237
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisch"
 
 #: ../prefs.js:237
 msgid "12-hour"
-msgstr ""
+msgstr "12 uur"
 
 #: ../prefs.js:237
 msgid "24-hour"
-msgstr ""
+msgstr "24 uur"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
 #: ../prefs.js:243
-#, fuzzy
-#| msgid "Temperature Unit"
 msgid "Temperature"
-msgstr "Temperatuureenheid"
+msgstr "Temperatuur"
 
 #: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: ../prefs.js:245
 msgid "Kelvin"
-msgstr ""
+msgstr "Kelvin"
 
 #: ../prefs.js:246
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: ../prefs.js:247
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenheit"
 
 #: ../prefs.js:249
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed"
-msgstr "Windsnelheideenheid"
+msgstr "Windsnelheid"
 
 #: ../prefs.js:251
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../prefs.js:252
 msgid "km/h"
-msgstr ""
+msgstr "km/u"
 
 #: ../prefs.js:253
 msgid "mph"
-msgstr ""
+msgstr "mijl/u"
 
 #: ../prefs.js:254
 msgid "knots"
-msgstr ""
+msgstr "knopen"
 
 #: ../prefs.js:255
 msgid "Beaufort"
-msgstr ""
+msgstr "Beaufort"
 
 #: ../prefs.js:259
 msgid "kPa"
-msgstr ""
+msgstr "kPa"
 
 #: ../prefs.js:260
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: ../prefs.js:261
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: ../prefs.js:262
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: ../prefs.js:263
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: ../prefs.js:264
 msgid "atm"
-msgstr ""
+msgstr "atm"
 
 #: ../prefs.js:266
-#, fuzzy
-#| msgid "Distance Unit"
 msgid "Distance"
-msgstr "Afstandeenheid"
+msgstr "Afstand"
 
 #: ../prefs.js:268
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../prefs.js:269
 msgid "km"
-msgstr ""
+msgstr "km"
 
 #: ../prefs.js:270
 msgid "miles"
-msgstr ""
+msgstr "mijl"
 
 #: ../prefs.js:275
 msgid "Panel"
-msgstr ""
+msgstr "Paneel"
 
 #: ../prefs.js:278
 msgid "Position in Panel"
-msgstr "Positie in werkbalk"
+msgstr "Positie in paneel"
 
 #: ../prefs.js:279
 msgid "Center"
@@ -444,18 +428,16 @@ msgid "Left"
 msgstr "Links"
 
 #: ../prefs.js:281
-#, fuzzy
-#| msgid "Wind Direction by Arrows"
 msgid "Wind Direction"
-msgstr "Windrichting met pijlen"
+msgstr "Windrichting"
 
 #: ../prefs.js:282
 msgid "Letters"
-msgstr ""
+msgstr "Letters"
 
 #: ../prefs.js:282
 msgid "Arrows"
-msgstr ""
+msgstr "Pijlen"
 
 #: ../prefs.js:283
 msgid "Symbolic Icons"
@@ -463,137 +445,128 @@ msgstr "Symbolische pictogrammen"
 
 #: ../prefs.js:284
 msgid "Temperature in Panel"
-msgstr "Temperatuur in werkbalk"
+msgstr "Temperatuur in paneel"
 
 #: ../prefs.js:285
-#, fuzzy
-#| msgid "Temperature in Panel"
 msgid "Temperature Trend in Panel"
-msgstr "Temperatuur in werkbalk"
+msgstr "Temperatuurtrend in paneel"
 
 #: ../prefs.js:286
 msgid "Conditions in Panel"
-msgstr "Weersomstandigheden in werkbalk"
+msgstr "Weersomstandigheden in paneel"
 
 #: ../prefs.js:287
-#, fuzzy
-#| msgid "Conditions in Panel"
 msgid "Humidity in Panel"
-msgstr "Weersomstandigheden in werkbalk"
+msgstr "Luchtvochtigheid in paneel"
 
 #: ../prefs.js:288
-#, fuzzy
-#| msgid "Wind Speed Unit"
 msgid "Wind Speed in Panel"
-msgstr "Windsnelheideenheid"
+msgstr "Windsnelheid in paneel"
 
 #: ../prefs.js:293
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: ../prefs.js:294
 msgid "Choose which rows appear in the current-conditions view"
 msgstr ""
+"Kies welke rijen in het overzicht van de huidige omstandigheden verschijnen"
 
 #: ../prefs.js:298
-#, fuzzy
-#| msgid "Feels like"
 msgid "Feels Like"
 msgstr "Voelt aan als"
 
 #: ../prefs.js:300
 msgid "Moon Phase"
-msgstr ""
+msgstr "Maanfase"
 
 #: ../prefs.js:307
 msgid "Forecast"
-msgstr ""
+msgstr "Verwachting"
 
 #: ../prefs.js:310
 msgid "Daily Forecast"
-msgstr ""
+msgstr "Dagelijkse verwachting"
 
 #: ../prefs.js:311
 msgid "Forecast Days"
-msgstr ""
+msgstr "Verwachtingsdagen"
 
 #: ../prefs.js:312
 msgid "Hour-by-Hour Forecast"
-msgstr ""
+msgstr "Uurverwachting"
 
 #: ../prefs.js:313
 msgid "Forecast Hours"
-msgstr ""
+msgstr "Verwachtingsuren"
 
 #: ../prefs.js:317
-#, fuzzy
-#| msgid "Locations"
 msgid "Notifications"
-msgstr "Lokaties"
+msgstr "Meldingen"
 
 #: ../prefs.js:320
 msgid "Rain and Snow Alerts"
-msgstr ""
+msgstr "Regen- en sneeuwmeldingen"
 
 #: ../prefs.js:321
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
 msgstr ""
+"Melden wanneer er binnen de komende twee uur regen, sneeuw of onweer wordt "
+"verwacht"
 
 #: ../prefs.js:326
 msgid "About"
-msgstr ""
+msgstr "Info"
 
 #: ../prefs.js:341
 msgid "GNOME weather extension with forecasts for multiple locations"
-msgstr ""
+msgstr "GNOME-weerextensie met verwachtingen voor meerdere locaties"
 
 #: ../prefs.js:346
 msgid "Links"
-msgstr ""
+msgstr "Koppelingen"
 
 #: ../prefs.js:348
 msgid "Source Code"
-msgstr ""
+msgstr "Broncode"
 
 #: ../prefs.js:350
 msgid "Report an Issue"
-msgstr ""
+msgstr "Een probleem melden"
 
 #: ../prefs.js:353
 msgid "Help support development"
-msgstr ""
+msgstr "Steun de ontwikkeling"
 
 #: ../prefs.js:355
 msgid "Legal"
-msgstr ""
+msgstr "Juridisch"
 
 #: ../prefs.js:357
 msgid "License"
-msgstr ""
+msgstr "Licentie"
 
 #. MET Norway's data is CC BY 4.0, which requires credit "in any reasonable
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
 #: ../prefs.js:363
-#, fuzzy
-#| msgid "Weather"
 msgid "Weather Data"
-msgstr "Weer"
+msgstr "Weergegevens"
 
 #: ../prefs.js:364
 msgid "MET Norway (CC BY 4.0)"
-msgstr ""
+msgstr "MET Norway (CC BY 4.0)"
 
 #: ../prefs.js:366
 msgid "Credits"
-msgstr ""
+msgstr "Met dank aan"
 
 #: ../prefs.js:369
 msgid "Contributors"
-msgstr ""
+msgstr "Bijdragers"
 
 #~ msgid "Weather extension ready"
 #~ msgstr "Weerextensie gereed"
