@@ -42,8 +42,11 @@
     padding-left: 2px;
 }
 
+.weather-current-moonbox {
+    padding-top: 3px;
+}
+
 .weather-moon-icon {
-    padding-left: 8px;
     padding-right: 4px;
 }
 
@@ -54,8 +57,14 @@
     color: #999999;
 }
 
+/* max-width, not width: 0. Zero made these request no width at all, so the
+   menu was sized entirely by the current-conditions block and changing
+   "Forecast Days" never resized the popup. A cap instead lets the row ask for
+   what it needs - the default 5 days come to ~654px and fit without a
+   scrollbar - while keeping 10 days or 48 hours from demanding a popup wider
+   than the screen. Past the cap the St.ScrollView scrolls as before. */
 .forecast {
-  width: 0;
+  max-width: 680px;
 }
 
 .weather-forecasts {
@@ -91,8 +100,10 @@
   text-align: center;
 }
 
+/* Same cap as .forecast, so the two rows share a viewport width and line up.
+   The default 24 hours exceed it and scroll, which is expected. */
 .hourly {
-  width: 0;
+  max-width: 680px;
 }
 
 .weather-hourlys {

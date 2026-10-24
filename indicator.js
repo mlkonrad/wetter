@@ -514,7 +514,6 @@ class WeatherIndicator extends PanelMenu.Button {
         infoBox.add_child(new St.Label({text: sunrise}));
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('weather-clear-night', symbolic), style_class: 'weather-sunset-icon'}));
         infoBox.add_child(new St.Label({text: sunset}));
-        this._addMoonPhase(infoBox, info);
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('view-refresh', symbolic), style_class: 'weather-build-icon'}));
         infoBox.add_child(new St.Label({text: updated}));
 
@@ -522,6 +521,7 @@ class WeatherIndicator extends PanelMenu.Button {
         summaryBox.add_child(location);
         summaryBox.add_child(summary);
         summaryBox.add_child(infoBox);
+        this._addMoonPhase(summaryBox, info);
 
         const captions = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-current-databox-captions'});
         const values = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-current-databox-values'});
@@ -556,7 +556,13 @@ class WeatherIndicator extends PanelMenu.Button {
     // observer's latitude from the location - not the third value of
     // get_value_moonphase(), which is the moon's own latitude and reads the
     // same worldwide.
-    _addMoonPhase(infoBox, info) {
+    //
+    // This gets its own row rather than sitting inline with sunrise/sunset:
+    // the phase name is the longest string in the dropdown in several
+    // languages (German "Zunehmender Dreiviertelmond" runs to 27 characters),
+    // and the current-conditions block is what the menu takes its width from,
+    // so inlining it stretched the whole popup well past the forecast rows.
+    _addMoonPhase(summaryBox, info) {
         if (!this._settings.get_boolean('show-moon-phase'))
             return;
 
@@ -568,12 +574,14 @@ class WeatherIndicator extends PanelMenu.Button {
         const file = Gio.File.new_for_path(
             GLib.build_filenamev([this._extensionPath, 'icons', `${moonPhaseIconName(degrees, latitude)}.svg`]));
 
-        infoBox.add_child(new St.Icon({
+        const row = new St.BoxLayout({style_class: 'weather-current-moonbox'});
+        row.add_child(new St.Icon({
             icon_size: 15,
             gicon: new Gio.FileIcon({file}),
             style_class: 'weather-moon-icon',
         }));
-        infoBox.add_child(new St.Label({text: moonPhaseName(degrees, _)}));
+        row.add_child(new St.Label({text: moonPhaseName(degrees, _)}));
+        summaryBox.add_child(row);
     }
 
     // The arrow qualifies the panel temperature, so it only makes sense
@@ -632,16 +640,16 @@ class WeatherIndicator extends PanelMenu.Button {
             })),
         ];
 
-        const row = new St.BoxLayout();
+        const row = new St.BoxLayout({x_expand: true});
         for (const item of entries) {
             const [itemTempValid, itemTempValue] = item.temp;
-            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-hourly-box'});
+            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-hourly-box', x_expand: true});
             column.add_child(new St.Label({
                 text: itemTempValid ? temperatureString(temperatureUnit, itemTempValue, _) : '-',
                 style_class: 'weather-hourly-temp',
             }));
             column.add_child(new St.Icon({
-                icon_size: 24,
+                icon_size: 32,
                 icon_name: iconType(item.icon, symbolic),
                 style_class: 'weather-hourly-icon',
                 x_align: Clutter.ActorAlign.CENTER,
@@ -682,10 +690,15 @@ class WeatherIndicator extends PanelMenu.Button {
             return;
         }
 
-        const row = new St.BoxLayout();
+        // x_expand on the row and every column: the menu takes its width from
+        // the current-conditions block, which is wider than a short forecast,
+        // so without this the columns keep their natural width and sit
+        // centered with dead space either side. Expanding shares the row out
+        // evenly at any day count; min-width still decides when it scrolls.
+        const row = new St.BoxLayout({x_expand: true});
         for (const day of days) {
             const icon = new St.Icon({
-                icon_size: 32,
+                icon_size: 44,
                 icon_name: iconType(day.icon, symbolic),
                 style_class: 'weather-forecast-icon',
             });
@@ -703,13 +716,16 @@ class WeatherIndicator extends PanelMenu.Button {
             iconMinMax.add_child(icon);
             iconMinMax.add_child(minmax);
 
-            const iconMinMaxBin = new St.Bin({style_class: 'weather-forecast-minmax-box'});
+            const iconMinMaxBin = new St.Bin({
+                style_class: 'weather-forecast-minmax-box',
+                x_align: Clutter.ActorAlign.CENTER,
+            });
             iconMinMaxBin.set_child(iconMinMax);
 
             const dayBox = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-daybox'});
             dayBox.add_child(new St.Label({text: dayName(today, day.date, _), style_class: 'weather-forecast-day'}));
 
-            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-box'});
+            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-box', x_expand: true});
             column.add_child(iconMinMaxBin);
             column.add_child(dayBox);
             column.add_child(new St.Label({text: day.humidity, style_class: 'weather-forecast-humidity'}));
