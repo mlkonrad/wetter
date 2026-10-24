@@ -63,6 +63,12 @@ gone:
   meaning, needs migration code shipped in `enable()`.
 - Every upload is a public release to real users, so run the full
   "Checks before submitting" list before each one.
+- **Don't bump `version-name` in `metadata.json` while developing.** It is
+  changed only at submission time, once EGO has assigned the numeric
+  `version`, and the repo is updated to match afterwards. So `version-name`
+  trailing the work in progress is the intended state, not an oversight -
+  it still reads `1.0` while the branch carries the 1.1 features. Don't
+  offer to bump it.
 
 Generic uses of the word "weather" describing content/state - the panel's
 placeholder label text (`_panelLabel.text = _('Weather')` in `indicator.js`'s
