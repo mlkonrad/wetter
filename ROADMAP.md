@@ -17,7 +17,7 @@ ends up in the EGO zip.
 | 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
 | 4 | Moon phase in the dropdown | Done, `04eb740`, not yet released |
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
-| 6 | Full translation of all 31 shipped languages | Done 2026-10-23, not yet released |
+| 6 | Full translation of all shipped languages | Done 2026-10-23 (Estonian added 2026-10-24), not yet released |
 | - | Release 1.1 to extensions.gnome.org | Ready when you are |
 
 All features are in. What's left is the release itself.
@@ -98,7 +98,7 @@ future version of this can only launch the app.
 
 ---
 
-## 6. Full translation of all 31 shipped languages - done
+## 6. Full translation of all shipped languages - done
 
 Done 2026-10-23. Every `po/*.po` is at **132/132 translated, 0 fuzzy**; before
 this, only `pt_BR` was close (96/132) and the other 30 ranged from 2 to 50.
@@ -144,6 +144,32 @@ indicator is on.
 that `CLAUDE.md`'s "Translation workflow" previously described as a manual
 review step.
 
+**Estonian (`et`) added 2026-10-24**, bringing the set to 32. Two decisions
+worth not re-litigating:
+
+- **The 16 compass msgids are left as the international letters** (`N`, `NNE`,
+  ...), i.e. `msgstr` equal to `msgid`. Estonian has real names for all eight
+  points (põhi, kirre, ida, kagu, lõuna, edel, lääs, loode), but Estonian
+  reference works list the *international* letters as their abbreviation, and
+  the Estonian initials collide - lõuna and lääs both give "L". Localised
+  initials would be both ambiguous and wider than the panel allows.
+- **Moon phases follow the traditional Estonian eight-phase naming** (`Kuu
+  loomine`, `Noorkuu`, `Esimene veerand`, `Kasvav kuu`, `Täiskuu`, `Kahanev
+  kuu`, `Viimane veerand`, `Vanakuu`). Note `noorkuu` is used by many
+  Estonian speakers for the *new* moon rather than the waxing crescent; the
+  mapping here follows the et.wikipedia "Kuu faasid" article text, whose own
+  diagram caption contradicts it. This is the first thing a native reviewer
+  should check.
+
+Terminology came from the installed Estonian catalogs where one existed
+(`libgweather-4.0` for `Teadmata` and the direction names, `gtk40` for
+`Litsents`/`Autorid`, `gnome-control-center-2.0` for `Asukoht`, `Loobu`,
+`Vaikimisi`, `Üksikasjad`, `Teated`, `org.gnome.Weather` for `Ilmaprognoos`).
+Estonian GNOME Weather is only 43 strings upstream, so the weather detail rows
+(`Õhuniiskus`, `Õhurõhk`, `Nähtavus`, `Tajutav`) are not GNOME-sourced;
+`tajutav temperatuur` is the Estonian weather service's own term for wind
+chill.
+
 ## Release 1.1
 
 Features 1 and 2 are on `master` but not on extensions.gnome.org.
@@ -160,7 +186,7 @@ Features 1 and 2 are on `master` but not on extensions.gnome.org.
 ## Housekeeping (optional)
 
 - ~~**New strings are untranslated.**~~ Resolved 2026-10-23 by feature 6
-  below: all 31 languages are at 132/132 with no fuzzy entries left.
+  below: all 32 languages are at 132/132 with no fuzzy entries left.
 - **Keep the nested test harness.** The isolated headless setup used to
   test features 1 and 2 (keyfile settings backend, helper extension taking
   screenshots, virtual pointer, cleanup by environment) lived in a session

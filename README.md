@@ -15,7 +15,7 @@ locations as you like.
   two hours
 - Choose what the panel shows and where, units, 12/24-hour time, and symbolic
   or full-color icons
-- Translated into 31 languages, following your system language automatically
+- Translated into 32 languages, following your system language automatically
 
 **Supported GNOME Shell versions:** 49, 50
 
@@ -77,20 +77,19 @@ OpenWeatherMap and METAR airport reports — to fetch its forecast.
 
 ## Translations
 
-Wetter's interface is fully translated into **31 languages** — every one of
+Wetter's interface is fully translated into **32 languages** — every one of
 them covers all 132 strings, with nothing left untranslated:
 
 | | | | |
 |---|---|---|---|
-| Arabic (`ar`) | Dutch (`nl`) | Japanese (`ja`) | Russian (`ru`) |
-| Basque (`eu`) | Finnish (`fi`) | Lithuanian (`lt`) | Slovak (`sk`) |
-| Bulgarian (`bg`) | French (`fr`) | Norwegian Bokmål (`nb`) | Spanish (`es`) |
-| Catalan (`ca`) | German (`de`) | Persian (`fa`) | Swedish (`sv`) |
-| Chinese, Simplified (`zh_CN`) | Greek (`el`) | Polish (`pl`) | Turkish (`tr`) |
-| Chinese, Traditional (`zh_TW`) | Hebrew (`he`) | Portuguese (`pt`) | Ukrainian (`uk`) |
-| Czech (`cs`) | Hungarian (`hu`) | Portuguese, Brazilian (`pt_BR`) | Vietnamese (`vi`) |
-| Danish (`da`) | Italian (`it`) | Romanian (`ro`) |  |
-
+| Arabic (`ar`) | Dutch (`nl`) | Italian (`it`) | Romanian (`ro`) |
+| Basque (`eu`) | Estonian (`et`) | Japanese (`ja`) | Russian (`ru`) |
+| Bulgarian (`bg`) | Finnish (`fi`) | Lithuanian (`lt`) | Slovak (`sk`) |
+| Catalan (`ca`) | French (`fr`) | Norwegian Bokmål (`nb`) | Spanish (`es`) |
+| Chinese, Simplified (`zh_CN`) | German (`de`) | Persian (`fa`) | Swedish (`sv`) |
+| Chinese, Traditional (`zh_TW`) | Greek (`el`) | Polish (`pl`) | Turkish (`tr`) |
+| Czech (`cs`) | Hebrew (`he`) | Portuguese (`pt`) | Ukrainian (`uk`) |
+| Danish (`da`) | Hungarian (`hu`) | Portuguese, Brazilian (`pt_BR`) | Vietnamese (`vi`) |
 There is no language setting. Wetter follows your **system language**: GNOME
 Shell loads the matching catalog for the session locale, so changing your
 language in Settings changes the extension too, after a log out and back in.

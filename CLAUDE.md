@@ -459,14 +459,21 @@ a human translator.
 `#| msgid "..."` comment showing what it was matched from, for easier
 manual review later.
 
-**All 31 languages are at 132/132 with no fuzzy entries** as of 2026-10-23
+**All 32 languages are at 132/132 with no fuzzy entries** as of 2026-10-24
 (see `ROADMAP.md` section 6 for what that pass fixed, and the defect classes
 worth re-checking after adding strings: trailing colons on msgids that serve
 as both a detail-row caption and a prefs row title, compass abbreviations wide
-enough to stretch the panel, and `°K`). **All 31 files, `pt_BR` included,
+enough to stretch the panel, and `°K`). **All 32 files, `pt_BR` included,
 carry `Last-Translator: machine-assisted (unreviewed)`** - no language has been
 reviewed by a native speaker yet. Keep that marker on a file until one
 actually has, and don't silently overwrite a translation a human contributed.
+
+Adding a language takes three things, not one: `po/<lang>.po`, an entry in
+`po/LINGUAS`, and a compiled `locale/<lang>/LC_MESSAGES/<domain>.mo`. Only the
+`.mo` is read at runtime, so a `.po` alone leaves the language silently
+falling back to English. Estonian (`et`) was added this way on 2026-10-24;
+`msgfmt --statistics` on every `po/*.po` and `unzip -l dist/*.zip | grep -c
+'\.mo$'` are the two checks that catch a half-wired language.
 
 The files are canonical `msgcat` output (verified: each is byte-identical to
 `msgcat` of itself), so after editing a `.po` by hand run
