@@ -463,10 +463,10 @@ manual review later.
 (see `ROADMAP.md` section 6 for what that pass fixed, and the defect classes
 worth re-checking after adding strings: trailing colons on msgids that serve
 as both a detail-row caption and a prefs row title, compass abbreviations wide
-enough to stretch the panel, and `°K`). Non-`pt_BR` files carry
-`Last-Translator: machine-assisted (unreviewed)`; keep that marker until a
-native speaker actually reviews the file, and don't silently overwrite a
-translation a human contributed.
+enough to stretch the panel, and `°K`). **All 31 files, `pt_BR` included,
+carry `Last-Translator: machine-assisted (unreviewed)`** - no language has been
+reviewed by a native speaker yet. Keep that marker on a file until one
+actually has, and don't silently overwrite a translation a human contributed.
 
 The files are canonical `msgcat` output (verified: each is byte-identical to
 `msgcat` of itself), so after editing a `.po` by hand run

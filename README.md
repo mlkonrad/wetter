@@ -15,6 +15,7 @@ locations as you like.
   two hours
 - Choose what the panel shows and where, units, 12/24-hour time, and symbolic
   or full-color icons
+- Translated into 31 languages, following your system language automatically
 
 **Supported GNOME Shell versions:** 49, 50
 
@@ -76,19 +77,37 @@ OpenWeatherMap and METAR airport reports — to fetch its forecast.
 
 ## Translations
 
-Wetter's interface is translated into 31 languages: Arabic, Basque, Bulgarian,
-Catalan, Chinese (Simplified and Traditional), Czech, Danish, Dutch, Finnish,
-French, German, Greek, Hebrew, Hungarian, Italian, Japanese, Lithuanian,
-Norwegian Bokmål, Persian, Polish, Portuguese (European and Brazilian),
-Romanian, Russian, Slovak, Spanish, Swedish, Turkish, Ukrainian and Vietnamese.
+Wetter's interface is fully translated into **31 languages** — every one of
+them covers all 132 strings, with nothing left untranslated:
+
+| | | | |
+|---|---|---|---|
+| Arabic (`ar`) | Dutch (`nl`) | Japanese (`ja`) | Russian (`ru`) |
+| Basque (`eu`) | Finnish (`fi`) | Lithuanian (`lt`) | Slovak (`sk`) |
+| Bulgarian (`bg`) | French (`fr`) | Norwegian Bokmål (`nb`) | Spanish (`es`) |
+| Catalan (`ca`) | German (`de`) | Persian (`fa`) | Swedish (`sv`) |
+| Chinese, Simplified (`zh_CN`) | Greek (`el`) | Polish (`pl`) | Turkish (`tr`) |
+| Chinese, Traditional (`zh_TW`) | Hebrew (`he`) | Portuguese (`pt`) | Ukrainian (`uk`) |
+| Czech (`cs`) | Hungarian (`hu`) | Portuguese, Brazilian (`pt_BR`) | Vietnamese (`vi`) |
+| Danish (`da`) | Italian (`it`) | Romanian (`ro`) |  |
+
+There is no language setting. Wetter follows your **system language**: GNOME
+Shell loads the matching catalog for the session locale, so changing your
+language in Settings changes the extension too, after a log out and back in.
+
+Regional variants fall back to the base language, so the list covers more
+locales than it lists — `de_AT` and `de_CH` use the German translation,
+`pt_PT` the European Portuguese one. A language with no translation here
+shows the original English strings rather than failing.
 
 Some of these started as translations inherited from the upstream extension;
 the rest, and everything added since the fork, are **machine-assisted and have
-not been reviewed by a native speaker** (the `Last-Translator` header of each
-`po/*.po` file says so). Terminology is matched to GNOME's own translations
-where the same term exists there, but corrections are very welcome — a patch
-against `po/<lang>.po`, or an [issue](https://github.com/mlkonrad/wetter/issues)
-pointing out what reads wrong, is the easiest way to help.
+not been reviewed by a native speaker** (the `Last-Translator` header of every
+`po/*.po` file says so, Brazilian Portuguese included). Terminology is matched
+to GNOME's own translations where the same term exists there, but corrections
+are very welcome — a patch against `po/<lang>.po`, or an
+[issue](https://github.com/mlkonrad/wetter/issues) pointing out what reads
+wrong, is the easiest way to help.
 
 ## Debug
 
