@@ -4,6 +4,7 @@ import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
 import Gio from 'gi://Gio';
 import GWeather from 'gi://GWeather';
+import Pango from 'gi://Pango';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
@@ -21,6 +22,22 @@ const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
 const REFRESH_INTERVAL_SECONDS = 30 * 60;
 const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
 const TREND_LOOKAHEAD_HOURS = 3;
+
+// The dropdown is a fixed width rather than one that tracks its contents, so
+// it doesn't change shape when the language, the unit lengths or the forecast
+// counts change. The monitor fraction is the part that keeps "fixed" honest:
+// a flat pixel width would overflow a small screen, so a narrow monitor gets
+// a narrower menu and the labels below wrap into it.
+//
+// 640 is close to the floor, not a round number. The parts that cannot
+// shrink - the 72px icon, the sunrise/sunset/updated row, and the detail
+// caption column at its widest translation - come to roughly 609px, and
+// below that the row clips instead of adapting. Size this against the
+// longest translations rather than the English or German ones: the widest
+// "Feels like" is Russian's and Romanian's at 21 characters, against
+// German's 16, so German on screen is not the case to tune by.
+const MENU_PREFERRED_WIDTH = 640;
+const MENU_MAX_MONITOR_FRACTION = 0.6;
 
 // Matches the nick order of the time-format enum in the schema.
 const TIME_FORMAT_AUTO = 0;
@@ -42,6 +59,16 @@ function getCurrentLocationCity(settings) {
 
 function setCurrentLocationCity(settings, city) {
     settings.set_value('current-location-city', new GLib.Variant('av', [city.serialize()]));
+}
+
+// St.Label does not wrap by default; it grows instead, which is exactly what
+// a fixed-width menu cannot allow. WORD_CHAR breaks mid-word only when a
+// single word is itself too wide, which German compounds can be.
+function wrapLabel(label) {
+    label.clutter_text.line_wrap = true;
+    label.clutter_text.line_wrap_mode = Pango.WrapMode.WORD_CHAR;
+    label.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
+    return label;
 }
 
 function clamp(index, length) {
@@ -72,6 +99,14 @@ class WeatherIndicator extends PanelMenu.Button {
         this._networkMonitor = Gio.NetworkMonitor.get_default();
 
         this._buildUI();
+
+        // Sized on open rather than once at build time: the panel can move to
+        // another monitor, and the menu has no allocation worth measuring
+        // until it is first shown.
+        this._menuOpenId = this.menu.connect('open-state-changed', (_menu, open) => {
+            if (open)
+                this._applyMenuWidth();
+        });
 
         this._settingsChangedId = this._settings.connect('changed', (_s, key) => this._onSettingChanged(key));
         this._gweatherChangedId = this._gweatherSettings.connect('changed', () => this._refreshReadyDisplay());
@@ -449,6 +484,12 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource.addNotification(notification);
     }
 
+    _applyMenuWidth() {
+        const monitor = Main.layoutManager.findMonitorForActor(this);
+        const width = Math.min(MENU_PREFERRED_WIDTH, Math.floor(monitor.width * MENU_MAX_MONITOR_FRACTION));
+        this.menu.box.style = `width: ${width}px;`;
+    }
+
     // -- Rendering -----------------------------------------------------------
 
     _renderCurrent() {
@@ -495,7 +536,7 @@ class WeatherIndicator extends PanelMenu.Button {
             style_class: 'weather-current-icon',
         });
 
-        const location = new St.Label({text: `${info.get_location().get_city_name()}${_(', ')}${conditions}`});
+        const location = wrapLabel(new St.Label({text: `${info.get_location().get_city_name()}${_(', ')}${conditions}`}));
         const summary = new St.Label({
             text: apparentString,
             style_class: 'weather-current-summary',
@@ -580,7 +621,7 @@ class WeatherIndicator extends PanelMenu.Button {
             gicon: new Gio.FileIcon({file}),
             style_class: 'weather-moon-icon',
         }));
-        row.add_child(new St.Label({text: moonPhaseName(degrees, _)}));
+        row.add_child(wrapLabel(new St.Label({text: moonPhaseName(degrees, _)})));
         summaryBox.add_child(row);
     }
 
@@ -755,7 +796,7 @@ class WeatherIndicator extends PanelMenu.Button {
             this._attributionBin.hide();
             return;
         }
-        this._attributionBin.set_child(new St.Label({text}));
+        this._attributionBin.set_child(wrapLabel(new St.Label({text})));
         this._attributionBin.show();
     }
 
@@ -871,6 +912,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource = null;
         this._precipitationNotification = null;
 
+        this.menu.disconnect(this._menuOpenId);
         this._settings.disconnect(this._settingsChangedId);
         this._gweatherSettings.disconnect(this._gweatherChangedId);
         this._interfaceSettings.disconnect(this._interfaceChangedId);

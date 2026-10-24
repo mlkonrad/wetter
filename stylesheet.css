@@ -7,11 +7,11 @@
 }
 
 .weather-current-databox {
-    padding: 0px 15px 0px 30px;
+    padding: 0px 8px 0px 16px;
 }
 
 .weather-current-icon {
-    padding: 0px 30px;
+    padding: 0px 16px;
 }
 
 .weather-current-iconbox {
@@ -64,19 +64,19 @@
 
 .weather-current-databox-captions {
     text-align: right;
-    padding-right: 10px;
-    padding-left: 20px;
+    padding-right: 8px;
+    padding-left: 12px;
     color: #999999;
 }
 
-/* max-width, not width: 0. Zero made these request no width at all, so the
-   menu was sized entirely by the current-conditions block and changing
-   "Forecast Days" never resized the popup. A cap instead lets the row ask for
-   what it needs - the default 5 days come to ~654px and fit without a
-   scrollbar - while keeping 10 days or 48 hours from demanding a popup wider
-   than the screen. Past the cap the St.ScrollView scrolls as before. */
+/* Zero width, so neither forecast row can widen the menu: the dropdown is a
+   fixed width set in indicator.js, and these fill whatever that gives them.
+   A max-width here would be worse than nothing - it would cap the scroll
+   viewport below the menu width and leave a blank strip at each end. The
+   columns inside carry x_expand, so a short forecast spreads across the row
+   and a long one scrolls. */
 .forecast {
-  max-width: 680px;
+  width: 0;
 }
 
 .weather-forecasts {
@@ -112,10 +112,9 @@
   text-align: center;
 }
 
-/* Same cap as .forecast, so the two rows share a viewport width and line up.
-   The default 24 hours exceed it and scroll, which is expected. */
+/* Same reasoning as .forecast above. */
 .hourly {
-  max-width: 680px;
+  width: 0;
 }
 
 .weather-hourlys {
