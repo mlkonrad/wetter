@@ -515,7 +515,18 @@ class WeatherIndicator extends PanelMenu.Button {
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('weather-clear-night', symbolic), style_class: 'weather-sunset-icon'}));
         infoBox.add_child(new St.Label({text: sunset}));
         this._addMoonPhase(infoBox, info);
-        infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('view-refresh', symbolic), style_class: 'weather-build-icon'}));
+        // The accessible name earns its place here: the glyph alone doesn't
+        // say what the time beside it means, and without a name a screen
+        // reader announces nothing for it at all. That time is when the
+        // provider observed the data, not when this extension last fetched -
+        // get_value_update() lands on the station's own report boundary, so
+        // it can read older than the 30 minute refresh with nothing wrong.
+        infoBox.add_child(new St.Icon({
+            icon_size: 15,
+            icon_name: iconType('view-refresh', symbolic),
+            style_class: 'weather-build-icon',
+            accessible_name: _('Updated'),
+        }));
         infoBox.add_child(new St.Label({text: updated}));
 
         const summaryBox = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-current-summarybox'});
