@@ -7,11 +7,11 @@
 }
 
 .weather-current-databox {
-    padding: 0px 8px 0px 16px;
+    padding: 0px 15px 0px 30px;
 }
 
 .weather-current-icon {
-    padding: 0px 16px;
+    padding: 0px 30px;
 }
 
 .weather-current-iconbox {
@@ -31,50 +31,29 @@
 }
 
 /* Smaller than system-status-icon's 16px: this qualifies the temperature
-   next to it rather than standing on its own.
- *
- * The margin and leading padding are zeroed deliberately. The shell theme
- * gives "#panel .panel-button .system-status-icon" padding 0 6px and margin
- * 0 4px, which is right for an icon that stands alone but not for one wedged
- * between the weather icon and its label: that added 6px + 4px in front of
- * the arrow on top of the weather icon's own trailing 5px + 4px, so turning
- * the trend on opened a visible gap. The arrow belongs tight against the
- * text it qualifies, so only a 2px gap to the label is kept. */
+   next to it rather than standing on its own. */
 .weather-trend-icon {
     icon-size: 12px;
-    margin: 0;
-    padding-left: 0;
     padding-right: 2px;
 }
 
 .weather-trend-icon-rtl {
     icon-size: 12px;
-    margin: 0;
-    padding-right: 0;
     padding-left: 2px;
 }
 
-.weather-current-moonbox {
-    padding-top: 3px;
-}
-
 .weather-moon-icon {
+    padding-left: 8px;
     padding-right: 4px;
 }
 
 .weather-current-databox-captions {
     text-align: right;
-    padding-right: 8px;
-    padding-left: 12px;
+    padding-right: 10px;
+    padding-left: 20px;
     color: #999999;
 }
 
-/* Zero width, so neither forecast row can widen the menu: the dropdown is a
-   fixed width set in indicator.js, and these fill whatever that gives them.
-   A max-width here would be worse than nothing - it would cap the scroll
-   viewport below the menu width and leave a blank strip at each end. The
-   columns inside carry x_expand, so a short forecast spreads across the row
-   and a long one scrolls. */
 .forecast {
   width: 0;
 }
@@ -112,7 +91,6 @@
   text-align: center;
 }
 
-/* Same reasoning as .forecast above. */
 .hourly {
   width: 0;
 }

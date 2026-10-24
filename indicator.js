@@ -4,7 +4,6 @@ import GObject from 'gi://GObject';
 import Clutter from 'gi://Clutter';
 import Gio from 'gi://Gio';
 import GWeather from 'gi://GWeather';
-import Pango from 'gi://Pango';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
@@ -22,22 +21,6 @@ const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
 const REFRESH_INTERVAL_SECONDS = 30 * 60;
 const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
 const TREND_LOOKAHEAD_HOURS = 3;
-
-// The dropdown is a fixed width rather than one that tracks its contents, so
-// it doesn't change shape when the language, the unit lengths or the forecast
-// counts change. The monitor fraction is the part that keeps "fixed" honest:
-// a flat pixel width would overflow a small screen, so a narrow monitor gets
-// a narrower menu and the labels below wrap into it.
-//
-// 640 is close to the floor, not a round number. The parts that cannot
-// shrink - the 72px icon, the sunrise/sunset/updated row, and the detail
-// caption column at its widest translation - come to roughly 609px, and
-// below that the row clips instead of adapting. Size this against the
-// longest translations rather than the English or German ones: the widest
-// "Feels like" is Russian's and Romanian's at 21 characters, against
-// German's 16, so German on screen is not the case to tune by.
-const MENU_PREFERRED_WIDTH = 640;
-const MENU_MAX_MONITOR_FRACTION = 0.6;
 
 // Matches the nick order of the time-format enum in the schema.
 const TIME_FORMAT_AUTO = 0;
@@ -59,16 +42,6 @@ function getCurrentLocationCity(settings) {
 
 function setCurrentLocationCity(settings, city) {
     settings.set_value('current-location-city', new GLib.Variant('av', [city.serialize()]));
-}
-
-// St.Label does not wrap by default; it grows instead, which is exactly what
-// a fixed-width menu cannot allow. WORD_CHAR breaks mid-word only when a
-// single word is itself too wide, which German compounds can be.
-function wrapLabel(label) {
-    label.clutter_text.line_wrap = true;
-    label.clutter_text.line_wrap_mode = Pango.WrapMode.WORD_CHAR;
-    label.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
-    return label;
 }
 
 function clamp(index, length) {
@@ -99,14 +72,6 @@ class WeatherIndicator extends PanelMenu.Button {
         this._networkMonitor = Gio.NetworkMonitor.get_default();
 
         this._buildUI();
-
-        // Sized on open rather than once at build time: the panel can move to
-        // another monitor, and the menu has no allocation worth measuring
-        // until it is first shown.
-        this._menuOpenId = this.menu.connect('open-state-changed', (_menu, open) => {
-            if (open)
-                this._applyMenuWidth();
-        });
 
         this._settingsChangedId = this._settings.connect('changed', (_s, key) => this._onSettingChanged(key));
         this._gweatherChangedId = this._gweatherSettings.connect('changed', () => this._refreshReadyDisplay());
@@ -484,12 +449,6 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource.addNotification(notification);
     }
 
-    _applyMenuWidth() {
-        const monitor = Main.layoutManager.findMonitorForActor(this);
-        const width = Math.min(MENU_PREFERRED_WIDTH, Math.floor(monitor.width * MENU_MAX_MONITOR_FRACTION));
-        this.menu.box.style = `width: ${width}px;`;
-    }
-
     // -- Rendering -----------------------------------------------------------
 
     _renderCurrent() {
@@ -536,7 +495,7 @@ class WeatherIndicator extends PanelMenu.Button {
             style_class: 'weather-current-icon',
         });
 
-        const location = wrapLabel(new St.Label({text: `${info.get_location().get_city_name()}${_(', ')}${conditions}`}));
+        const location = new St.Label({text: `${info.get_location().get_city_name()}${_(', ')}${conditions}`});
         const summary = new St.Label({
             text: apparentString,
             style_class: 'weather-current-summary',
@@ -555,6 +514,7 @@ class WeatherIndicator extends PanelMenu.Button {
         infoBox.add_child(new St.Label({text: sunrise}));
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('weather-clear-night', symbolic), style_class: 'weather-sunset-icon'}));
         infoBox.add_child(new St.Label({text: sunset}));
+        this._addMoonPhase(infoBox, info);
         infoBox.add_child(new St.Icon({icon_size: 15, icon_name: iconType('view-refresh', symbolic), style_class: 'weather-build-icon'}));
         infoBox.add_child(new St.Label({text: updated}));
 
@@ -562,7 +522,6 @@ class WeatherIndicator extends PanelMenu.Button {
         summaryBox.add_child(location);
         summaryBox.add_child(summary);
         summaryBox.add_child(infoBox);
-        this._addMoonPhase(summaryBox, info);
 
         const captions = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-current-databox-captions'});
         const values = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-current-databox-values'});
@@ -597,13 +556,7 @@ class WeatherIndicator extends PanelMenu.Button {
     // observer's latitude from the location - not the third value of
     // get_value_moonphase(), which is the moon's own latitude and reads the
     // same worldwide.
-    //
-    // This gets its own row rather than sitting inline with sunrise/sunset:
-    // the phase name is the longest string in the dropdown in several
-    // languages (German "Zunehmender Dreiviertelmond" runs to 27 characters),
-    // and the current-conditions block is what the menu takes its width from,
-    // so inlining it stretched the whole popup well past the forecast rows.
-    _addMoonPhase(summaryBox, info) {
+    _addMoonPhase(infoBox, info) {
         if (!this._settings.get_boolean('show-moon-phase'))
             return;
 
@@ -615,14 +568,12 @@ class WeatherIndicator extends PanelMenu.Button {
         const file = Gio.File.new_for_path(
             GLib.build_filenamev([this._extensionPath, 'icons', `${moonPhaseIconName(degrees, latitude)}.svg`]));
 
-        const row = new St.BoxLayout({style_class: 'weather-current-moonbox'});
-        row.add_child(new St.Icon({
+        infoBox.add_child(new St.Icon({
             icon_size: 15,
             gicon: new Gio.FileIcon({file}),
             style_class: 'weather-moon-icon',
         }));
-        row.add_child(wrapLabel(new St.Label({text: moonPhaseName(degrees, _)})));
-        summaryBox.add_child(row);
+        infoBox.add_child(new St.Label({text: moonPhaseName(degrees, _)}));
     }
 
     // The arrow qualifies the panel temperature, so it only makes sense
@@ -681,16 +632,16 @@ class WeatherIndicator extends PanelMenu.Button {
             })),
         ];
 
-        const row = new St.BoxLayout({x_expand: true});
+        const row = new St.BoxLayout();
         for (const item of entries) {
             const [itemTempValid, itemTempValue] = item.temp;
-            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-hourly-box', x_expand: true});
+            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-hourly-box'});
             column.add_child(new St.Label({
                 text: itemTempValid ? temperatureString(temperatureUnit, itemTempValue, _) : '-',
                 style_class: 'weather-hourly-temp',
             }));
             column.add_child(new St.Icon({
-                icon_size: 32,
+                icon_size: 24,
                 icon_name: iconType(item.icon, symbolic),
                 style_class: 'weather-hourly-icon',
                 x_align: Clutter.ActorAlign.CENTER,
@@ -731,15 +682,10 @@ class WeatherIndicator extends PanelMenu.Button {
             return;
         }
 
-        // x_expand on the row and every column: the menu takes its width from
-        // the current-conditions block, which is wider than a short forecast,
-        // so without this the columns keep their natural width and sit
-        // centered with dead space either side. Expanding shares the row out
-        // evenly at any day count; min-width still decides when it scrolls.
-        const row = new St.BoxLayout({x_expand: true});
+        const row = new St.BoxLayout();
         for (const day of days) {
             const icon = new St.Icon({
-                icon_size: 44,
+                icon_size: 32,
                 icon_name: iconType(day.icon, symbolic),
                 style_class: 'weather-forecast-icon',
             });
@@ -757,16 +703,13 @@ class WeatherIndicator extends PanelMenu.Button {
             iconMinMax.add_child(icon);
             iconMinMax.add_child(minmax);
 
-            const iconMinMaxBin = new St.Bin({
-                style_class: 'weather-forecast-minmax-box',
-                x_align: Clutter.ActorAlign.CENTER,
-            });
+            const iconMinMaxBin = new St.Bin({style_class: 'weather-forecast-minmax-box'});
             iconMinMaxBin.set_child(iconMinMax);
 
             const dayBox = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-daybox'});
             dayBox.add_child(new St.Label({text: dayName(today, day.date, _), style_class: 'weather-forecast-day'}));
 
-            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-box', x_expand: true});
+            const column = new St.BoxLayout({orientation: Clutter.Orientation.VERTICAL, style_class: 'weather-forecast-box'});
             column.add_child(iconMinMaxBin);
             column.add_child(dayBox);
             column.add_child(new St.Label({text: day.humidity, style_class: 'weather-forecast-humidity'}));
@@ -796,7 +739,7 @@ class WeatherIndicator extends PanelMenu.Button {
             this._attributionBin.hide();
             return;
         }
-        this._attributionBin.set_child(wrapLabel(new St.Label({text})));
+        this._attributionBin.set_child(new St.Label({text}));
         this._attributionBin.show();
     }
 
@@ -912,7 +855,6 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource = null;
         this._precipitationNotification = null;
 
-        this.menu.disconnect(this._menuOpenId);
         this._settings.disconnect(this._settingsChangedId);
         this._gweatherSettings.disconnect(this._gweatherChangedId);
         this._interfaceSettings.disconnect(this._interfaceChangedId);
