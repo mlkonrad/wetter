@@ -82,7 +82,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._reload();
     }
 
-    // ── UI construction ────────────────────────────────────────────────────
+    // -- UI construction ----------------------------------------------------
 
     _buildUI() {
         const rtl = this.get_text_direction() === Clutter.TextDirection.RTL;
@@ -133,7 +133,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this.menu.addMenuItem(prefsItem);
     }
 
-    // ── Settings plumbing ───────────────────────────────────────────────────
+    // -- Settings plumbing ---------------------------------------------------
 
     _onSettingChanged(key) {
         switch (key) {
@@ -230,7 +230,7 @@ class WeatherIndicator extends PanelMenu.Button {
         return clamp(this._settings.get_int('actual-city'), cities.length);
     }
 
-    // ── Current-location tracking ──────────────────────────────────────────
+    // -- Current-location tracking ------------------------------------------
 
     // The GeoClue-backed tracker is only (re)created when the setting
     // itself flips, not on every _reload() - restarting it is a fresh D-Bus
@@ -273,7 +273,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._settings.set_boolean('use-current-location', false);
     }
 
-    // ── Weather fetching ────────────────────────────────────────────────────
+    // -- Weather fetching ----------------------------------------------------
 
     _reload() {
         this._client?.destroy();
@@ -384,7 +384,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._checkPrecipitation();
     }
 
-    // ── Precipitation notifications ─────────────────────────────────────────
+    // -- Precipitation notifications -----------------------------------------
 
     // One notification per spell of rain/snow: the spell lasts as long as it's
     // precipitating now or forecast within the lookahead, so a dismissed
@@ -449,7 +449,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource.addNotification(notification);
     }
 
-    // ── Rendering ───────────────────────────────────────────────────────────
+    // -- Rendering -----------------------------------------------------------
 
     _renderCurrent() {
         if (this._state !== 'ready' || !this._client)
@@ -766,7 +766,7 @@ class WeatherIndicator extends PanelMenu.Button {
         });
     }
 
-    // ── Scroll to switch location ────────────────────────────────────────────
+    // -- Scroll to switch location --------------------------------------------
 
     // A wheel sends a real discrete event plus an emulated smooth copy, a
     // touchpad only real smooth ones, so skipping emulated events counts each
@@ -840,7 +840,7 @@ class WeatherIndicator extends PanelMenu.Button {
         Main.osdWindowManager.showAll(icon, name, null);
     }
 
-    // ── Lifecycle ───────────────────────────────────────────────────────────
+    // -- Lifecycle -----------------------------------------------------------
 
     destroy() {
         if (this._timerId) {

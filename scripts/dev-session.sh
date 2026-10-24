@@ -3,7 +3,7 @@
 # changes without logging out of the real session. See CLAUDE.md's "Fast
 # iteration" section for why this is needed and what it does/doesn't cover.
 #
-# Each JS module change still requires killing and re-running this script —
+# Each JS module change still requires killing and re-running this script -
 # the JS engine can't unload a loaded module, so a fresh gnome-shell process
 # is the only way to pick up new code (same reason a plain disable/enable is
 # unreliable on this Shell version, see the module-caching caveat below).

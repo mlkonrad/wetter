@@ -12,8 +12,8 @@ const SEARCH_RESULT_LIMIT = 30;
 // Matches the "-1" sentinel documented on the actual-city schema key.
 const CURRENT_LOCATION_INDEX = -1;
 
-// Strips accents/diacritics so e.g. "Sao" matches "São" - typing an accented
-// letter is often impractical on a plain keyboard layout.
+// Strips accents/diacritics so a name typed in plain ASCII matches its
+// accented spelling - accented letters are often impractical to type.
 function foldAccents(s) {
     return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }

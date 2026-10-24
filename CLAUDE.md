@@ -528,6 +528,21 @@ current. Checked clean as of 2026-09-12:
 - **Comments**: no trivial comments restating the next line — every comment
   in this codebase exists to record a non-obvious constraint or a real
   incident (see the libgweather-4 section above for the pattern).
+- **Comments are ASCII-only.** An EGO reviewer raised non-ASCII characters in
+  comments as a finding, so this is a review blocker, not a preference. Use
+  `-` for dashes, `...` for an ellipsis, straight quotes, `->` for arrows, and
+  `-`/`=` for the section dividers in `indicator.js` (they used U+2500
+  box-drawing until 2026-10-24). Never put an accented letter in a comment
+  even as an example — `prefs.js`'s `foldAccents()` comment was reworded
+  rather than keeping "São" as an illustration. This covers **comments only**:
+  user-facing strings keep what they need (the `°` in `%s °C`, the wind-
+  direction arrow glyphs in `helpers.js`), as do the `.po` files, these
+  Markdown docs and contributor names in `prefs.js`/`AUTHORS`. Checking it
+  needs a comment-aware scan — a whole-file `grep -P '[^\x00-\x7F]'` flags
+  every translatable string and buries the real finding. Keep a reworded
+  comment at its original line count where it sits near a translatable
+  string, or every `.po` file's `#:` references shift and the next
+  `msgmerge` produces a 32-file diff with no content change.
 - **Settings pairing**: `settings-schema` in `metadata.json` pairs with a
   parameterless `this.getSettings()` call in both `extension.js` and
   `prefs.js`; the *other* two schemas in play
@@ -621,8 +636,11 @@ current. Checked clean as of 2026-09-12:
 `npm run lint` (ESLint, GNOME config), `npm test` (plain-gjs tests in
 `tests/` for `helpers.js` and forecast bucketing - no Shell needed),
 `./scripts/check-po.sh` (placeholder-token audit across all translations),
-then `./scripts/pack.sh && shexli dist/*.zip`. For a runtime smoke test without
-touching the real session, run `dbus-run-session -- gnome-shell --headless
+`./scripts/check-comments.sh` (ASCII-only comment audit; it parses strings vs
+comments so the degree sign and arrow glyphs in user-facing strings don't
+false-positive), then `./scripts/pack.sh && shexli dist/*.zip`. For a runtime
+smoke test without touching the real session, run
+`dbus-run-session -- gnome-shell --headless
 --wayland --virtual-monitor 1280x800`; `gnome-extensions info
 wetter@mlkonrad.github.com` on that private bus should report
 `State: ACTIVE`, and its log should have no `JS ERROR`. That doesn't
