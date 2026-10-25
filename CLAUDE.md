@@ -465,7 +465,7 @@ a human translator.
 `#| msgid "..."` comment showing what it was matched from, for easier
 manual review later.
 
-**All 32 languages are at 132/132 with no fuzzy entries** as of 2026-10-24
+**All 32 languages are at 133/133 with no fuzzy entries** as of 2026-10-25
 (see `ROADMAP.md` section 6 for what that pass fixed, and the defect classes
 worth re-checking after adding strings: trailing colons on msgids that serve
 as both a detail-row caption and a prefs row title, compass abbreviations wide
