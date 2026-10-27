@@ -63,12 +63,24 @@ gone:
   meaning, needs migration code shipped in `enable()`.
 - Every upload is a public release to real users, so run the full
   "Checks before submitting" list before each one.
-- **Don't bump `version-name` in `metadata.json` while developing.** It is
-  changed only at submission time, once EGO has assigned the numeric
-  `version`, and the repo is updated to match afterwards. So `version-name`
-  trailing the work in progress is the intended state, not an oversight -
-  it still reads `1.0` while the branch carries the 1.1 features. Don't
-  offer to bump it.
+- **Don't bump `version-name` in `metadata.json` on your own.** EGO assigns
+  the numeric `version` on upload; `version-name` is a separate, free-text
+  field and changing it is the user's call, made explicitly, never as a side
+  effect of shipping. It was deliberately left at `1.0` through the second
+  release (2026-10-27), so `version-name` lagging the features that have
+  actually shipped is the intended state, not an oversight. Don't offer to
+  bump it.
+
+2026-10-27: EGO approved the second upload. It carries the four features
+tracked as 1-4 in `ROADMAP.md` - the rain/snow/thunderstorm alert, scroll on
+the panel button to switch location, the temperature trend arrow and the moon
+phase - plus the full translation of all 32 shipped languages and an
+accessible name on the dropdown's last-updated icon.
+
+`version-name` was deliberately **not** bumped for this release; it still
+reads `1.0`. That was a decision, not an oversight, so the listing now shows
+the same version name for two different releases. Bump it when you choose to,
+not as a side effect of the next upload.
 
 Generic uses of the word "weather" describing content/state - the panel's
 placeholder label text (`_panelLabel.text = _('Weather')` in `indicator.js`'s

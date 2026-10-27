@@ -12,15 +12,16 @@ ends up in the EGO zip.
 
 | # | Feature | Status |
 |---|---------|--------|
-| 1 | Rain/snow/thunderstorm alert | Done, `95e5af7`, not yet released |
-| 2 | Scroll on panel button to switch location | Done, `78543fe`, not yet released |
-| 3 | Temperature trend arrow in the panel | Done, `c2c837a`, not yet released |
-| 4 | Moon phase in the dropdown | Done, `04eb740`, not yet released |
+| 1 | Rain/snow/thunderstorm alert | Released 2026-10-27 |
+| 2 | Scroll on panel button to switch location | Released 2026-10-27 |
+| 3 | Temperature trend arrow in the panel | Released 2026-10-27 |
+| 4 | Moon phase in the dropdown | Released 2026-10-27 |
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
-| 6 | Full translation of all shipped languages | Done 2026-10-23 (Estonian added 2026-10-24), not yet released |
-| - | Release 1.1 to extensions.gnome.org | Ready when you are |
+| 6 | Full translation of all shipped languages | Released 2026-10-27, 32 languages |
+| - | Release 1.1 to extensions.gnome.org | Approved by EGO 2026-10-27 |
 
-All features are in. What's left is the release itself.
+Everything tracked here is released. The sections below are kept as a
+record of how each feature was built and what to watch for.
 
 ---
 
@@ -170,9 +171,12 @@ Estonian GNOME Weather is only 43 strings upstream, so the weather detail rows
 `tajutav temperatuur` is the Estonian weather service's own term for wind
 chill.
 
-## Release 1.1
+## Release 1.1 - done
 
-Features 1 and 2 are on `master` but not on extensions.gnome.org.
+Approved by EGO on 2026-10-27, carrying features 1-4 and the 32-language
+translation. `version-name` was left at `1.0` on purpose; see `CLAUDE.md`.
+
+The steps, kept for the next release:
 
 1. Run every step of "Checks before submitting" in `CLAUDE.md`, including
    `./scripts/pack.sh && shexli dist/*.zip`.
