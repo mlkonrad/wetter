@@ -78,7 +78,7 @@ OpenWeatherMap and METAR airport reports — to fetch its forecast.
 ## Translations
 
 Wetter's interface is fully translated into **32 languages** — every one of
-them covers all 132 strings, with nothing left untranslated:
+them covers all 133 strings, with nothing left untranslated:
 
 | | | | |
 |---|---|---|---|
@@ -90,6 +90,7 @@ them covers all 132 strings, with nothing left untranslated:
 | Chinese, Traditional (`zh_TW`) | Greek (`el`) | Polish (`pl`) | Turkish (`tr`) |
 | Czech (`cs`) | Hebrew (`he`) | Portuguese (`pt`) | Ukrainian (`uk`) |
 | Danish (`da`) | Hungarian (`hu`) | Portuguese, Brazilian (`pt_BR`) | Vietnamese (`vi`) |
+
 There is no language setting. Wetter follows your **system language**: GNOME
 Shell loads the matching catalog for the session locale, so changing your
 language in Settings changes the extension too, after a log out and back in.
