@@ -101,8 +101,10 @@ future version of this can only launch the app.
 
 ## 6. Full translation of all shipped languages - done
 
-Done 2026-10-23. Every `po/*.po` is at **132/132 translated, 0 fuzzy**; before
-this, only `pt_BR` was close (96/132) and the other 30 ranged from 2 to 50.
+Done 2026-10-23, when every `po/*.po` reached **132/132 translated, 0 fuzzy**;
+before this, only `pt_BR` was close (96/132) and the other 30 ranged from 2 to
+50. Both numbers are as of that date: Estonian arrived the next day and a
+string has been added since, so `CLAUDE.md` carries the current count.
 
 **What it covered beyond filling blanks**
 
@@ -190,7 +192,8 @@ The steps, kept for the next release:
 ## Housekeeping (optional)
 
 - ~~**New strings are untranslated.**~~ Resolved 2026-10-23 by feature 6
-  below: all 32 languages are at 132/132 with no fuzzy entries left.
+  below, which took the then-31 languages to 132/132 with no fuzzy entries
+  left. `CLAUDE.md` carries the current count.
 - **Keep the nested test harness.** The isolated headless setup used to
   test features 1 and 2 (keyfile settings backend, helper extension taking
   screenshots, virtual pointer, cleanup by environment) lived in a session
