@@ -503,18 +503,16 @@ msgid "Forecast Hours"
 msgstr "Số giờ dự báo"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "Đã cập nhật"
+msgstr "Cập nhật"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Khoảng thời gian cập nhật"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "Số phút giữa các lần cập nhật thời tiết"
 
 #: ../prefs.js:327
 msgid "Notifications"

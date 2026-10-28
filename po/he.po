@@ -503,18 +503,16 @@ msgid "Forecast Hours"
 msgstr "שעות תחזית"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "עודכן"
+msgstr "עדכונים"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "מרווח רענון"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "דקות בין עדכוני מזג האוויר"
 
 #: ../prefs.js:327
 msgid "Notifications"

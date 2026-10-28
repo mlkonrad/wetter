@@ -506,18 +506,16 @@ msgid "Forecast Hours"
 msgstr "Prognozės valandos"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "Atnaujinta"
+msgstr "Atnaujinimai"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Atnaujinimo intervalas"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "Minutės tarp orų atnaujinimų"
 
 #: ../prefs.js:327
 msgid "Notifications"

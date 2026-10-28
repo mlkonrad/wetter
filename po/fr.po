@@ -506,18 +506,16 @@ msgid "Forecast Hours"
 msgstr "Heures de prévisions"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "Mis à jour"
+msgstr "Mises à jour"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Intervalle d'actualisation"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "Minutes entre les actualisations météo"
 
 #: ../prefs.js:327
 msgid "Notifications"

@@ -504,18 +504,16 @@ msgid "Forecast Hours"
 msgstr "Előrejelzett órák"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "Frissítve"
+msgstr "Frissítések"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Frissítési időköz"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "Percek az időjárás-frissítések között"
 
 #: ../prefs.js:327
 msgid "Notifications"

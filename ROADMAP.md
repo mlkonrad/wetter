@@ -280,6 +280,8 @@ screenshots, which is the only reason the second and third were noticed.
   is separate from `_reload()`: altering how often to fetch shouldn't itself
   fetch, and what's on screen is still current. It returns early with no
   client, so the `no-location` and `detecting` states stay timer-less.
+- Its three strings were translated into all 32 languages on 2026-10-28; see
+  the Housekeeping note below for where the terms came from.
 
 ---
 
@@ -369,6 +371,21 @@ The steps, kept for the next release:
 - ~~**New strings are untranslated.**~~ Resolved 2026-10-23 by feature 6
   below, which took the then-31 languages to 132/132 with no fuzzy entries
   left. `CLAUDE.md` carries the current count.
+- **Translations are complete again.** The three strings the refresh interval
+  added (`Updates`, `Refresh Interval`, `Minutes between weather updates`) went
+  into all 32 languages on 2026-10-28, back to 136/136 with no fuzzy entries.
+  Terms were taken from the catalogs installed on this machine rather than
+  invented: `Updates` from `gnome-software`, `Refresh` from `org.gnome.Weather`,
+  `Interval` from `gnome-control-center-2.0`, the plural of "minute" from that
+  catalog's `%d minute`, and the word for weather from this project's own
+  `Weather` and `Reload Weather Information` entries, so the new strings read
+  in the same voice as the old ones. Four needed a judgement call rather than a
+  lookup: Arabic and Hebrew's plural-form entries give the dual
+  (`دقيقة واحدة`, `שתי דקות`), so the general plurals were used instead; Polish
+  took `Częstotliwość odświeżania` because GNOME Polish prefers a descriptive
+  phrase to `Interwał`; and Estonian has no `gnome-software` catalog, so
+  `Uuendused` follows this project's own `Uuendatud`. All 32 keep
+  `Last-Translator: machine-assisted (unreviewed)`, which is still accurate.
 - ~~**Keep the nested test harness.**~~ Done 2026-10-28, after it had been
   rebuilt by hand once too often: `scripts/headless-test.sh` plus
   `tests/screenshot-helper@wetter.test/` and `tests/serialize-city.js`. See

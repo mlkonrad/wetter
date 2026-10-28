@@ -503,18 +503,16 @@ msgid "Forecast Hours"
 msgstr "Prognosetimer"
 
 #: ../prefs.js:318
-#, fuzzy
-#| msgid "Updated"
 msgid "Updates"
-msgstr "Opdateret"
+msgstr "Opdateringer"
 
 #: ../prefs.js:321
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Opdateringsinterval"
 
 #: ../prefs.js:322
 msgid "Minutes between weather updates"
-msgstr ""
+msgstr "Minutter mellem vejropdateringer"
 
 #: ../prefs.js:327
 msgid "Notifications"
