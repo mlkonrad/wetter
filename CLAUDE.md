@@ -162,6 +162,41 @@ it was used on.
   `color-scheme='prefer-light'` under `[org/gnome/desktop/interface]` in the
   scratch keyfile. `Main.getStyleVariant()` reads it through `St.Settings`.
 
+## Isolated test session: `scripts/headless-test.sh`
+
+2026-10-28: the throwaway-session setup that had been rebuilt by hand in
+several sessions is now committed, as `scripts/headless-test.sh` plus
+`tests/screenshot-helper@wetter.test/` and `tests/serialize-city.js`.
+
+```bash
+./scripts/headless-test.sh                 # dark, screenshot, exit
+./scripts/headless-test.sh --light         # the light stylesheet variant
+./scripts/headless-test.sh --city Bergen   # a location of your choosing
+./scripts/headless-test.sh --visible       # a window to click around in
+```
+
+A run takes about seven seconds and prints where the screenshot and log went,
+the helper's status and the `JS ERROR` count, exiting non-zero on either kind
+of failure.
+
+- **Nothing it does reaches the real dconf.** `GSETTINGS_BACKEND=keyfile` plus
+  scratch `XDG_*` dirs under `$TMPDIR/wetter-headless-test` send every
+  GSettings read and write to a keyfile there. This is the difference from
+  `scripts/dev-session.sh`, which shares the real database (see the warning in
+  the section below) - use that one when you want your own cities and
+  settings, this one when the session must not leave a trace.
+- **It waits on a signal, not a sleep.** The helper extension polls the
+  indicator's own `_state` until it reads `ready`, then opens the menu, lets
+  it settle and screenshots it in-process with `Shell.Screenshot`. Fixed
+  sleeps were the flakiest part of doing this by hand. The timeout path is
+  tested: it reports `timeout` and exits 1.
+- **`--city` resolves names through libgweather** (`tests/serialize-city.js`
+  prints the `city` key's keyfile value), which is what makes it practical to
+  test against a location where something is actually happening - rain inside
+  the two-hour window for the precipitation alert, say.
+- `pack.sh` lists its sources explicitly, so none of this ships; confirmed
+  against the built zip.
+
 ## Fast iteration: nested devkit session (no logout needed)
 
 `mutter-devkit` (installed on this machine, package `mutter-devkit`,

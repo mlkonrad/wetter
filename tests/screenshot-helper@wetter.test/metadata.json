@@ -1,0 +1,7 @@
+{
+  "uuid": "screenshot-helper@wetter.test",
+  "name": "Wetter test screenshot helper",
+  "description": "Dev-only. Waits for the Wetter indicator to finish loading, opens its dropdown and screenshots it. Loaded only by scripts/headless-test.sh, never shipped.",
+  "shell-version": ["49", "50"],
+  "version-name": "1.0"
+}

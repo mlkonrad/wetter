@@ -259,9 +259,9 @@ The steps, kept for the next release:
 - ~~**New strings are untranslated.**~~ Resolved 2026-10-23 by feature 6
   below, which took the then-31 languages to 132/132 with no fuzzy entries
   left. `CLAUDE.md` carries the current count.
-- **Keep the nested test harness.** The isolated headless setup used to
-  test features 1 and 2 (keyfile settings backend, helper extension taking
-  screenshots, virtual pointer, cleanup by environment) lived in a session
-  scratch dir and is gone. `CLAUDE.md` describes how to rebuild it. If
-  features 3-5 need it again, consider committing it as
-  `scripts/headless-test.sh` plus a helper extension under `tests/`.
+- ~~**Keep the nested test harness.**~~ Done 2026-10-28, after it had been
+  rebuilt by hand once too often: `scripts/headless-test.sh` plus
+  `tests/screenshot-helper@wetter.test/` and `tests/serialize-city.js`. See
+  CLAUDE.md's "Isolated test session" section. The one piece not carried over
+  is the virtual pointer used to test scrolling in feature 2; add it back from
+  that section's notes if scroll behaviour needs testing again.
