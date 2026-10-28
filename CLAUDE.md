@@ -127,9 +127,40 @@ changes there just need the Settings window closed and reopened — no
 logout needed, and no cross-contamination with the Shell-process reload
 caveat above.
 
-CSS-only changes to `stylesheet.css` are also picked up by the same
-`gnome-extensions disable`/`enable` cycle, or a full logout if that proves
-unreliable.
+CSS-only changes to `stylesheet-dark.css`/`stylesheet-light.css` are also
+picked up by the same `gnome-extensions disable`/`enable` cycle, or a full
+logout if that proves unreliable.
+
+## Two stylesheets, and only one of them is loaded
+
+2026-10-28: the single `stylesheet.css` became a **`stylesheet-dark.css` +
+`stylesheet-light.css` pair**. Its six greys were a hardcoded `#999999`, which
+is a dark-theme colour: on the light theme's `#fafafb` menu it measured 2.73:1
+against the background, under the 4.5:1 WCAG AA line for the 90%-size labels
+it was used on.
+
+- `_loadExtensionStylesheet()` in the Shell's `extensionSystem.js` tries
+  `<sessionMode>-<variant>.css`, `stylesheet-<variant>.css`,
+  `<sessionMode>.css`, `stylesheet.css` and **breaks on the first one that
+  loads** - so exactly one file is ever loaded, and a `stylesheet.css` sitting
+  next to the variants would simply never be read. `stylesheet-light.css`
+  therefore carries `@import url("stylesheet-dark.css")` and overrides only
+  the colours; **every non-colour rule belongs in the dark file**, which is
+  also the fallback.
+- The Shell re-loads the stylesheet live when the style variant changes, but
+  `_reloadExtensionStylesheets()` only does that if the loaded path ends in
+  `-dark.css`/`-light.css`. Shipping the pair is what makes theme switching
+  work without a reload.
+- The greys are GNOME Shell's own secondary-label colours, read out of its
+  theme rather than picked by eye: **`#b2b2b4` dark / `#6b6b6e` light**, what
+  it gives `.world-clocks-timezone` and the calendar popover's weather header,
+  against `#ffffff`/`#222226` body text. Measured after the change: 5.68:1 on
+  the dark menu, 5.09:1 on the light one.
+- `gnome-extensions pack` picks both variant files up on its own - no
+  `--extra-source` needed, verified in the zip.
+- To see the light variant in the nested session, put
+  `color-scheme='prefer-light'` under `[org/gnome/desktop/interface]` in the
+  scratch keyfile. `Main.getStyleVariant()` reads it through `St.Settings`.
 
 ## Fast iteration: nested devkit session (no logout needed)
 
@@ -595,7 +626,7 @@ current. Checked clean as of 2026-09-12:
   alongside METAR and OpenWeatherMap) is CC BY 4.0 licensed and requires
   "appropriate credit... in any reasonable manner." Don't remove this
   outright; it's already styled as a muted footnote
-  (`.attribution` in `stylesheet.css`) rather than deleted, since
+  (`.attribution` in `stylesheet-dark.css`) rather than deleted, since
   `get_attribution()` is provider-aware and automatically returns nothing
   for providers (like METAR) that don't require it.
 - **Upload zip: always build it with `./scripts/pack.sh`** (→

@@ -21,8 +21,9 @@ ends up in the EGO zip.
 | - | Release 1.1 to extensions.gnome.org | Approved by EGO 2026-10-27 |
 | 7 | Hourly temperature chart | Dropped 2026-10-28, not wanted |
 | 8 | Headline temperature fix | Built 2026-10-28, unreleased |
+| 9 | Light-theme stylesheet | Built 2026-10-28, unreleased |
 
-Everything tracked here but feature 8 is released. The sections below are kept
+Everything tracked here but features 8 and 9 is released. The sections below are kept
 as a record of how each feature was built and what to watch for.
 
 ---
@@ -215,6 +216,27 @@ temperature) and repeated the "Feels like" row immediately to its right -
 
 This changes what every existing user sees, so it's worth a line in whatever
 accompanies the next upload.
+
+## 9. Light-theme stylesheet - built, not yet released
+
+`stylesheet.css` became a `stylesheet-dark.css` + `stylesheet-light.css`
+pair, because its six greys were a hardcoded `#999999` that only worked on a
+dark theme. See CLAUDE.md's "Two stylesheets, and only one of them is loaded"
+for the loader's lookup order, why the light file imports the dark one, and
+the colours.
+
+Measured in a nested session, against the menu background the labels actually
+sit on:
+
+| | background | before, `#999999` | after |
+|---|---|---|---|
+| dark | `#36363a` | 4.22:1 | 5.68:1 (`#b2b2b4`) |
+| light | `#fafafb` | **2.73:1** | 5.09:1 (`#6b6b6e`) |
+
+The light figure was the defect: under the 4.5:1 WCAG AA line, on 90%-size
+labels, invisible to anyone developing on dark.
+
+---
 
 ## Release 1.1 - done
 

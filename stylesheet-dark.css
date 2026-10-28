@@ -1,3 +1,12 @@
+/* Dark variant, and the fallback: GNOME Shell picks stylesheet-<variant>.css
+   by the session's style variant and loads exactly one of the two, so this
+   file carries the whole stylesheet and stylesheet-light.css imports it and
+   overrides only what differs. Keep every rule that isn't a colour here.
+
+   The greys are GNOME Shell's own secondary-label colour for this context -
+   #b2b2b4 is what its theme gives .world-clocks-timezone and the calendar
+   popover's weather header, against #ffffff body text in a menu. */
+
 .weather-current-summarybox {
     padding-top: 0px;
 }
@@ -51,7 +60,7 @@
     text-align: right;
     padding-right: 10px;
     padding-left: 20px;
-    color: #999999;
+    color: #b2b2b4;
 }
 
 .forecast {
@@ -80,13 +89,13 @@
 }
 
 .weather-forecast-day {
-  color: #999999;
+  color: #b2b2b4;
   font-size: 90%;
   text-align: center;
 }
 
 .weather-forecast-humidity {
-  color: #999999;
+  color: #b2b2b4;
   font-size: 90%;
   text-align: center;
 }
@@ -121,13 +130,13 @@
 }
 
 .weather-hourly-humidity {
-  color: #999999;
+  color: #b2b2b4;
   font-size: 90%;
   text-align: center;
 }
 
 .weather-hourly-time {
-  color: #999999;
+  color: #b2b2b4;
   font-size: 90%;
   text-align: center;
 }
@@ -135,7 +144,7 @@
 .attribution {
   padding: 0 25px;
   font-size: 85%;
-  color: #999999;
+  color: #b2b2b4;
 }
 
 .weather-sunrise-icon {

@@ -1,0 +1,15 @@
+/* Light variant: everything but the colours comes from the dark file, which
+   is loaded through this import because the Shell only ever loads one of the
+   two (see the header there). #6b6b6e is the light theme's counterpart to
+   #b2b2b4 - the same secondary-label role, against #222226 body text. */
+
+@import url("stylesheet-dark.css");
+
+.weather-current-databox-captions,
+.weather-forecast-day,
+.weather-forecast-humidity,
+.weather-hourly-humidity,
+.weather-hourly-time,
+.attribution {
+  color: #6b6b6e;
+}
