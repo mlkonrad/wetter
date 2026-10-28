@@ -22,8 +22,10 @@ ends up in the EGO zip.
 | 7 | Hourly temperature chart | Dropped 2026-10-28, not wanted |
 | 8 | Headline temperature fix | Built 2026-10-28, unreleased |
 | 9 | Light-theme stylesheet | Built 2026-10-28, unreleased |
+| 10 | Quieter dropdown scrollbars | Built 2026-10-28, unreleased |
+| 11 | Configurable refresh interval | Built 2026-10-28, unreleased |
 
-Everything tracked here but features 8 and 9 is released. The sections below are kept
+Everything tracked here but features 8 to 11 is released. The sections below are kept
 as a record of how each feature was built and what to watch for.
 
 ---
@@ -235,6 +237,47 @@ sit on:
 
 The light figure was the defect: under the 4.5:1 WCAG AA line, on 90%-size
 labels, invisible to anyone developing on dark.
+
+---
+
+## 10. Quieter dropdown scrollbars - built, not yet released
+
+The hourly and daily strips each carried an 8px `#727275` rail that, on a
+strip only slightly wider than the menu, ran nearly its whole width and read
+as a divider. They are now 4px, dimmer, and `overlay_scrollbars: true`.
+
+Three things worth knowing before touching this again:
+
+- **Overlay alone makes it worse.** The bar is drawn over the content, and the
+  bottom row of both strips is text - the hour labels and the humidity line -
+  so it lands on top of them. The columns carry a 7px `padding-bottom` now,
+  which is the empty strip the bar floats in.
+- **The theme's `border: 3px solid transparent` on the handle does not slim
+  what you see.** A background paints under its border, so the default handle
+  is a solid 8px, not the 2px the border suggests. Slimming needs
+  `min-height` on the `StScrollBar` itself.
+- **Use an opaque handle colour.** At 4px the handle's background is painted
+  more than once, and a translucent colour stacks with itself: `rgba(255, 255,
+  255, 0.3)` measured as if it were about 0.66 alpha, far brighter than the
+  file suggests. Opaque `#5a5a5e`/`#c6c6ca` measure exactly as written.
+
+All of it was measured by sampling pixels out of `scripts/headless-test.sh`
+screenshots, which is the only reason the second and third were noticed.
+
+## 11. Configurable refresh interval - built, not yet released
+
+`refresh-interval` (i, minutes, default 30) replaces the hardcoded
+`REFRESH_INTERVAL_SECONDS`, with a spin row in a new "Updates" group in
+`prefs.js`.
+
+- **The floor is 10 minutes, on purpose.** MET Norway's model produces a new
+  forecast about once an hour, so polling faster buys nothing and is poor
+  manners towards a free, CC BY licensed source. The reason is in the schema
+  key's description, where anyone changing the range will see it.
+- **Changing it restarts the timer, it does not reload.** `_startRefreshTimer()`
+  is separate from `_reload()`: altering how often to fetch shouldn't itself
+  fetch, and what's on screen is still current. It returns early with no
+  client, so the `no-location` and `detecting` states stay timer-less.
 
 ---
 

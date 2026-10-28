@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 19:35+0200\n"
+"POT-Creation-Date: 2026-10-28 20:04+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Greek\n"
@@ -168,28 +168,28 @@ msgstr "Τελευταίο τέταρτο"
 msgid "Waning crescent"
 msgstr "Φθίνων μηνίσκος"
 
-#: ../indicator.js:99 ../indicator.js:332 ../indicator.js:337
-#: ../indicator.js:342 ../indicator.js:347
+#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
+#: ../indicator.js:361 ../indicator.js:366
 msgid "Weather"
 msgstr "Καιρός"
 
-#: ../indicator.js:123 ../prefs.js:82
+#: ../indicator.js:122 ../prefs.js:83
 msgid "Locations"
 msgstr "Τοποθεσίες"
 
-#: ../indicator.js:126
+#: ../indicator.js:125
 msgid "Reload Weather Information"
 msgstr "Ανανέωση πληροφοριών καιρού"
 
-#: ../indicator.js:131
+#: ../indicator.js:130
 msgid "Wetter Settings"
 msgstr "Ρυθμίσεις Wetter"
 
-#: ../indicator.js:271
+#: ../indicator.js:273
 msgid "Current location unavailable"
 msgstr "Η τρέχουσα τοποθεσία δεν είναι διαθέσιμη"
 
-#: ../indicator.js:272
+#: ../indicator.js:274
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
@@ -197,321 +197,335 @@ msgstr ""
 "Ενεργοποιήστε τις υπηρεσίες τοποθεσίας στις Ρυθμίσεις και έπειτα "
 "ενεργοποιήστε ξανά την τρέχουσα τοποθεσία στις ρυθμίσεις του Wetter."
 
-#: ../indicator.js:333
+#: ../indicator.js:352
 msgid "No location configured"
 msgstr "Δεν έχει καθοριστεί τοποθεσία"
 
-#: ../indicator.js:338
+#: ../indicator.js:357
 msgid "Detecting your location…"
 msgstr "Εντοπισμός της τοποθεσίας σας…"
 
-#: ../indicator.js:343
+#: ../indicator.js:362
 msgid "Loading weather"
 msgstr "Φόρτωση καιρού"
 
-#: ../indicator.js:348
+#: ../indicator.js:367
 msgid "No weather information"
 msgstr "Δεν υπάρχουν πληροφορίες καιρού"
 
-#: ../indicator.js:412
+#: ../indicator.js:431
 msgid "Rain expected"
 msgstr "Αναμένεται βροχή"
 
-#: ../indicator.js:412
+#: ../indicator.js:431
 msgid "Snow expected"
 msgstr "Αναμένεται χιόνι"
 
-#: ../indicator.js:412
+#: ../indicator.js:431
 msgid "Thunderstorm expected"
 msgstr "Αναμένεται καταιγίδα"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:416
+#: ../indicator.js:435
 msgid "Around $t in $c"
 msgstr "Γύρω στις $t σε $c"
 
-#: ../indicator.js:488 ../indicator.js:498
+#: ../indicator.js:507 ../indicator.js:517
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:531
+#: ../indicator.js:550
 msgid "Updated"
 msgstr "Ενημερώθηκε"
 
-#: ../indicator.js:547
+#: ../indicator.js:566
 msgid "Feels like"
 msgstr "Αίσθηση σαν"
 
-#: ../indicator.js:548 ../prefs.js:299
+#: ../indicator.js:567 ../prefs.js:300
 msgid "Visibility"
 msgstr "Ορατότητα"
 
-#: ../indicator.js:549 ../prefs.js:301
+#: ../indicator.js:568 ../prefs.js:302
 msgid "Humidity"
 msgstr "Υγρασία"
 
-#: ../indicator.js:550 ../prefs.js:257 ../prefs.js:302
+#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "Πίεση"
 
-#: ../indicator.js:551 ../prefs.js:303
+#: ../indicator.js:570 ../prefs.js:304
 msgid "Wind"
 msgstr "Άνεμος"
 
-#: ../indicator.js:635
+#: ../indicator.js:654
 msgid "Now"
 msgstr "Τώρα"
 
-#: ../indicator.js:766 ../indicator.js:851 ../prefs.js:99
+#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
 msgid "Current Location"
 msgstr "Τρέχουσα τοποθεσία"
 
-#: ../prefs.js:69 ../prefs.js:339
+#: ../prefs.js:69 ../prefs.js:349
 msgid "Wetter"
 msgstr "Wetter"
 
-#: ../prefs.js:103
+#: ../prefs.js:104
 msgid "Detecting…"
 msgstr "Εντοπισμός…"
 
-#: ../prefs.js:143
+#: ../prefs.js:144
 msgid "Add Location"
 msgstr "Προσθήκη τοποθεσίας"
 
-#: ../prefs.js:144 ../prefs.js:211
+#: ../prefs.js:145 ../prefs.js:212
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: ../prefs.js:145
+#: ../prefs.js:146
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: ../prefs.js:149
+#: ../prefs.js:150
 msgid "Name of the city"
 msgstr "Όνομα πόλης"
 
-#: ../prefs.js:208
+#: ../prefs.js:209
 msgid "Remove Location?"
 msgstr "Αφαίρεση τοποθεσίας;"
 
-#: ../prefs.js:209
+#: ../prefs.js:210
 #, javascript-format
 msgid "Remove %s?"
 msgstr "Αφαίρεση %s;"
 
-#: ../prefs.js:212
+#: ../prefs.js:213
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: ../prefs.js:233
+#: ../prefs.js:234
 msgid "Units"
 msgstr "Μονάδες"
 
-#: ../prefs.js:236
+#: ../prefs.js:237
 msgid "Time Format"
 msgstr "Μορφή ώρας"
 
-#: ../prefs.js:237
+#: ../prefs.js:238
 msgid "Automatic"
 msgstr "Αυτόματη"
 
-#: ../prefs.js:237
+#: ../prefs.js:238
 msgid "12-hour"
 msgstr "12 ωρών"
 
-#: ../prefs.js:237
+#: ../prefs.js:238
 msgid "24-hour"
 msgstr "24 ωρών"
 
 #. GWeather's unit enums start at 1 (0 is INVALID), so options are
 #. given as explicit [value, label] pairs rather than assuming the
 #. combo row's positional index lines up with the enum's integer value.
-#: ../prefs.js:243
+#: ../prefs.js:244
 msgid "Temperature"
 msgstr "Θερμοκρασία"
 
-#: ../prefs.js:244 ../prefs.js:250 ../prefs.js:258 ../prefs.js:267
+#: ../prefs.js:245 ../prefs.js:251 ../prefs.js:259 ../prefs.js:268
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: ../prefs.js:245
+#: ../prefs.js:246
 msgid "Kelvin"
 msgstr "Κέλβιν"
 
-#: ../prefs.js:246
+#: ../prefs.js:247
 msgid "Celsius"
 msgstr "Κελσίου"
 
-#: ../prefs.js:247
+#: ../prefs.js:248
 msgid "Fahrenheit"
 msgstr "Φαρενάιτ"
 
-#: ../prefs.js:249
+#: ../prefs.js:250
 msgid "Wind Speed"
 msgstr "Ταχύτητα ανέμου"
 
-#: ../prefs.js:251
+#: ../prefs.js:252
 msgid "m/s"
 msgstr "m/s"
 
-#: ../prefs.js:252
+#: ../prefs.js:253
 msgid "km/h"
 msgstr "km/h"
 
-#: ../prefs.js:253
+#: ../prefs.js:254
 msgid "mph"
 msgstr "mph"
 
-#: ../prefs.js:254
+#: ../prefs.js:255
 msgid "knots"
 msgstr "κόμβοι"
 
-#: ../prefs.js:255
+#: ../prefs.js:256
 msgid "Beaufort"
 msgstr "Μποφόρ"
 
-#: ../prefs.js:259
+#: ../prefs.js:260
 msgid "kPa"
 msgstr "kPa"
 
-#: ../prefs.js:260
+#: ../prefs.js:261
 msgid "hPa"
 msgstr "hPa"
 
-#: ../prefs.js:261
+#: ../prefs.js:262
 msgid "mb"
 msgstr "mb"
 
-#: ../prefs.js:262
+#: ../prefs.js:263
 msgid "mmHg"
 msgstr "mmHg"
 
-#: ../prefs.js:263
+#: ../prefs.js:264
 msgid "inHg"
 msgstr "inHg"
 
-#: ../prefs.js:264
+#: ../prefs.js:265
 msgid "atm"
 msgstr "atm"
 
-#: ../prefs.js:266
+#: ../prefs.js:267
 msgid "Distance"
 msgstr "Απόσταση"
 
-#: ../prefs.js:268
+#: ../prefs.js:269
 msgid "m"
 msgstr "m"
 
-#: ../prefs.js:269
+#: ../prefs.js:270
 msgid "km"
 msgstr "km"
 
-#: ../prefs.js:270
+#: ../prefs.js:271
 msgid "miles"
 msgstr "μίλια"
 
-#: ../prefs.js:275
+#: ../prefs.js:276
 msgid "Panel"
 msgstr "Ταμπλό"
 
-#: ../prefs.js:278
+#: ../prefs.js:279
 msgid "Position in Panel"
 msgstr "Θέση στο ταμπλό"
 
-#: ../prefs.js:279
+#: ../prefs.js:280
 msgid "Center"
 msgstr "Κέντρο"
 
-#: ../prefs.js:279
+#: ../prefs.js:280
 msgid "Right"
 msgstr "Δεξιά"
 
-#: ../prefs.js:279
+#: ../prefs.js:280
 msgid "Left"
 msgstr "Αριστερά"
 
-#: ../prefs.js:281
+#: ../prefs.js:282
 msgid "Wind Direction"
 msgstr "Κατεύθυνση ανέμου"
 
-#: ../prefs.js:282
+#: ../prefs.js:283
 msgid "Letters"
 msgstr "Γράμματα"
 
-#: ../prefs.js:282
+#: ../prefs.js:283
 msgid "Arrows"
 msgstr "Βέλη"
 
-#: ../prefs.js:283
+#: ../prefs.js:284
 msgid "Symbolic Icons"
 msgstr "Συμβολικά εικονίδια"
 
-#: ../prefs.js:284
+#: ../prefs.js:285
 msgid "Temperature in Panel"
 msgstr "Θερμοκρασία στο ταμπλό"
 
-#: ../prefs.js:285
+#: ../prefs.js:286
 msgid "Temperature Trend in Panel"
 msgstr "Τάση θερμοκρασίας στο ταμπλό"
 
-#: ../prefs.js:286
+#: ../prefs.js:287
 msgid "Conditions in Panel"
 msgstr "Συνθήκες στο ταμπλό"
 
-#: ../prefs.js:287
+#: ../prefs.js:288
 msgid "Humidity in Panel"
 msgstr "Υγρασία στο ταμπλό"
 
-#: ../prefs.js:288
+#: ../prefs.js:289
 msgid "Wind Speed in Panel"
 msgstr "Ταχύτητα ανέμου στο ταμπλό"
 
-#: ../prefs.js:293
+#: ../prefs.js:294
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
-#: ../prefs.js:294
+#: ../prefs.js:295
 msgid "Choose which rows appear in the current-conditions view"
 msgstr ""
 "Επιλέξτε ποιες γραμμές εμφανίζονται στην προβολή των τρεχουσών συνθηκών"
 
-#: ../prefs.js:298
+#: ../prefs.js:299
 msgid "Feels Like"
 msgstr "Αίσθηση σαν"
 
-#: ../prefs.js:300
+#: ../prefs.js:301
 msgid "Moon Phase"
 msgstr "Φάση της Σελήνης"
 
-#: ../prefs.js:307
+#: ../prefs.js:308
 msgid "Forecast"
 msgstr "Πρόγνωση"
 
-#: ../prefs.js:310
+#: ../prefs.js:311
 msgid "Daily Forecast"
 msgstr "Ημερήσια πρόγνωση"
 
-#: ../prefs.js:311
+#: ../prefs.js:312
 msgid "Forecast Days"
 msgstr "Ημέρες πρόγνωσης"
 
-#: ../prefs.js:312
+#: ../prefs.js:313
 msgid "Hour-by-Hour Forecast"
 msgstr "Ωριαία πρόγνωση"
 
-#: ../prefs.js:313
+#: ../prefs.js:314
 msgid "Forecast Hours"
 msgstr "Ώρες πρόγνωσης"
 
-#: ../prefs.js:317
+#: ../prefs.js:318
+#, fuzzy
+#| msgid "Updated"
+msgid "Updates"
+msgstr "Ενημερώθηκε"
+
+#: ../prefs.js:321
+msgid "Refresh Interval"
+msgstr ""
+
+#: ../prefs.js:322
+msgid "Minutes between weather updates"
+msgstr ""
+
+#: ../prefs.js:327
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
-#: ../prefs.js:320
+#: ../prefs.js:330
 msgid "Rain and Snow Alerts"
 msgstr "Ειδοποιήσεις βροχής και χιονιού"
 
-#: ../prefs.js:321
+#: ../prefs.js:331
 msgid ""
 "Notify when rain, snow or a thunderstorm is forecast within the next two "
 "hours"
@@ -519,35 +533,35 @@ msgstr ""
 "Ειδοποίηση όταν προβλέπεται βροχή, χιόνι ή καταιγίδα μέσα στις επόμενες δύο "
 "ώρες"
 
-#: ../prefs.js:326
+#: ../prefs.js:336
 msgid "About"
 msgstr "Πληροφορίες"
 
-#: ../prefs.js:341
+#: ../prefs.js:351
 msgid "GNOME weather extension with forecasts for multiple locations"
 msgstr "Επέκταση καιρού για το GNOME με προγνώσεις για πολλές τοποθεσίες"
 
-#: ../prefs.js:346
+#: ../prefs.js:356
 msgid "Links"
 msgstr "Σύνδεσμοι"
 
-#: ../prefs.js:348
+#: ../prefs.js:358
 msgid "Source Code"
 msgstr "Πηγαίος κώδικας"
 
-#: ../prefs.js:350
+#: ../prefs.js:360
 msgid "Report an Issue"
 msgstr "Αναφορά προβλήματος"
 
-#: ../prefs.js:353
+#: ../prefs.js:363
 msgid "Help support development"
 msgstr "Υποστηρίξτε την ανάπτυξη"
 
-#: ../prefs.js:355
+#: ../prefs.js:365
 msgid "Legal"
 msgstr "Νομικά"
 
-#: ../prefs.js:357
+#: ../prefs.js:367
 msgid "License"
 msgstr "Άδεια χρήσης"
 
@@ -555,19 +569,19 @@ msgstr "Άδεια χρήσης"
 #. manner" - it's already shown as a footnote in the panel dropdown when the
 #. active provider requires it (indicator.js's _renderAttribution()); this is
 #. an additional, always-visible credit rather than a replacement for that.
-#: ../prefs.js:363
+#: ../prefs.js:373
 msgid "Weather Data"
 msgstr "Δεδομένα καιρού"
 
-#: ../prefs.js:364
+#: ../prefs.js:374
 msgid "MET Norway (CC BY 4.0)"
 msgstr "MET Norway (CC BY 4.0)"
 
-#: ../prefs.js:366
+#: ../prefs.js:376
 msgid "Credits"
 msgstr "Μνεία"
 
-#: ../prefs.js:369
+#: ../prefs.js:379
 msgid "Contributors"
 msgstr "Συντελεστές"
 

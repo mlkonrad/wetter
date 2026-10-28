@@ -74,6 +74,7 @@ export default class WeatherPreferences extends ExtensionPreferences {
         this._buildPanelGroup(page, window, settings);
         this._buildDetailsGroup(page, settings);
         this._buildForecastGroup(page, settings);
+        this._buildUpdatesGroup(page, settings);
         this._buildNotificationsGroup(page, settings);
         this._buildAboutPage(window);
     }
@@ -311,6 +312,15 @@ export default class WeatherPreferences extends ExtensionPreferences {
         group.add(this._spinRow(_('Forecast Days'), settings, 'forecast-days', 1, 10));
         group.add(this._switchRow(_('Hour-by-Hour Forecast'), settings, 'show-hourly-forecast'));
         group.add(this._spinRow(_('Forecast Hours'), settings, 'hourly-forecast-count', 1, 48));
+    }
+
+    _buildUpdatesGroup(page, settings) {
+        const group = new Adw.PreferencesGroup({title: _('Updates')});
+        page.add(group);
+
+        const row = this._spinRow(_('Refresh Interval'), settings, 'refresh-interval', 10, 180);
+        row.subtitle = _('Minutes between weather updates');
+        group.add(row);
     }
 
     _buildNotificationsGroup(page, settings) {

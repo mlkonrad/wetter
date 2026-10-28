@@ -5,6 +5,11 @@
 
 @import url("stylesheet-dark.css");
 
+.weather-hourlys StScrollBar > .hhandle,
+.weather-forecasts StScrollBar > .hhandle {
+  background-color: #c6c6ca;
+}
+
 .weather-current-databox-captions,
 .weather-forecast-day,
 .weather-forecast-humidity,

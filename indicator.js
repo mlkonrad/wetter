@@ -18,7 +18,6 @@ import {iconType, dayName, localeTime, moonPhaseIconName, moonPhaseName, realSpe
 
 const GWEATHER_SCHEMA = 'org.gnome.GWeather4';
 const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
-const REFRESH_INTERVAL_SECONDS = 30 * 60;
 const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
 const TREND_LOOKAHEAD_HOURS = 3;
 
@@ -177,6 +176,9 @@ class WeatherIndicator extends PanelMenu.Button {
             this._renderCurrent();
             this._renderHourly();
             break;
+        case 'refresh-interval':
+            this._startRefreshTimer();
+            break;
         case 'notify-precipitation':
             this._checkPrecipitation();
             break;
@@ -312,7 +314,24 @@ class WeatherIndicator extends PanelMenu.Button {
         this._reloadItem.show();
         this._client.update();
 
-        this._timerId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, REFRESH_INTERVAL_SECONDS, () => {
+        this._startRefreshTimer();
+    }
+
+    // Restarting the timer is deliberately not a reload: changing how often to
+    // fetch shouldn't itself fetch, and what's on screen is still current. With
+    // no client there's nothing to refresh, so no timer is armed either - the
+    // states that return early from _reload() leave it that way.
+    _startRefreshTimer() {
+        if (this._timerId) {
+            GLib.source_remove(this._timerId);
+            this._timerId = 0;
+        }
+
+        if (!this._client)
+            return;
+
+        const seconds = this._settings.get_int('refresh-interval') * 60;
+        this._timerId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, seconds, () => {
             this._client?.update();
             return GLib.SOURCE_CONTINUE;
         });
@@ -351,7 +370,7 @@ class WeatherIndicator extends PanelMenu.Button {
     }
 
     // A fetch that fails leaves the panel stuck showing 'error' until the
-    // next REFRESH_INTERVAL_SECONDS tick - up to half an hour of "No weather
+    // next refresh-interval tick - by default half an hour of "No weather
     // information" after a resume from suspend, where the fetch fires seconds
     // after wake and loses DNS ("Temporary failure in name resolution" from
     // libgweather) while connectivity comes back moments later. Retrying the
@@ -669,6 +688,7 @@ class WeatherIndicator extends PanelMenu.Button {
             style_class: 'weather-hourlys',
             hscrollbar_policy: St.PolicyType.AUTOMATIC,
             vscrollbar_policy: St.PolicyType.NEVER,
+            overlay_scrollbars: true,
         });
         scroll.add_child(row);
 
@@ -735,6 +755,7 @@ class WeatherIndicator extends PanelMenu.Button {
             style_class: 'weather-forecasts',
             hscrollbar_policy: St.PolicyType.AUTOMATIC,
             vscrollbar_policy: St.PolicyType.NEVER,
+            overlay_scrollbars: true,
         });
         scroll.add_child(row);
 

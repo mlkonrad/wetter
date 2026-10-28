@@ -72,7 +72,7 @@
 }
 
 .weather-forecast-box {
-  padding: 0 8px;
+  padding: 0 8px 7px 8px;
   min-width: 110px;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .weather-hourly-box {
-  padding: 0 6px;
+  padding: 0 6px 7px 6px;
   min-width: 56px;
 }
 
@@ -139,6 +139,27 @@
   color: #b2b2b4;
   font-size: 90%;
   text-align: center;
+}
+
+/* The two strips scroll horizontally with overlay scrollbars, so the bar is
+   drawn over the content rather than below it - hence the bottom padding on
+   the columns above, which is the empty strip it floats in. Shell's own
+   StScrollBar is 8px with a #727275 handle, which at the full width of a
+   nearly-filled strip reads as a rail across the dropdown; half the height
+   and a quieter handle still says "there is more this way" without competing
+   with the forecast. */
+.weather-hourlys StScrollBar,
+.weather-forecasts StScrollBar {
+  min-height: 4px;
+}
+
+/* Opaque on purpose. The handle's background is painted more than once at
+   this height - a translucent colour stacks with itself and comes out far
+   brighter than it reads in the file (0.3 alpha white measured as if it were
+   0.66), which is a trap worth not walking into twice. */
+.weather-hourlys StScrollBar > .hhandle,
+.weather-forecasts StScrollBar > .hhandle {
+  background-color: #5a5a5e;
 }
 
 .attribution {
