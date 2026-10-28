@@ -496,8 +496,11 @@ class WeatherIndicator extends PanelMenu.Button {
         });
 
         const location = new St.Label({text: `${info.get_location().get_city_name()}${_(', ')}${conditions}`});
+        // The headline is the real temperature, the same reading the panel
+        // shows. Upstream put the apparent temperature here, which both
+        // contradicted the panel and repeated the "Feels like" row below.
         const summary = new St.Label({
-            text: apparentString,
+            text: tempString,
             style_class: 'weather-current-summary',
         });
 

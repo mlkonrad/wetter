@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 11:28+0300\n"
+"POT-Creation-Date: 2026-10-28 19:35+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Japanese\n"
@@ -234,35 +234,35 @@ msgstr "$c で $t ごろ"
 msgid ", "
 msgstr "、"
 
-#: ../indicator.js:528
+#: ../indicator.js:531
 msgid "Updated"
 msgstr "更新日時"
 
-#: ../indicator.js:544
+#: ../indicator.js:547
 msgid "Feels like"
 msgstr "体感気温"
 
-#: ../indicator.js:545 ../prefs.js:299
+#: ../indicator.js:548 ../prefs.js:299
 msgid "Visibility"
 msgstr "視程"
 
-#: ../indicator.js:546 ../prefs.js:301
+#: ../indicator.js:549 ../prefs.js:301
 msgid "Humidity"
 msgstr "湿度"
 
-#: ../indicator.js:547 ../prefs.js:257 ../prefs.js:302
+#: ../indicator.js:550 ../prefs.js:257 ../prefs.js:302
 msgid "Pressure"
 msgstr "気圧"
 
-#: ../indicator.js:548 ../prefs.js:303
+#: ../indicator.js:551 ../prefs.js:303
 msgid "Wind"
 msgstr "風"
 
-#: ../indicator.js:632
+#: ../indicator.js:635
 msgid "Now"
 msgstr "現在"
 
-#: ../indicator.js:763 ../indicator.js:848 ../prefs.js:99
+#: ../indicator.js:766 ../indicator.js:851 ../prefs.js:99
 msgid "Current Location"
 msgstr "現在の位置"
 

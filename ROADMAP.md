@@ -19,9 +19,11 @@ ends up in the EGO zip.
 | 5 | "Open in GNOME Weather" menu item | Dropped 2026-09-22, not wanted |
 | 6 | Full translation of all shipped languages | Released 2026-10-27, 32 languages |
 | - | Release 1.1 to extensions.gnome.org | Approved by EGO 2026-10-27 |
+| 7 | Hourly temperature chart | Dropped 2026-10-28, not wanted |
+| 8 | Headline temperature fix | Built 2026-10-28, unreleased |
 
-Everything tracked here is released. The sections below are kept as a
-record of how each feature was built and what to watch for.
+Everything tracked here but feature 8 is released. The sections below are kept
+as a record of how each feature was built and what to watch for.
 
 ---
 
@@ -172,6 +174,47 @@ Estonian GNOME Weather is only 43 strings upstream, so the weather detail rows
 (`Õhuniiskus`, `Õhurõhk`, `Nähtavus`, `Tajutav`) are not GNOME-sourced;
 `tajutav temperatuur` is the Estonian weather service's own term for wind
 chill.
+
+## 7. Hourly temperature chart - dropped
+
+Built 2026-10-28 and removed the same day at the user's request ("I don't like
+the line, you can drop it"), after looking at it in a nested session. Don't
+rebuild it without asking.
+
+A line across the hour-by-hour strip as an `St.DrawingArea`, behind a
+`show-hourly-chart` key. What it cost to find out, in case anything else in
+this dropdown ever needs Cairo drawing:
+
+- **Aligning a drawing with the hourly columns** works by making the
+  `St.DrawingArea` a sibling of the hourly row inside one vertical box in the
+  `St.ScrollView`. Both then get the same width and origin, so a column's own
+  `allocation` is also its x position within the drawing - no recomputing
+  column widths from the stylesheet, the drawing scrolls with the row, and it
+  follows the layout in RTL with no special case.
+- **`min-height` sizes the content box and padding adds to it**: `min-height:
+  32px` plus `padding: 5px 0` allocated 42px (measured in a nested session via
+  a helper extension logging `chart.allocation`, not assumed).
+- **Custom CSS properties work in an extension stylesheet** the way
+  `barLevel.js` uses its `-barlevel-*` ones - `themeNode.get_length()` /
+  `get_color()` read them, and `color: -st-accent-color` resolves. St logs
+  nothing for an unknown `-weather-*` property.
+- **Filling the area under a line reads as a progress bar**, which the review
+  guidelines name specifically. Most hourly forecasts are flat enough that the
+  fill becomes a slab.
+- **Normalizing a temperature run to its own min/max exaggerates it** - a
+  2-degree evening stretched across the band looks dramatic. A per-unit
+  minimum span with the data centred inside it fixes that.
+
+## 8. Headline temperature fix - built, not yet released
+
+The dropdown's 44px headline had shown `apparentString` since the original
+extension, so it both contradicted the panel (which shows the real
+temperature) and repeated the "Feels like" row immediately to its right -
+8 degrees in the panel against 5 in the dropdown, on the same reading.
+`_renderCurrent()` in `indicator.js` now uses `tempString` there.
+
+This changes what every existing user sees, so it's worth a line in whatever
+accompanies the next upload.
 
 ## Release 1.1 - done
 

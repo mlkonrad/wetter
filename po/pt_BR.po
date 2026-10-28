@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 11:28+0300\n"
+"POT-Creation-Date: 2026-10-28 19:35+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -233,35 +233,35 @@ msgstr "Por volta de $t em $c"
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:528
+#: ../indicator.js:531
 msgid "Updated"
 msgstr "Atualizado"
 
-#: ../indicator.js:544
+#: ../indicator.js:547
 msgid "Feels like"
 msgstr "Sensação térmica"
 
-#: ../indicator.js:545 ../prefs.js:299
+#: ../indicator.js:548 ../prefs.js:299
 msgid "Visibility"
 msgstr "Visibilidade"
 
-#: ../indicator.js:546 ../prefs.js:301
+#: ../indicator.js:549 ../prefs.js:301
 msgid "Humidity"
 msgstr "Umidade"
 
-#: ../indicator.js:547 ../prefs.js:257 ../prefs.js:302
+#: ../indicator.js:550 ../prefs.js:257 ../prefs.js:302
 msgid "Pressure"
 msgstr "Pressão"
 
-#: ../indicator.js:548 ../prefs.js:303
+#: ../indicator.js:551 ../prefs.js:303
 msgid "Wind"
 msgstr "Vento"
 
-#: ../indicator.js:632
+#: ../indicator.js:635
 msgid "Now"
 msgstr "Agora"
 
-#: ../indicator.js:763 ../indicator.js:848 ../prefs.js:99
+#: ../indicator.js:766 ../indicator.js:851 ../prefs.js:99
 msgid "Current Location"
 msgstr "Localização atual"
 
