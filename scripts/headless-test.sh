@@ -9,6 +9,11 @@
 #   ./scripts/headless-test.sh --light         # same on the light theme
 #   ./scripts/headless-test.sh --city Bergen   # a location of your choosing
 #   ./scripts/headless-test.sh --visible       # a window to click around in
+#   ./scripts/headless-test.sh --reuse         # keep the last run's settings
+#
+# --reuse is what tests anything that depends on a previous session having
+# happened - the panel's cached reading, say, which only shows on a second
+# start.
 #
 # Isolation comes from GSETTINGS_BACKEND=keyfile plus scratch XDG dirs: every
 # GSettings read and write in that Shell goes to a keyfile under $STATE, so
@@ -18,6 +23,7 @@
 VARIANT=dark
 VISIBLE=no
 KEEP=no
+REUSE=no
 TIMEOUT=60
 CITIES=
 MONITOR=1400x900
@@ -32,6 +38,7 @@ while [ $# -gt 0 ]; do
     --dark) VARIANT=dark ;;
     --visible) VISIBLE=yes ;;
     --keep) KEEP=yes ;;
+    --reuse) REUSE=yes ;;
     --timeout) TIMEOUT=$2; shift ;;
     --city) CITIES="$CITIES $2"; shift ;;
     -h|--help) usage; exit 0 ;;
@@ -64,15 +71,33 @@ cleanup() {
 }
 
 cleanup
-rm -rf "$STATE"
+if [ "$REUSE" = yes ] && [ -f "$CONFIG/glib-2.0/settings/keyfile" ]; then
+    rm -f "$OUT/status" "$OUT/menu.png"
+    SEED=no
+else
+    rm -rf "$STATE"
+    SEED=yes
+fi
 mkdir -p "$CONFIG/glib-2.0/settings" "$DATA/gnome-shell/extensions" "$STATE/cache" "$OUT"
 
-ln -s "$REPO" "$DATA/gnome-shell/extensions/$UUID"
+[ -e "$DATA/gnome-shell/extensions/$UUID" ] || ln -s "$REPO" "$DATA/gnome-shell/extensions/$UUID"
 ENABLED="'$UUID'"
 if [ "$VISIBLE" = no ]; then
-    ln -s "$REPO/tests/screenshot-helper@wetter.test" "$DATA/gnome-shell/extensions/screenshot-helper@wetter.test"
+    [ -e "$DATA/gnome-shell/extensions/screenshot-helper@wetter.test" ] ||
+        ln -s "$REPO/tests/screenshot-helper@wetter.test" "$DATA/gnome-shell/extensions/screenshot-helper@wetter.test"
     ENABLED="$ENABLED, 'screenshot-helper@wetter.test'"
 fi
+
+if [ "$SEED" = no ]; then
+    echo "reusing the settings from the last run"
+fi
+
+COLOR_SCHEME=prefer-light
+if [ "$VARIANT" = dark ]; then
+    COLOR_SCHEME=prefer-dark
+fi
+
+if [ "$SEED" = yes ]; then
 
 # Locations: whatever --city names, else a copy of the real session's list.
 # Read-only either way - the copy goes into the scratch keyfile, not back.
@@ -86,9 +111,6 @@ else
         exit 1
     fi
 fi
-
-COLOR_SCHEME=prefer-light
-[ "$VARIANT" = dark ] && COLOR_SCHEME=prefer-dark
 
 cat > "$CONFIG/glib-2.0/settings/keyfile" <<EOF
 [org/gnome/shell]
@@ -109,6 +131,8 @@ actual-city=0
 use-current-location=false
 city=$CITY_VALUE
 EOF
+
+fi
 
 # Same secrets stub scripts/dev-session.sh uses - without it every launch pays
 # ~30s of xdg-desktop-portal/Secret Service probing.
@@ -161,6 +185,8 @@ echo "variant:  $VARIANT"
 echo "status:   $status ($detail)"
 echo "JS ERROR: $errors"
 echo "log:      $LOG"
-[ "$KEEP" = yes ] && echo "session left running (--keep); settings under $CONFIG"
+if [ "$KEEP" = yes ]; then
+    echo "session left running (--keep); settings under $CONFIG"
+fi
 
 [ "$status" = ok ] && [ "$errors" -eq 0 ]

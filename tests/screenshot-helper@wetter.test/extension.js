@@ -21,12 +21,29 @@ const TARGET_UUID = 'wetter@mlkonrad.github.com';
 // screenshotting immediately catches it half-built.
 const SETTLE_SECONDS = 2;
 
+function findForecastButtons(indicator) {
+    const buttons = [];
+    const walk = actor => {
+        if (actor.style_class?.includes('weather-forecast-button'))
+            buttons.push(actor);
+        for (const child of actor.get_children())
+            walk(child);
+    };
+    walk(indicator.menu.box);
+    return buttons;
+}
+
 /** Opens the Wetter dropdown once it has data and screenshots it. */
 export default class ScreenshotHelperExtension extends Extension {
     enable() {
         // A headless Shell starts in the overview, which would otherwise be
         // the backdrop of every screenshot.
         Main.overview.hide();
+
+        // Logged here rather than from the poll below because the cached
+        // reading is painted during the target extension's own enable(), and
+        // a fetch can finish before the first poll a second later.
+        console.log(`WETTER-TEST start panel="${Main.panel.statusArea[TARGET_UUID]?._panelLabel.text}"`);
 
         this._outDir = GLib.getenv('WETTER_TEST_OUT');
         this._timeout = Number(GLib.getenv('WETTER_TEST_TIMEOUT'));
@@ -48,12 +65,24 @@ export default class ScreenshotHelperExtension extends Extension {
         this._waited++;
         const indicator = Main.panel.statusArea[TARGET_UUID];
 
+        // What the panel reads before the first fetch lands is the only place
+        // the cached reading is ever visible, so the log is where a --reuse run
+        // shows whether it was used.
+        console.log(`WETTER-TEST poll state=${indicator?._state} panel="${indicator?._panelLabel.text}"`);
+
         // _state is the indicator's own private field. This helper ships in the
         // same repo and is released with it, so reading it is a cheaper and
         // steadier readiness signal than guessing from the rendered pixels.
         if (indicator?._state === 'ready') {
             this._pollId = 0;
             indicator.menu.open();
+
+            // Exercises the forecast day buttons without a pointer. It goes
+            // through 'clicked', so the handler and the re-render are real;
+            // only the input routing to the button is taken on trust.
+            const day = GLib.getenv('WETTER_TEST_SELECT_DAY');
+            if (day)
+                findForecastButtons(indicator)[Number(day)]?.emit('clicked', 1);
             this._settleId = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, SETTLE_SECONDS, () => {
                 this._settleId = 0;
                 this._screenshot();

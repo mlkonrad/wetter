@@ -46,7 +46,9 @@ export class WeatherClient {
  * @param {GWeather.Info} info - the weather info to bucket into days
  * @param {GWeather.TemperatureUnit} temperatureUnit - unit for min/max temps
  * @returns {object[]} per-day buckets with icon/humidity/minTemp/maxTemp/date
- *   (minTemp/maxTemp are null when no entry that day has a valid temperature)
+ *   and `entries`, that day's {date, entry} pairs in order, for the hourly
+ *   strip when a day is selected (minTemp/maxTemp are null when no entry that
+ *   day has a valid temperature)
  */
 export function buildForecast(info, temperatureUnit) {
     const list = info.get_forecast_list();
@@ -70,13 +72,14 @@ export function buildForecast(info, temperatureUnit) {
 
         const date = GLib.DateTime.new_from_unix_local(updateTime).to_timezone(tz);
         if (date.get_day_of_month() !== lastDayOfMonth)
-            days.push({hours: {}, date, minTemp: null, maxTemp: null});
+            days.push({hours: {}, entries: [], date, minTemp: null, maxTemp: null});
         lastDayOfMonth = date.get_day_of_month();
 
         const day = days[days.length - 1];
         const [tempValid, temp] = entry.get_value_temp(temperatureUnit);
 
         day.hours[date.get_hour()] = entry;
+        day.entries.push({date, entry});
         if (tempValid) {
             day.minTemp = day.minTemp === null ? temp : Math.min(day.minTemp, temp);
             day.maxTemp = day.maxTemp === null ? temp : Math.max(day.maxTemp, temp);

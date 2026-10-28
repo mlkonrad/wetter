@@ -117,6 +117,27 @@ export function temperatureString(unit, temp, _) {
 }
 
 /**
+ * Converts a temperature in Kelvin to another unit. The panel's cached reading
+ * is stored in Kelvin because the unit can change between sessions, and
+ * GWeather only converts inside get_value_temp(), which needs a live
+ * GWeather.Info - the cache has just a number.
+ *
+ * @param {number} kelvin - the temperature in Kelvin
+ * @param {GWeather.TemperatureUnit} unit - concrete unit (never DEFAULT)
+ * @returns {number} the temperature in `unit`
+ */
+export function temperatureFromKelvin(kelvin, unit) {
+    switch (unit) {
+    case GWeather.TemperatureUnit.CENTIGRADE:
+        return kelvin - 273.15;
+    case GWeather.TemperatureUnit.FAHRENHEIT:
+        return (kelvin - 273.15) * 9 / 5 + 32;
+    default:
+        return kelvin;
+    }
+}
+
+/**
  * Formats a wind speed and direction, or '-' if no valid reading exists.
  *
  * @param {GWeather.SpeedUnit} unit - the unit `speed` is expressed in

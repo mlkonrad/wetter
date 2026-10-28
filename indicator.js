@@ -14,12 +14,17 @@ import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js'
 
 import {WeatherClient, buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from './weatherClient.js';
 import {CurrentLocationClient} from './currentLocationClient.js';
-import {iconType, dayName, localeTime, moonPhaseIconName, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from './helpers.js';
+import {iconType, dayName, localeTime, moonPhaseIconName, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureFromKelvin, temperatureString, windString} from './helpers.js';
 
 const GWEATHER_SCHEMA = 'org.gnome.GWeather4';
 const INTERFACE_SCHEMA = 'org.gnome.desktop.interface';
 const PRECIPITATION_LOOKAHEAD_SECONDS = 2 * 60 * 60;
 const TREND_LOOKAHEAD_HOURS = 3;
+
+// How old a cached reading may be and still be worth showing while the first
+// fetch of a session runs. Past a day it is more likely to mislead than to
+// help, and a few seconds of placeholder is the lesser evil.
+const CACHE_MAX_AGE_SECONDS = 24 * 60 * 60;
 
 // Matches the nick order of the time-format enum in the schema.
 const TIME_FORMAT_AUTO = 0;
@@ -41,6 +46,32 @@ function getCurrentLocationCity(settings) {
 
 function setCurrentLocationCity(settings, city) {
     settings.set_value('current-location-city', new GLib.Variant('av', [city.serialize()]));
+}
+
+// The panel would otherwise read "Weather" behind a spinner at every login,
+// for as long as the first fetch takes. These two keys are written by the
+// extension rather than by the user, the same way current-location-city is.
+function readCachedReading(settings, location) {
+    const [cachedLocation] = settings.get_value('cached-location').deep_unpack()
+        .map(v => GWeather.Location.get_world().deserialize(v));
+    if (!cachedLocation?.equal(location))
+        return null;
+
+    const [iconName, kelvin, time] = settings.get_value('cached-reading').deep_unpack();
+    if (!iconName || GLib.DateTime.new_now_utc().to_unix() - time > CACHE_MAX_AGE_SECONDS)
+        return null;
+
+    return {iconName, kelvin};
+}
+
+function writeCachedReading(settings, info) {
+    const [valid, kelvin] = info.get_value_temp(GWeather.TemperatureUnit.KELVIN);
+    if (!valid)
+        return;
+
+    settings.set_value('cached-location', new GLib.Variant('av', [info.get_location().serialize()]));
+    settings.set_value('cached-reading', new GLib.Variant('(sdx)',
+        [info.get_icon_name(), kelvin, GLib.DateTime.new_now_utc().to_unix()]));
 }
 
 function clamp(index, length) {
@@ -66,6 +97,7 @@ class WeatherIndicator extends PanelMenu.Button {
         this._notificationSource = null;
         this._precipitationNotification = null;
         this._inPrecipitationSpell = false;
+        this._selectedDayIndex = null;
         this._scrollDelta = 0;
         this._scrollGestureStepped = false;
         this._networkMonitor = Gio.NetworkMonitor.get_default();
@@ -143,6 +175,11 @@ class WeatherIndicator extends PanelMenu.Button {
         case 'use-current-location':
             this._syncCurrentLocationTracking();
             this._reload();
+            break;
+        case 'cached-location':
+        case 'cached-reading':
+            // Written by this indicator after every fetch; nothing on screen
+            // depends on them once the weather itself has rendered.
             break;
         case 'current-location-city':
             // Written by our own tracker callback (_onCurrentLocationResolved),
@@ -285,6 +322,10 @@ class WeatherIndicator extends PanelMenu.Button {
             this._timerId = 0;
         }
 
+        // A day picked in the old location's forecast means nothing in the new
+        // one's, and the list it indexes into is about to be rebuilt.
+        this._selectedDayIndex = null;
+
         // A spell tracked for the previous location says nothing about the new one.
         this._precipitationNotification = null;
         this._inPrecipitationSpell = false;
@@ -309,6 +350,7 @@ class WeatherIndicator extends PanelMenu.Button {
         }
 
         this._setState('loading');
+        this._paintCachedReading(location);
 
         this._client = new WeatherClient(location, () => this._renderReady());
         this._reloadItem.show();
@@ -386,6 +428,21 @@ class WeatherIndicator extends PanelMenu.Button {
         this._client.update();
     }
 
+    // Only the icon and the temperature: conditions, humidity and wind would
+    // each need their own cached value, and this is a placeholder that lasts
+    // seconds. _setState('loading') has just reset both, so this runs after it.
+    _paintCachedReading(location) {
+        const cached = readCachedReading(this._settings, location);
+        if (!cached)
+            return;
+
+        this._setPanelIcon(cached.iconName);
+        if (this._settings.get_boolean('show-text-in-panel')) {
+            const unit = this._temperatureUnit();
+            this._panelLabel.text = temperatureString(unit, temperatureFromKelvin(cached.kelvin, unit), _);
+        }
+    }
+
     _setPanelIcon(name) {
         this._panelIcon.icon_name = iconType(name, this._settings.get_boolean('use-symbolic-icons'));
     }
@@ -396,6 +453,7 @@ class WeatherIndicator extends PanelMenu.Button {
             return;
         }
         this._state = 'ready';
+        writeCachedReading(this._settings, this._client.info);
         this._renderCurrent();
         this._renderHourly();
         this._renderForecast();
@@ -643,27 +701,37 @@ class WeatherIndicator extends PanelMenu.Button {
         const temperatureUnit = this._temperatureUnit();
         const clockFormat = this._resolveClockFormat();
 
-        const hours = buildHourlyForecast(info);
-        if (!hours.length) {
+        const describe = ({date, entry}) => ({
+            label: localeTime(date, clockFormat),
+            icon: entry.get_icon_name(),
+            temp: entry.get_value_temp(temperatureUnit),
+            humidity: entry.get_humidity(),
+        });
+
+        const selectedDay = this._selectedForecastDay(info, temperatureUnit);
+        const entries = selectedDay
+            // A selected day shows every hour the provider has for it, ignoring
+            // 'hourly-forecast-count': that count answers how far ahead to look
+            // from now, which picking a day already does. Expect fewer than 24 -
+            // MET Norway's spacing widens to six-hourly a couple of days out.
+            ? selectedDay.entries.map(describe)
+            : [
+                {
+                    label: _('Now'),
+                    icon: info.get_icon_name(),
+                    temp: info.get_value_temp(temperatureUnit),
+                    humidity: info.get_humidity(),
+                },
+                // "Now" counts as the first of the total, so only count-1 future hours follow it.
+                ...buildHourlyForecast(info)
+                    .slice(0, this._settings.get_int('hourly-forecast-count') - 1)
+                    .map(describe),
+            ];
+
+        if (!entries.length) {
             this._hourlyBin.hide();
             return;
         }
-
-        const entries = [
-            {
-                label: _('Now'),
-                icon: info.get_icon_name(),
-                temp: info.get_value_temp(temperatureUnit),
-                humidity: info.get_humidity(),
-            },
-            // "Now" counts as the first of the total, so only count-1 future hours follow it.
-            ...hours.slice(0, this._settings.get_int('hourly-forecast-count') - 1).map(({date, entry}) => ({
-                label: localeTime(date, clockFormat),
-                icon: entry.get_icon_name(),
-                temp: entry.get_value_temp(temperatureUnit),
-                humidity: entry.get_humidity(),
-            })),
-        ];
 
         const row = new St.BoxLayout();
         for (const item of entries) {
@@ -696,6 +764,26 @@ class WeatherIndicator extends PanelMenu.Button {
         this._hourlyBin.show();
     }
 
+    // The selection only means something while both strips are on screen: with
+    // the daily forecast hidden there is no way to clear it, and with the
+    // hourly one hidden there is nothing for it to change.
+    _selectedForecastDay(info, temperatureUnit) {
+        if (this._selectedDayIndex === null ||
+            !this._settings.get_boolean('show-daily-forecast') ||
+            !this._settings.get_boolean('show-hourly-forecast'))
+            return null;
+
+        return buildForecast(info, temperatureUnit)[this._selectedDayIndex] ?? null;
+    }
+
+    // Clicking the selected day again returns to the hours from now, so there
+    // is no separate control for that and no state to get stuck in.
+    _selectDay(index) {
+        this._selectedDayIndex = this._selectedDayIndex === index ? null : index;
+        this._renderForecast();
+        this._renderHourly();
+    }
+
     _renderForecast() {
         if (this._state !== 'ready' || !this._client)
             return;
@@ -716,8 +804,11 @@ class WeatherIndicator extends PanelMenu.Button {
             return;
         }
 
-        const row = new St.BoxLayout();
-        for (const day of days) {
+        // Only clickable when there is an hourly strip for a click to change.
+        const selectable = this._settings.get_boolean('show-hourly-forecast');
+
+        const row = new St.BoxLayout({style_class: 'weather-forecast-row'});
+        for (const [index, day] of days.entries()) {
             const icon = new St.Icon({
                 icon_size: 32,
                 icon_name: iconType(day.icon, symbolic),
@@ -748,7 +839,20 @@ class WeatherIndicator extends PanelMenu.Button {
             column.add_child(dayBox);
             column.add_child(new St.Label({text: day.humidity, style_class: 'weather-forecast-humidity'}));
 
-            row.add_child(column);
+            if (!selectable) {
+                row.add_child(column);
+                continue;
+            }
+
+            const button = new St.Button({
+                style_class: 'weather-forecast-button',
+                child: column,
+                can_focus: true,
+                checked: index === this._selectedDayIndex,
+                accessible_name: dayName(today, day.date, _),
+            });
+            button.connect('clicked', () => this._selectDay(index));
+            row.add_child(button);
         }
 
         const scroll = new St.ScrollView({

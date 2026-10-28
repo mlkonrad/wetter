@@ -106,6 +106,16 @@
       <default>24</default>
       <summary>Number of hours to show in the hour-by-hour forecast</summary>
     </key>
+    <key name="cached-location" type="av">
+      <default>[]</default>
+      <summary>Location the cached reading belongs to</summary>
+      <description>Written by the extension, not a user setting. Paired with cached-reading so a reading is never shown for a location the user has since switched away from.</description>
+    </key>
+    <key name="cached-reading" type="(sdx)">
+      <default>('', 0.0, 0)</default>
+      <summary>Last weather reading: icon name, temperature in Kelvin, Unix time</summary>
+      <description>Written by the extension, not a user setting. Lets the panel show the last reading at login instead of a placeholder, until the session's first fetch lands. Kelvin because the display unit can change between sessions.</description>
+    </key>
     <key name="refresh-interval" type="i">
       <range min="10" max="180"/>
       <default>30</default>

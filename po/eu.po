@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 20:04+0200\n"
+"POT-Creation-Date: 2026-10-28 20:18+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Basque\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../helpers.js:11 ../helpers.js:155
+#: ../helpers.js:11 ../helpers.js:176
 msgid "VAR"
 msgstr "ALD"
 
@@ -48,148 +48,148 @@ msgstr "%s °C"
 msgid "%s K"
 msgstr "%s K"
 
-#: ../helpers.js:115 ../helpers.js:149
+#: ../helpers.js:115 ../helpers.js:170
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: ../helpers.js:139
+#: ../helpers.js:160
 msgid "$d$s knots"
 msgstr "$d$s korapilo"
 
-#: ../helpers.js:141
+#: ../helpers.js:162
 msgid "$d$s mph"
 msgstr "$d$s milia orduko"
 
-#: ../helpers.js:143
+#: ../helpers.js:164
 msgid "$d$s km/h"
 msgstr "$d$s km/h"
 
-#: ../helpers.js:145
+#: ../helpers.js:166
 msgid "$d$s m/s"
 msgstr "$d$s m/s"
 
-#: ../helpers.js:147
+#: ../helpers.js:168
 msgid "$dBeaufort $s"
 msgstr "$dBeaufort $s"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "N"
 msgstr "I"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NNE"
 msgstr "IIE"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NE"
 msgstr "IE"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "ENE"
 msgstr "EIE"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "E"
 msgstr "E"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "ESE"
 msgstr "EHE"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SE"
 msgstr "HE"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SSE"
 msgstr "HHE"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "S"
 msgstr "H"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SSW"
 msgstr "HHM"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SW"
 msgstr "HM"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WSW"
 msgstr "MHM"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "W"
 msgstr "M"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WNW"
 msgstr "MIM"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NW"
 msgstr "IM"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NNW"
 msgstr "IIM"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "New moon"
 msgstr "Ilberri"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing crescent"
 msgstr "Ilgora hasieran"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "First quarter"
 msgstr "Lehen laurdena"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing gibbous"
 msgstr "Ilgora betean"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Full moon"
 msgstr "Ilargi betea"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning gibbous"
 msgstr "Ilbehera betean"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Last quarter"
 msgstr "Azken laurdena"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning crescent"
 msgstr "Ilbehera amaieran"
 
-#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
-#: ../indicator.js:361 ../indicator.js:366
+#: ../indicator.js:130 ../indicator.js:393 ../indicator.js:398
+#: ../indicator.js:403 ../indicator.js:408
 msgid "Weather"
 msgstr "Eguraldia"
 
-#: ../indicator.js:122 ../prefs.js:83
+#: ../indicator.js:154 ../prefs.js:83
 msgid "Locations"
 msgstr "Kokapenak"
 
-#: ../indicator.js:125
+#: ../indicator.js:157
 msgid "Reload Weather Information"
 msgstr "Birkargatu eguraldi-informazioa"
 
-#: ../indicator.js:130
+#: ../indicator.js:162
 msgid "Wetter Settings"
 msgstr "Wetter-en ezarpenak"
 
-#: ../indicator.js:273
+#: ../indicator.js:310
 msgid "Current location unavailable"
 msgstr "Uneko kokapena ez dago erabilgarri"
 
-#: ../indicator.js:274
+#: ../indicator.js:311
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
@@ -197,72 +197,72 @@ msgstr ""
 "Aktibatu kokaleku-zerbitzuak Ezarpenetan eta ondoren aktibatu berriro uneko "
 "kokapena Wetter-en ezarpenetan."
 
-#: ../indicator.js:352
+#: ../indicator.js:394
 msgid "No location configured"
 msgstr "Ez da kokapenik konfiguratu"
 
-#: ../indicator.js:357
+#: ../indicator.js:399
 msgid "Detecting your location…"
 msgstr "Zure kokapena detektatzen…"
 
-#: ../indicator.js:362
+#: ../indicator.js:404
 msgid "Loading weather"
 msgstr "Eguraldia kargatzen"
 
-#: ../indicator.js:367
+#: ../indicator.js:409
 msgid "No weather information"
 msgstr "Ez dago eguraldi-informaziorik"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Rain expected"
 msgstr "Euria espero da"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Snow expected"
 msgstr "Elurra espero da"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Thunderstorm expected"
 msgstr "Ekaitza espero da"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:435
+#: ../indicator.js:493
 msgid "Around $t in $c"
 msgstr "$c-n $t inguru"
 
-#: ../indicator.js:507 ../indicator.js:517
+#: ../indicator.js:565 ../indicator.js:575
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:550
+#: ../indicator.js:608
 msgid "Updated"
 msgstr "Eguneratua"
 
-#: ../indicator.js:566
+#: ../indicator.js:624
 msgid "Feels like"
 msgstr "Sentsazio termikoa"
 
-#: ../indicator.js:567 ../prefs.js:300
+#: ../indicator.js:625 ../prefs.js:300
 msgid "Visibility"
 msgstr "Ikusgaitasuna"
 
-#: ../indicator.js:568 ../prefs.js:302
+#: ../indicator.js:626 ../prefs.js:302
 msgid "Humidity"
 msgstr "Hezetasuna"
 
-#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
+#: ../indicator.js:627 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "Presioa"
 
-#: ../indicator.js:570 ../prefs.js:304
+#: ../indicator.js:628 ../prefs.js:304
 msgid "Wind"
 msgstr "Haizea"
 
-#: ../indicator.js:654
+#: ../indicator.js:720
 msgid "Now"
 msgstr "Orain"
 
-#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
+#: ../indicator.js:891 ../indicator.js:976 ../prefs.js:100
 msgid "Current Location"
 msgstr "Uneko kokapena"
 

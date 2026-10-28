@@ -24,8 +24,10 @@ ends up in the EGO zip.
 | 9 | Light-theme stylesheet | Built 2026-10-28, unreleased |
 | 10 | Quieter dropdown scrollbars | Built 2026-10-28, unreleased |
 | 11 | Configurable refresh interval | Built 2026-10-28, unreleased |
+| 12 | Cached reading in the panel at startup | Built 2026-10-28, unreleased |
+| 13 | Click a forecast day to see its hours | Built 2026-10-28, unreleased |
 
-Everything tracked here but features 8 to 11 is released. The sections below are kept
+Everything tracked here but features 8 to 13 is released. The sections below are kept
 as a record of how each feature was built and what to watch for.
 
 ---
@@ -278,6 +280,71 @@ screenshots, which is the only reason the second and third were noticed.
   is separate from `_reload()`: altering how often to fetch shouldn't itself
   fetch, and what's on screen is still current. It returns early with no
   client, so the `no-location` and `detecting` states stay timer-less.
+
+---
+
+## 12. Cached reading in the panel at startup - built, not yet released
+
+The panel read "Weather" behind a spinner at every login, for as long as the
+session's first fetch took. It now shows the last reading until that fetch
+lands, from two keys the extension writes itself - the same arrangement
+`current-location-city` already uses, which is why GSettings rather than a
+cache file.
+
+- **Stored in Kelvin**, with `temperatureFromKelvin()` in `helpers.js`
+  converting at paint time, because the display unit can change between the
+  session that wrote the cache and the one that reads it. GWeather only
+  converts inside `get_value_temp()`, which needs a live `GWeather.Info`.
+- **Paired with the location it belongs to** (`cached-location`), compared with
+  `GWeather.Location.equal()`, so a reading is never shown for a city the user
+  has since switched away from.
+- **Dropped after 24 hours.** Past that it is likelier to mislead than to help,
+  and a few seconds of placeholder is the lesser evil. The common case - a
+  machine shut down overnight - is well inside it.
+- **Icon and temperature only.** Conditions, humidity and wind would each need
+  their own cached value for a placeholder that lasts seconds.
+- `_onSettingChanged` ignores both keys explicitly. Without that the `default:`
+  branch re-renders the dropdown after every fetch writes the cache.
+
+Verified with `scripts/headless-test.sh --reuse`, which was added for this: a
+first run logs `start panel="Weather"`, the second `start panel="7 °C"`.
+
+## 13. Click a forecast day to see its hours - built, not yet released
+
+A day in the daily strip is now an `St.Button`; clicking it fills the hourly
+strip with that day's hours, clicking it again returns to the hours from now.
+The selected day is highlighted - there is no separate heading, the highlight
+sits directly above the hours it explains. An accent underline instead of the
+fill was tried and turned down; the fill matches how GNOME's own calendar
+marks a selected day.
+
+- **`buildForecast()` already bucketed the hours** and threw them away after
+  picking a representative entry. Each bucket now keeps `entries`, its
+  `{date, entry}` pairs in order; nothing else about the bucketing changed.
+- **A selected day ignores `hourly-forecast-count`**, which answers "how far
+  ahead from now" - a question picking a day already settles. Expect fewer
+  than 24 columns two days out: MET Norway's spacing widens to six-hourly.
+- **The days are only buttons when the hourly strip is on**, and the selection
+  is ignored when either strip is hidden: with the daily one hidden there is
+  no way to clear it, with the hourly one hidden nothing for it to change.
+- **Both insets moved from the columns to the row**, for two separate reasons.
+  Horizontally, a `:first-child` rule on `.weather-forecast-box` now matches
+  the column inside each button rather than the one at the edge of the strip.
+  Vertically, the bottom inset is the strip the overlay scrollbar floats in:
+  left on the column it sits inside the button, and the selected day's
+  background is drawn straight across the scrollbar. That one was only caught
+  by looking at a real session - the headless screenshots had it too, and I
+  had not noticed.
+- `_reload()` clears the selection: the day list is about to be rebuilt, and an
+  index into another location's forecast means nothing.
+
+Tested headlessly by emitting `clicked` on a button from the helper, which
+covers the handler and the re-render but takes input routing on trust - note
+`clicked` on `StButton` carries the button number, so `emit('clicked', 1)`;
+emitting it bare throws. **Not yet checked with a real pointer**, in
+particular whether a click inside the menu leaves the menu open. The Shell's
+own menus hold `St.Button`s that behave, so this is expected to be fine, but
+it is the one claim here that rests on precedent rather than on a run.
 
 ---
 

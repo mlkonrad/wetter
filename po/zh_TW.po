@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: simon 04-gnome-shell-extension-weather-452bcfe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 20:04+0200\n"
+"POT-Creation-Date: 2026-10-28 20:18+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../helpers.js:11 ../helpers.js:155
+#: ../helpers.js:11 ../helpers.js:176
 msgid "VAR"
 msgstr "無定向"
 
@@ -49,219 +49,219 @@ msgstr "%s °C"
 msgid "%s K"
 msgstr "%s K"
 
-#: ../helpers.js:115 ../helpers.js:149
+#: ../helpers.js:115 ../helpers.js:170
 msgid "Unknown"
 msgstr "未知"
 
-#: ../helpers.js:139
+#: ../helpers.js:160
 msgid "$d$s knots"
 msgstr "$d$s 節"
 
-#: ../helpers.js:141
+#: ../helpers.js:162
 msgid "$d$s mph"
 msgstr "$d$s 英里每小時"
 
-#: ../helpers.js:143
+#: ../helpers.js:164
 msgid "$d$s km/h"
 msgstr "$d$s 公里每小時"
 
-#: ../helpers.js:145
+#: ../helpers.js:166
 msgid "$d$s m/s"
 msgstr "$d$s 公尺每秒"
 
-#: ../helpers.js:147
+#: ../helpers.js:168
 msgid "$dBeaufort $s"
 msgstr "$d$s 級"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "N"
 msgstr "正北"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NNE"
 msgstr "北北東"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NE"
 msgstr "東北"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "ENE"
 msgstr "東北東"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "E"
 msgstr "東"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "ESE"
 msgstr "東南東"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SE"
 msgstr "東南"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SSE"
 msgstr "南南東"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "S"
 msgstr "正南"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SSW"
 msgstr "南南西"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SW"
 msgstr "西南"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WSW"
 msgstr "西南西"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "W"
 msgstr "正西"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WNW"
 msgstr "西北西"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NW"
 msgstr "西北"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NNW"
 msgstr "北北西"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "New moon"
 msgstr "新月"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing crescent"
 msgstr "眉月"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "First quarter"
 msgstr "上弦月"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing gibbous"
 msgstr "盈凸月"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Full moon"
 msgstr "滿月"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning gibbous"
 msgstr "虧凸月"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Last quarter"
 msgstr "下弦月"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning crescent"
 msgstr "殘月"
 
-#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
-#: ../indicator.js:361 ../indicator.js:366
+#: ../indicator.js:130 ../indicator.js:393 ../indicator.js:398
+#: ../indicator.js:403 ../indicator.js:408
 msgid "Weather"
 msgstr "天氣"
 
-#: ../indicator.js:122 ../prefs.js:83
+#: ../indicator.js:154 ../prefs.js:83
 msgid "Locations"
 msgstr "地點"
 
-#: ../indicator.js:125
+#: ../indicator.js:157
 msgid "Reload Weather Information"
 msgstr "重新載入氣象資訊"
 
-#: ../indicator.js:130
+#: ../indicator.js:162
 msgid "Wetter Settings"
 msgstr "Wetter 設定"
 
-#: ../indicator.js:273
+#: ../indicator.js:310
 msgid "Current location unavailable"
 msgstr "目前位置無法使用"
 
-#: ../indicator.js:274
+#: ../indicator.js:311
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
 msgstr "請在設定中開啟定位服務，然後在 Wetter 設定中重新開啟目前位置。"
 
-#: ../indicator.js:352
+#: ../indicator.js:394
 msgid "No location configured"
 msgstr "尚未設定地點"
 
-#: ../indicator.js:357
+#: ../indicator.js:399
 msgid "Detecting your location…"
 msgstr "正在偵測您的位置…"
 
-#: ../indicator.js:362
+#: ../indicator.js:404
 msgid "Loading weather"
 msgstr "正在載入天氣…"
 
-#: ../indicator.js:367
+#: ../indicator.js:409
 msgid "No weather information"
 msgstr "沒有天氣資訊"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Rain expected"
 msgstr "預計有雨"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Snow expected"
 msgstr "預計有雪"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Thunderstorm expected"
 msgstr "預計有雷雨"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:435
+#: ../indicator.js:493
 msgid "Around $t in $c"
 msgstr "$c 約 $t"
 
-#: ../indicator.js:507 ../indicator.js:517
+#: ../indicator.js:565 ../indicator.js:575
 msgid ", "
 msgstr "，"
 
-#: ../indicator.js:550
+#: ../indicator.js:608
 msgid "Updated"
 msgstr "已更新"
 
-#: ../indicator.js:566
+#: ../indicator.js:624
 msgid "Feels like"
 msgstr "體感溫度"
 
-#: ../indicator.js:567 ../prefs.js:300
+#: ../indicator.js:625 ../prefs.js:300
 msgid "Visibility"
 msgstr "能見度"
 
-#: ../indicator.js:568 ../prefs.js:302
+#: ../indicator.js:626 ../prefs.js:302
 msgid "Humidity"
 msgstr "濕度"
 
-#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
+#: ../indicator.js:627 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "氣壓"
 
-#: ../indicator.js:570 ../prefs.js:304
+#: ../indicator.js:628 ../prefs.js:304
 msgid "Wind"
 msgstr "風力"
 
-#: ../indicator.js:654
+#: ../indicator.js:720
 msgid "Now"
 msgstr "現在"
 
-#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
+#: ../indicator.js:891 ../indicator.js:976 ../prefs.js:100
 msgid "Current Location"
 msgstr "目前位置"
 

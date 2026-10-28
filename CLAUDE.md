@@ -173,7 +173,14 @@ several sessions is now committed, as `scripts/headless-test.sh` plus
 ./scripts/headless-test.sh --light         # the light stylesheet variant
 ./scripts/headless-test.sh --city Bergen   # a location of your choosing
 ./scripts/headless-test.sh --visible       # a window to click around in
+./scripts/headless-test.sh --reuse         # keep the last run's settings
 ```
+
+`--reuse` is what tests anything that needs a previous session to have
+happened - the panel's cached reading only shows on a second start. Two env
+vars steer the helper: `WETTER_TEST_SELECT_DAY=2` clicks that forecast day
+before the screenshot, and the helper logs the panel's text at startup and on
+every poll, which is where a cached reading is visible at all.
 
 A run takes about seven seconds and prints where the screenshot and log went,
 the helper's status and the `JS ERROR` count, exiting non-zero on either kind

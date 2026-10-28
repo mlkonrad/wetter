@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 20:04+0200\n"
+"POT-Creation-Date: 2026-10-28 20:18+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Turkish\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../helpers.js:11 ../helpers.js:155
+#: ../helpers.js:11 ../helpers.js:176
 msgid "VAR"
 msgstr "VAR"
 
@@ -49,148 +49,148 @@ msgstr "%s °C"
 msgid "%s K"
 msgstr "%s K"
 
-#: ../helpers.js:115 ../helpers.js:149
+#: ../helpers.js:115 ../helpers.js:170
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: ../helpers.js:139
+#: ../helpers.js:160
 msgid "$d$s knots"
 msgstr "$d$s knot"
 
-#: ../helpers.js:141
+#: ../helpers.js:162
 msgid "$d$s mph"
 msgstr "$d$s mil/sa"
 
-#: ../helpers.js:143
+#: ../helpers.js:164
 msgid "$d$s km/h"
 msgstr "$d$s km/sa"
 
-#: ../helpers.js:145
+#: ../helpers.js:166
 msgid "$d$s m/s"
 msgstr "$d$s m/s"
 
-#: ../helpers.js:147
+#: ../helpers.js:168
 msgid "$dBeaufort $s"
 msgstr "$dBeaufort $s"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "N"
 msgstr "K"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NNE"
 msgstr "KKD"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NE"
 msgstr "KD"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "ENE"
 msgstr "DKD"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "E"
 msgstr "D"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "ESE"
 msgstr "DGD"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SE"
 msgstr "GD"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SSE"
 msgstr "GGD"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "S"
 msgstr "G"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SSW"
 msgstr "GGB"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SW"
 msgstr "GB"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WSW"
 msgstr "BGB"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "W"
 msgstr "B"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WNW"
 msgstr "BKB"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NW"
 msgstr "KB"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NNW"
 msgstr "KKB"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "New moon"
 msgstr "Yeni ay"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing crescent"
 msgstr "Büyüyen hilal"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "First quarter"
 msgstr "İlk dördün"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing gibbous"
 msgstr "Büyüyen ay"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Full moon"
 msgstr "Dolunay"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning gibbous"
 msgstr "Küçülen ay"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Last quarter"
 msgstr "Son dördün"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning crescent"
 msgstr "Küçülen hilal"
 
-#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
-#: ../indicator.js:361 ../indicator.js:366
+#: ../indicator.js:130 ../indicator.js:393 ../indicator.js:398
+#: ../indicator.js:403 ../indicator.js:408
 msgid "Weather"
 msgstr "Hava Durumu"
 
-#: ../indicator.js:122 ../prefs.js:83
+#: ../indicator.js:154 ../prefs.js:83
 msgid "Locations"
 msgstr "Konumlar"
 
-#: ../indicator.js:125
+#: ../indicator.js:157
 msgid "Reload Weather Information"
 msgstr "Hava durumu bilgisini yenile"
 
-#: ../indicator.js:130
+#: ../indicator.js:162
 msgid "Wetter Settings"
 msgstr "Wetter Ayarları"
 
-#: ../indicator.js:273
+#: ../indicator.js:310
 msgid "Current location unavailable"
 msgstr "Mevcut konum kullanılamıyor"
 
-#: ../indicator.js:274
+#: ../indicator.js:311
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
@@ -198,72 +198,72 @@ msgstr ""
 "Ayarlar’da Konum Hizmetleri’ni açın, ardından Wetter Ayarları’nda Mevcut "
 "Konum’u yeniden açın."
 
-#: ../indicator.js:352
+#: ../indicator.js:394
 msgid "No location configured"
 msgstr "Hiçbir konum ayarlanmadı"
 
-#: ../indicator.js:357
+#: ../indicator.js:399
 msgid "Detecting your location…"
 msgstr "Konumunuz belirleniyor…"
 
-#: ../indicator.js:362
+#: ../indicator.js:404
 msgid "Loading weather"
 msgstr "Hava durumu yükleniyor"
 
-#: ../indicator.js:367
+#: ../indicator.js:409
 msgid "No weather information"
 msgstr "Hava durumu bilgisi yok"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Rain expected"
 msgstr "Yağmur bekleniyor"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Snow expected"
 msgstr "Kar bekleniyor"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Thunderstorm expected"
 msgstr "Gök gürültülü fırtına bekleniyor"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:435
+#: ../indicator.js:493
 msgid "Around $t in $c"
 msgstr "$c konumunda yaklaşık $t"
 
-#: ../indicator.js:507 ../indicator.js:517
+#: ../indicator.js:565 ../indicator.js:575
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:550
+#: ../indicator.js:608
 msgid "Updated"
 msgstr "Güncellendi"
 
-#: ../indicator.js:566
+#: ../indicator.js:624
 msgid "Feels like"
 msgstr "Hissedilen"
 
-#: ../indicator.js:567 ../prefs.js:300
+#: ../indicator.js:625 ../prefs.js:300
 msgid "Visibility"
 msgstr "Görüş Mesafesi"
 
-#: ../indicator.js:568 ../prefs.js:302
+#: ../indicator.js:626 ../prefs.js:302
 msgid "Humidity"
 msgstr "Nem"
 
-#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
+#: ../indicator.js:627 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "Basınç"
 
-#: ../indicator.js:570 ../prefs.js:304
+#: ../indicator.js:628 ../prefs.js:304
 msgid "Wind"
 msgstr "Rüzgar"
 
-#: ../indicator.js:654
+#: ../indicator.js:720
 msgid "Now"
 msgstr "Şimdi"
 
-#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
+#: ../indicator.js:891 ../indicator.js:976 ../prefs.js:100
 msgid "Current Location"
 msgstr "Mevcut Konum"
 

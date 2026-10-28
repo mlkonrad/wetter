@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 20:04+0200\n"
+"POT-Creation-Date: 2026-10-28 20:18+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Norwegian Bokmal\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../helpers.js:11 ../helpers.js:155
+#: ../helpers.js:11 ../helpers.js:176
 msgid "VAR"
 msgstr "VAR"
 
@@ -48,148 +48,148 @@ msgstr "%s °C"
 msgid "%s K"
 msgstr "%s K"
 
-#: ../helpers.js:115 ../helpers.js:149
+#: ../helpers.js:115 ../helpers.js:170
 msgid "Unknown"
 msgstr "Ukjent"
 
-#: ../helpers.js:139
+#: ../helpers.js:160
 msgid "$d$s knots"
 msgstr "$d$s knop"
 
-#: ../helpers.js:141
+#: ../helpers.js:162
 msgid "$d$s mph"
 msgstr "$d$s mph"
 
-#: ../helpers.js:143
+#: ../helpers.js:164
 msgid "$d$s km/h"
 msgstr "$d$s km/t"
 
-#: ../helpers.js:145
+#: ../helpers.js:166
 msgid "$d$s m/s"
 msgstr "$d$s m/s"
 
-#: ../helpers.js:147
+#: ../helpers.js:168
 msgid "$dBeaufort $s"
 msgstr "$dBeaufort $s"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "N"
 msgstr "N"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NNE"
 msgstr "NNØ"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NE"
 msgstr "NØ"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "ENE"
 msgstr "ØNØ"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "E"
 msgstr "Ø"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "ESE"
 msgstr "ØSØ"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SE"
 msgstr "SØ"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SSE"
 msgstr "SSØ"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "S"
 msgstr "S"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SSW"
 msgstr "SSV"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SW"
 msgstr "SV"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WSW"
 msgstr "VSV"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "W"
 msgstr "V"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WNW"
 msgstr "VNV"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NW"
 msgstr "NV"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NNW"
 msgstr "NNV"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "New moon"
 msgstr "Nymåne"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing crescent"
 msgstr "Voksende månesigd"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "First quarter"
 msgstr "Første kvartal"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing gibbous"
 msgstr "Voksende måne"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Full moon"
 msgstr "Fullmåne"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning gibbous"
 msgstr "Avtagende måne"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Last quarter"
 msgstr "Siste kvartal"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning crescent"
 msgstr "Avtagende månesigd"
 
-#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
-#: ../indicator.js:361 ../indicator.js:366
+#: ../indicator.js:130 ../indicator.js:393 ../indicator.js:398
+#: ../indicator.js:403 ../indicator.js:408
 msgid "Weather"
 msgstr "Vær"
 
-#: ../indicator.js:122 ../prefs.js:83
+#: ../indicator.js:154 ../prefs.js:83
 msgid "Locations"
 msgstr "Steder"
 
-#: ../indicator.js:125
+#: ../indicator.js:157
 msgid "Reload Weather Information"
 msgstr "Last værinformasjon på nytt"
 
-#: ../indicator.js:130
+#: ../indicator.js:162
 msgid "Wetter Settings"
 msgstr "Wetter-innstillinger"
 
-#: ../indicator.js:273
+#: ../indicator.js:310
 msgid "Current location unavailable"
 msgstr "Nåværende posisjon er utilgjengelig"
 
-#: ../indicator.js:274
+#: ../indicator.js:311
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
@@ -197,72 +197,72 @@ msgstr ""
 "Slå på posisjonstjenester i Innstillinger, og slå deretter på Nåværende "
 "posisjon igjen i Wetter-innstillinger."
 
-#: ../indicator.js:352
+#: ../indicator.js:394
 msgid "No location configured"
 msgstr "Ingen posisjon konfigurert"
 
-#: ../indicator.js:357
+#: ../indicator.js:399
 msgid "Detecting your location…"
 msgstr "Finner posisjonen din …"
 
-#: ../indicator.js:362
+#: ../indicator.js:404
 msgid "Loading weather"
 msgstr "Laster vær …"
 
-#: ../indicator.js:367
+#: ../indicator.js:409
 msgid "No weather information"
 msgstr "Ingen værinformasjon"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Rain expected"
 msgstr "Regn ventes"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Snow expected"
 msgstr "Snø ventes"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Thunderstorm expected"
 msgstr "Tordenvær ventes"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:435
+#: ../indicator.js:493
 msgid "Around $t in $c"
 msgstr "Rundt $t i $c"
 
-#: ../indicator.js:507 ../indicator.js:517
+#: ../indicator.js:565 ../indicator.js:575
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:550
+#: ../indicator.js:608
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: ../indicator.js:566
+#: ../indicator.js:624
 msgid "Feels like"
 msgstr "Føles som"
 
-#: ../indicator.js:567 ../prefs.js:300
+#: ../indicator.js:625 ../prefs.js:300
 msgid "Visibility"
 msgstr "Sikt"
 
-#: ../indicator.js:568 ../prefs.js:302
+#: ../indicator.js:626 ../prefs.js:302
 msgid "Humidity"
 msgstr "Fuktighet"
 
-#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
+#: ../indicator.js:627 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "Lufttrykk"
 
-#: ../indicator.js:570 ../prefs.js:304
+#: ../indicator.js:628 ../prefs.js:304
 msgid "Wind"
 msgstr "Vind"
 
-#: ../indicator.js:654
+#: ../indicator.js:720
 msgid "Now"
 msgstr "Nå"
 
-#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
+#: ../indicator.js:891 ../indicator.js:976 ../prefs.js:100
 msgid "Current Location"
 msgstr "Nåværende posisjon"
 

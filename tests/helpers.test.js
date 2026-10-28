@@ -6,7 +6,7 @@ import GLib from 'gi://GLib';
 import GWeather from 'gi://GWeather';
 import System from 'system';
 
-import {dayName, iconType, localeTime, moonPhaseIconName, moonPhaseIndex, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureString, windString} from '../helpers.js';
+import {dayName, iconType, localeTime, moonPhaseIconName, moonPhaseIndex, moonPhaseName, realSpeedUnit, realTemperatureUnit, temperatureFromKelvin, temperatureString, windString} from '../helpers.js';
 import {buildForecast, buildHourlyForecast, findUpcomingPrecipitation, precipitationKind, temperatureTrend} from '../weatherClient.js';
 
 const _ = s => s;
@@ -156,6 +156,15 @@ check('moonPhaseIconName full is its own mirror',
     moonPhaseIconName(180, -33.9), 'moon-full-symbolic');
 check('moonPhaseIconName new is its own mirror',
     moonPhaseIconName(0, -33.9), 'moon-new-symbolic');
+
+// The panel's cached reading is stored in Kelvin, because the display unit can
+// change between the session that wrote it and the one that reads it.
+check('temperatureFromKelvin to celsius',
+    Math.round(temperatureFromKelvin(280.15, C) * 100) / 100, 7);
+check('temperatureFromKelvin to fahrenheit',
+    Math.round(temperatureFromKelvin(280.15, F) * 10) / 10, 44.6);
+check('temperatureFromKelvin leaves kelvin alone',
+    temperatureFromKelvin(280.15, GWeather.TemperatureUnit.KELVIN), 280.15);
 
 if (failures) {
     printerr(`${failures} test(s) failed`);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 20:04+0200\n"
+"POT-Creation-Date: 2026-10-28 20:18+0200\n"
 "PO-Revision-Date: 2026-10-23 20:07+0300\n"
 "Last-Translator: machine-assisted (unreviewed) <noreply@anthropic.com>\n"
 "Language-Team: Ukrainian\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../helpers.js:11 ../helpers.js:155
+#: ../helpers.js:11 ../helpers.js:176
 msgid "VAR"
 msgstr "ЗМІН"
 
@@ -50,148 +50,148 @@ msgstr "%s °C"
 msgid "%s K"
 msgstr "%s К"
 
-#: ../helpers.js:115 ../helpers.js:149
+#: ../helpers.js:115 ../helpers.js:170
 msgid "Unknown"
 msgstr "Невизначено"
 
-#: ../helpers.js:139
+#: ../helpers.js:160
 msgid "$d$s knots"
 msgstr "$d$s вузли"
 
-#: ../helpers.js:141
+#: ../helpers.js:162
 msgid "$d$s mph"
 msgstr "$d$s миль/год"
 
-#: ../helpers.js:143
+#: ../helpers.js:164
 msgid "$d$s km/h"
 msgstr "$d$s км/год"
 
-#: ../helpers.js:145
+#: ../helpers.js:166
 msgid "$d$s m/s"
 msgstr "$d$s м/с"
 
-#: ../helpers.js:147
+#: ../helpers.js:168
 msgid "$dBeaufort $s"
 msgstr "$d$s бала Бофорта"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "N"
 msgstr "Пн"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NNE"
 msgstr "ПнПнСх"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "NE"
 msgstr "ПнСх"
 
-#: ../helpers.js:155
+#: ../helpers.js:176
 msgid "ENE"
 msgstr "СхПнСх"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "E"
 msgstr "Сх"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "ESE"
 msgstr "СхПдСх"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SE"
 msgstr "ПдСх"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "SSE"
 msgstr "ПдПдСх"
 
-#: ../helpers.js:156
+#: ../helpers.js:177
 msgid "S"
 msgstr "Пд"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SSW"
 msgstr "ПдПдЗх"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "SW"
 msgstr "ПдЗх"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WSW"
 msgstr "ЗхПдЗх"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "W"
 msgstr "Зх"
 
-#: ../helpers.js:157
+#: ../helpers.js:178
 msgid "WNW"
 msgstr "ЗхПнЗх"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NW"
 msgstr "ПнЗх"
 
-#: ../helpers.js:158
+#: ../helpers.js:179
 msgid "NNW"
 msgstr "ПнПнЗх"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "New moon"
 msgstr "Молодий місяць"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing crescent"
 msgstr "Зростаючий серп"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "First quarter"
 msgstr "Перша четверть"
 
-#: ../helpers.js:190
+#: ../helpers.js:211
 msgid "Waxing gibbous"
 msgstr "Зростаючий місяць"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Full moon"
 msgstr "Повний місяць"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning gibbous"
 msgstr "Спадаючий місяць"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Last quarter"
 msgstr "Остання четверть"
 
-#: ../helpers.js:191
+#: ../helpers.js:212
 msgid "Waning crescent"
 msgstr "Спадаючий серп"
 
-#: ../indicator.js:98 ../indicator.js:351 ../indicator.js:356
-#: ../indicator.js:361 ../indicator.js:366
+#: ../indicator.js:130 ../indicator.js:393 ../indicator.js:398
+#: ../indicator.js:403 ../indicator.js:408
 msgid "Weather"
 msgstr "Погода"
 
-#: ../indicator.js:122 ../prefs.js:83
+#: ../indicator.js:154 ../prefs.js:83
 msgid "Locations"
 msgstr "Місця"
 
-#: ../indicator.js:125
+#: ../indicator.js:157
 msgid "Reload Weather Information"
 msgstr "Перезавантажити інформацію про погоду"
 
-#: ../indicator.js:130
+#: ../indicator.js:162
 msgid "Wetter Settings"
 msgstr "Налаштування Wetter"
 
-#: ../indicator.js:273
+#: ../indicator.js:310
 msgid "Current location unavailable"
 msgstr "Поточне місце недоступне"
 
-#: ../indicator.js:274
+#: ../indicator.js:311
 msgid ""
 "Turn on Location Services in Settings, then turn Current Location back on in "
 "Wetter Settings."
@@ -199,72 +199,72 @@ msgstr ""
 "Увімкніть служби розташування в Параметрах, а потім знову увімкніть поточне "
 "місце в налаштуваннях Wetter."
 
-#: ../indicator.js:352
+#: ../indicator.js:394
 msgid "No location configured"
 msgstr "Місце не налаштоване"
 
-#: ../indicator.js:357
+#: ../indicator.js:399
 msgid "Detecting your location…"
 msgstr "Визначення вашого місця…"
 
-#: ../indicator.js:362
+#: ../indicator.js:404
 msgid "Loading weather"
 msgstr "Завантаження прогнозу погоди…"
 
-#: ../indicator.js:367
+#: ../indicator.js:409
 msgid "No weather information"
 msgstr "Немає інформації про погоду"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Rain expected"
 msgstr "Очікується дощ"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Snow expected"
 msgstr "Очікується сніг"
 
-#: ../indicator.js:431
+#: ../indicator.js:489
 msgid "Thunderstorm expected"
 msgstr "Очікується гроза"
 
 #. Translators: $t is a time of day such as "15:00", $c a city name.
-#: ../indicator.js:435
+#: ../indicator.js:493
 msgid "Around $t in $c"
 msgstr "Близько $t у $c"
 
-#: ../indicator.js:507 ../indicator.js:517
+#: ../indicator.js:565 ../indicator.js:575
 msgid ", "
 msgstr ", "
 
-#: ../indicator.js:550
+#: ../indicator.js:608
 msgid "Updated"
 msgstr "Оновлено"
 
-#: ../indicator.js:566
+#: ../indicator.js:624
 msgid "Feels like"
 msgstr "За відчуттям"
 
-#: ../indicator.js:567 ../prefs.js:300
+#: ../indicator.js:625 ../prefs.js:300
 msgid "Visibility"
 msgstr "Видимість"
 
-#: ../indicator.js:568 ../prefs.js:302
+#: ../indicator.js:626 ../prefs.js:302
 msgid "Humidity"
 msgstr "Вологість"
 
-#: ../indicator.js:569 ../prefs.js:258 ../prefs.js:303
+#: ../indicator.js:627 ../prefs.js:258 ../prefs.js:303
 msgid "Pressure"
 msgstr "Тиск"
 
-#: ../indicator.js:570 ../prefs.js:304
+#: ../indicator.js:628 ../prefs.js:304
 msgid "Wind"
 msgstr "Вітер"
 
-#: ../indicator.js:654
+#: ../indicator.js:720
 msgid "Now"
 msgstr "Зараз"
 
-#: ../indicator.js:787 ../indicator.js:872 ../prefs.js:100
+#: ../indicator.js:891 ../indicator.js:976 ../prefs.js:100
 msgid "Current Location"
 msgstr "Поточне місце"
 

@@ -72,16 +72,33 @@
 }
 
 .weather-forecast-box {
-  padding: 0 8px 7px 8px;
+  padding: 0 8px;
   min-width: 110px;
 }
 
-.weather-forecast-box:first-child {
-  padding-left: 20px;
+/* Both insets live on the row rather than on the columns. Horizontally,
+   because a selected column is wrapped in a button, so a :first-child rule on
+   the column would match the one inside each button instead of the one at the
+   edge of the strip. Vertically, because the bottom inset is the strip the
+   overlay scrollbar floats in: on the column it would sit inside the button,
+   and the selected day's background would be drawn across the scrollbar. */
+.weather-forecast-row {
+  padding: 0 12px 7px 12px;
 }
 
-.weather-forecast-box:last-child {
-  padding-right: 20px;
+/* Opaque, like the scrollbar handle above and for the same reason. */
+.weather-forecast-button {
+  border-radius: 8px;
+  padding: 3px 0;
+}
+
+.weather-forecast-button:hover,
+.weather-forecast-button:focus {
+  background-color: #3f3f44;
+}
+
+.weather-forecast-button:checked {
+  background-color: #4a4a4f;
 }
 
 .weather-forecast-icon {

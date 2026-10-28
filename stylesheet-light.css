@@ -10,6 +10,15 @@
   background-color: #c6c6ca;
 }
 
+.weather-forecast-button:hover,
+.weather-forecast-button:focus {
+  background-color: #efeff1;
+}
+
+.weather-forecast-button:checked {
+  background-color: #e3e3e7;
+}
+
 .weather-current-databox-captions,
 .weather-forecast-day,
 .weather-forecast-humidity,
