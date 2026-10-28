@@ -69,7 +69,10 @@ gone:
   effect of shipping. It was deliberately left at `1.0` through the second
   release (2026-10-27), so `version-name` lagging the features that have
   actually shipped is the intended state, not an oversight. Don't offer to
-  bump it.
+  bump it. **2026-10-28: the user asked for `2.0`**, ahead of the third
+  upload, and that is what `metadata.json` now reads. The rule above is
+  unchanged - that was their call, made explicitly; EGO still assigns the
+  numeric `version`, and there is still no hand-set `version` key.
 
 2026-10-27: EGO approved the second upload. It carries the four features
 tracked as 1-4 in `ROADMAP.md` - the rain/snow/thunderstorm alert, scroll on
