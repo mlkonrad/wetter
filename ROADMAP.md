@@ -20,15 +20,16 @@ ends up in the EGO zip.
 | 6 | Full translation of all shipped languages | Released 2026-10-27, 32 languages |
 | - | Release 1.1 to extensions.gnome.org | Approved by EGO 2026-10-27 |
 | 7 | Hourly temperature chart | Dropped 2026-10-28, not wanted |
-| 8 | Headline temperature fix | Built 2026-10-28, unreleased |
-| 9 | Light-theme stylesheet | Built 2026-10-28, unreleased |
-| 10 | Quieter dropdown scrollbars | Built 2026-10-28, unreleased |
-| 11 | Configurable refresh interval | Built 2026-10-28, unreleased |
-| 12 | Cached reading in the panel at startup | Built 2026-10-28, unreleased |
-| 13 | Click a forecast day to see its hours | Built 2026-10-28, unreleased |
+| 8 | Headline temperature fix | Released 2026-10-29 |
+| 9 | Light-theme stylesheet | Released 2026-10-29 |
+| 10 | Quieter dropdown scrollbars | Released 2026-10-29 |
+| 11 | Configurable refresh interval | Released 2026-10-29 |
+| 12 | Cached reading in the panel at startup | Released 2026-10-29 |
+| 13 | Click a forecast day to see its hours | Released 2026-10-29 |
+| - | Release 2.0 to extensions.gnome.org | Approved by EGO 2026-10-29 |
 
-Everything tracked here but features 8 to 13 is released. The sections below are kept
-as a record of how each feature was built and what to watch for.
+Everything tracked here is released. The sections below are kept as a
+record of how each feature was built and what to watch for.
 
 ---
 
@@ -210,7 +211,7 @@ this dropdown ever needs Cairo drawing:
   2-degree evening stretched across the band looks dramatic. A per-unit
   minimum span with the data centred inside it fixes that.
 
-## 8. Headline temperature fix - built, not yet released
+## 8. Headline temperature fix - done
 
 The dropdown's 44px headline had shown `apparentString` since the original
 extension, so it both contradicted the panel (which shows the real
@@ -221,7 +222,7 @@ temperature) and repeated the "Feels like" row immediately to its right -
 This changes what every existing user sees, so it's worth a line in whatever
 accompanies the next upload.
 
-## 9. Light-theme stylesheet - built, not yet released
+## 9. Light-theme stylesheet - done
 
 `stylesheet.css` became a `stylesheet-dark.css` + `stylesheet-light.css`
 pair, because its six greys were a hardcoded `#999999` that only worked on a
@@ -242,7 +243,7 @@ labels, invisible to anyone developing on dark.
 
 ---
 
-## 10. Quieter dropdown scrollbars - built, not yet released
+## 10. Quieter dropdown scrollbars - done
 
 The hourly and daily strips each carried an 8px `#727275` rail that, on a
 strip only slightly wider than the menu, ran nearly its whole width and read
@@ -266,7 +267,7 @@ Three things worth knowing before touching this again:
 All of it was measured by sampling pixels out of `scripts/headless-test.sh`
 screenshots, which is the only reason the second and third were noticed.
 
-## 11. Configurable refresh interval - built, not yet released
+## 11. Configurable refresh interval - done
 
 `refresh-interval` (i, minutes, default 30) replaces the hardcoded
 `REFRESH_INTERVAL_SECONDS`, with a spin row in a new "Updates" group in
@@ -280,12 +281,13 @@ screenshots, which is the only reason the second and third were noticed.
   is separate from `_reload()`: altering how often to fetch shouldn't itself
   fetch, and what's on screen is still current. It returns early with no
   client, so the `no-location` and `detecting` states stay timer-less.
-- Its three strings were translated into all 32 languages on 2026-10-28; see
-  the Housekeeping note below for where the terms came from.
+- Its three strings were translated into all 32 languages on 2026-10-28,
+  before the release; see the Housekeeping note below for where the terms
+  came from.
 
 ---
 
-## 12. Cached reading in the panel at startup - built, not yet released
+## 12. Cached reading in the panel at startup - done
 
 The panel read "Weather" behind a spinner at every login, for as long as the
 session's first fetch took. It now shows the last reading until that fetch
@@ -311,7 +313,7 @@ cache file.
 Verified with `scripts/headless-test.sh --reuse`, which was added for this: a
 first run logs `start panel="Weather"`, the second `start panel="7 °C"`.
 
-## 13. Click a forecast day to see its hours - built, not yet released
+## 13. Click a forecast day to see its hours - done
 
 A day in the daily strip is now an `St.Button`; clicking it fills the hourly
 strip with that day's hours, clicking it again returns to the hours from now.
@@ -349,6 +351,27 @@ own menus hold `St.Button`s that behave, so this is expected to be fine, but
 it is the one claim here that rests on precedent rather than on a run.
 
 ---
+
+## Release 2.0 - done
+
+Approved by EGO on 2026-10-29, carrying features 8-13 and the translation of
+their new strings into all 32 languages. This is the first release where
+`version-name` moved: the user set it to **2.0** on 2026-10-28 (see
+`CLAUDE.md`), after it had read `1.0` across both earlier releases.
+
+What it contains, in the order a user notices it:
+
+- The dropdown's headline temperature is the real one, not the apparent one,
+  so it agrees with the panel instead of repeating "Feels like" (8).
+- A light-theme stylesheet, so the dropdown's secondary labels are legible
+  outside a dark theme (9).
+- Thinner, quieter scrollbars on both forecast strips (10).
+- A configurable refresh interval, in a new Updates group (11).
+- The panel shows the last reading at login instead of a placeholder (12).
+- Clicking a day in the daily strip fills the hourly strip with its hours (13).
+
+`scripts/headless-test.sh` landed in the same window but ships nothing - it is
+dev-only, and `pack.sh` lists its sources explicitly.
 
 ## Release 1.1 - done
 

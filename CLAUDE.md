@@ -69,10 +69,10 @@ gone:
   effect of shipping. It was deliberately left at `1.0` through the second
   release (2026-10-27), so `version-name` lagging the features that have
   actually shipped is the intended state, not an oversight. Don't offer to
-  bump it. **2026-10-28: the user asked for `2.0`**, ahead of the third
-  upload, and that is what `metadata.json` now reads. The rule above is
-  unchanged - that was their call, made explicitly; EGO still assigns the
-  numeric `version`, and there is still no hand-set `version` key.
+  bump it. **2026-10-28: the user asked for `2.0`**, which shipped as the
+  third release the next day. The rule above is unchanged - that was their
+  call, made explicitly; EGO still assigns the numeric `version`, and there
+  is still no hand-set `version` key.
 
 2026-10-27: EGO approved the second upload. It carries the four features
 tracked as 1-4 in `ROADMAP.md` - the rain/snow/thunderstorm alert, scroll on
@@ -84,6 +84,21 @@ accessible name on the dropdown's last-updated icon.
 reads `1.0`. That was a decision, not an oversight, so the listing now shows
 the same version name for two different releases. Bump it when you choose to,
 not as a side effect of the next upload.
+
+2026-10-29: EGO approved the third upload, the first to carry a
+`version-name` other than `1.0`. It ships what `ROADMAP.md` tracks as 8-13:
+
+- the dropdown headline showing the real temperature rather than the apparent
+  one, so it agrees with the panel instead of repeating "Feels like";
+- the light-theme stylesheet (see "Two stylesheets" above);
+- thinner, quieter scrollbars on both forecast strips;
+- a configurable `refresh-interval`, in a new Updates group in `prefs.js`;
+- the panel showing the last reading at login instead of a placeholder;
+- clicking a day in the daily strip to fill the hourly strip with its hours.
+
+Their new strings were translated into all 32 languages before the upload, so
+nothing shipped in English-only. `scripts/headless-test.sh` landed in the same
+window but is dev-only and ships nothing.
 
 Generic uses of the word "weather" describing content/state - the panel's
 placeholder label text (`_panelLabel.text = _('Weather')` in `indicator.js`'s
